@@ -1,0 +1,1642 @@
+{
+	"info": {
+		"_postman_id": "7a8598db-67bc-40ee-bab6-f8f6c1a7ed09",
+		"name": "ORQUESTADOR-Dale_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7968016",
+		"_collection_link": "https://cuarteto-de-tres.postman.co/workspace/Orquestador-Dale~a654d4b2-7a1a-4767-903d-be9e917a5b23/collection/7968016-7a8598db-67bc-40ee-bab6-f8f6c1a7ed09?action=share&source=collection_link&creator=7968016"
+	},
+	"item": [
+		{
+			"name": "HSM Transactions",
+			"item": [
+				{
+					"name": "PINBLOCK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardNumber\": \"{{pan}}\",\n    \"pin\": \"{{pin}}\",\n    \"keyName\": \"{{keyNameKWP}}\"\n}"
+						},
+						"url": {
+							"raw": "{{microservices-component-host}}{{microservices-component-context-hsm}}/transaction/pinblock",
+							"host": [
+								"{{microservices-component-host}}{{microservices-component-context-hsm}}"
+							],
+							"path": [
+								"transaction",
+								"pinblock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card Solutions",
+			"item": [
+				{
+					"name": "Financial Transactions",
+					"item": [
+						{
+							"name": "Account",
+							"item": [
+								{
+									"name": "Balance",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-powwi",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "{{$guid}}",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"switchKey\": \"{{swithKey}}\",\n    \"accountNumber\": \"{{accountIdOrg}}\",\n    \"systemTrace\": \"{{SystemTrace}}\",\n    \"transactionDate\":\"{{currentDate}}\",\n    \"bin\": \"{{bin}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}balance",
+											"host": [
+												"{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}balance"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CashOut",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-powwi",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "{{$guid}}",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"switchKey\": \"{{swithKey}}\",\n    \"accountNumber\": \"{{accountIdOrg}}\",\n    \"amount\": \"1000\",\n    \"channel\": \"7878\",\n    \"commissionFee\": \"5.00\",\n    \"bin\": \"{{bin}}\",\n    \"currency\": \"840\"\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}/cashout",
+											"host": [
+												"{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}"
+											],
+											"path": [
+												"cashout"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CashOutReverse",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-powwi",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "{{$guid}}",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"originalSwitchKey\": \"sdfghjkledrfgasqaskjdnsafqwe\",\n    \"switchKey\": \"{{swithKey}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}/cashout/reverse",
+											"host": [
+												"{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}"
+											],
+											"path": [
+												"cashout",
+												"reverse"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CashIn",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-powwi",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "{{$guid}}",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"switchKey\": \"{{swithKey}}\",\n    \"accountNumber\": \"{{accountIdDes}}\",\n    \"amount\": \"10.00\",\n    \"commissionFee\": \"0.00\",\n    \"systemTrace\": \"{{SystemTrace}}\",\n    \"transactionDate\":\"{{currentDate}}\",\n    \"fundsChannel\": \"TC\",\n    \"sourceOfFunds\": \"7878\",\n    \"bin\": \"{{bin}}\",\n    \"extendedInfo\": {\n        \"fee\": \"1.00\",\n        \"externalId\": \"123456\",\n        \"catalogId\": 12\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}/cashin",
+											"host": [
+												"{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}"
+											],
+											"path": [
+												"cashin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CashInReverse",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-powwi",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "{{$guid}}",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"originalSwitchKey\": \"sdfghjkledrfgasqaskjdnsafqwe\",\n    \"switchKey\": \"{{swithKey}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}/cashin/reverse",
+											"host": [
+												"{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}"
+											],
+											"path": [
+												"cashin",
+												"reverse"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "SendMoney",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-powwi",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "{{$guid}}",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fromAccountNumber\": \"{{accountIdOrg}}\",\n    \"toAccountNumber\": \"{{accountIdDes}}\",\n    \"switchKey\": \"{{swithKey}}\",\n    \"channel\": \"channel123\",\n    \"amount\": \"8000\",\n    \"commissionFee\": \"0\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}/transfer",
+											"host": [
+												"{{microservices-component-host}}{{microservices-component-context-financial}}{{tenant}}{{microservices-component-context-domain-account}}"
+											],
+											"path": [
+												"transfer"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Adminitration Transactions",
+					"item": [
+						{
+							"name": "Card",
+							"item": [
+								{
+									"name": "ChangePIN",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);\r",
+													"\r",
+													"var getPinBlock = {\r",
+													"    url: pm.environment.get(\"microservices-component-host\") + pm.environment.get(\"microservices-component-context-hsm\") + \"/transaction/pinblock\",\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"pin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"\r",
+													"var getPinBlockNew = {\r",
+													"    url: 'https://t-cards-api.novopayment.net/api-cards-multitenant-hsm-orchestrator/v1/transaction/pinblock',\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"newPin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(getPinBlock, function(err, res) {\r",
+													"    if(err == null) {\r",
+													"        var responseJson = res.json();\r",
+													"        console.log(\"pinBlock: \" + responseJson.pinblock);\r",
+													"        pm.globals.set('pinBlock', responseJson.pinblock);\r",
+													"    }\r",
+													"})\r",
+													"\r",
+													"pm.sendRequest(getPinBlockNew, function(err, res) {\r",
+													"    if(err == null) {\r",
+													"        var responseJson = res.json();\r",
+													"        console.log(\"pinBlockNew: \" + responseJson.pinblock);\r",
+													"        pm.globals.set('pinBlockNew', responseJson.pinblock);\r",
+													"    }\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cardNumber\": \"4116690030000542\",\r\n    \"cardSequenceNumber\": \"{{seqNumber}}\",\r\n    \"expirationDate\": \"3002\",\r\n    \"pin\": \"362F2846AED07A7C\",\r\n    \"newPin\": \"12BB8699B729CB7E\",\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"channel\": \"channel123\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{t-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/card/pin",
+											"host": [
+												"{{t-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"card",
+												"pin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "SetPIN",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);\r",
+													"\r",
+													"var getPvv = {\r",
+													"    url: pm.environment.get(\"Docker-Test\") + \":2021/api/pvv/\" + pm.environment.get(\"pin\") + \"/\" + pm.environment.get(\"pan\") + \"/\" + pm.environment.get(\"keyNamePVV\"),\r",
+													"    method: 'GET'\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(getPvv, function(err, res) {\r",
+													"    if(err == null) {\r",
+													"        var responseJson = res.json();\r",
+													"        console.log(\"pvv: \" + responseJson.data.pvv);\r",
+													"        pm.globals.set('pvv', responseJson.data.pvv);\r",
+													"    }\r",
+													"})\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-dale",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "658f033a-4609-4d2d-b538-d9bec2fe73bb",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cardNumber\": \"4116690030000542\",\n    \"cardSequenceNumber\": \"{{seqNumber}}\",\n    \"expirationDate\": \"3002\",\n    \"pvv\": \"2902\",\n    \"switchKey\": \"{{switch-key}}\",\n    \"channel\": \"channel123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{t-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/card/pin",
+											"host": [
+												"{{t-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"card",
+												"pin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Block",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"//Valida respuesta 00\r",
+													"pm.test(\"Validar respuesta codigo 00'\",function (){\r",
+													"    var jsonData = pm.response.json();\r",
+													"    //Comprobar que la propiedad 'specie' exista\r",
+													"    pm.expect(jsonData.responseCode).to.eqls(\"00\")\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-dale",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "c912d0f0-42da-4de4-b824-e27dd75364ec",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cardNumber\":\"4116690030263850\" ,\n    \"cardSequenceNumber\": \"001\",\n    \"expirationDate\": \"2803\",\n    \"blockCode\": \"41\",\n    \"switchKey\": \"{{switch-key}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{t-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/card/block",
+											"host": [
+												"{{t-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"card",
+												"block"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UnBlock",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validar que la respuesta sea 00\", function (){\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.responseCode).to.eqls(\"00\");\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-Tenant-Id",
+												"value": "co-dale",
+												"type": "text"
+											},
+											{
+												"key": "X-Request-Id",
+												"value": "8ce58112-0d26-4752-bff7-27d647c6b0bf",
+												"type": "text"
+											},
+											{
+												"key": "Cookie",
+												"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cardNumber\": \"4116690128000156\",\n    \"cardSequenceNumber\": \"001\",\n    \"expirationDate\": \"2709\",\n    \"switchKey\": \"{{switch-key}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/card/block",
+											"host": [
+												"{{uat-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"card",
+												"block"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"//console.log(\"switchKey\");\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bin\": \"41166901\",\r\n    \"card\": {\r\n        \"pan\": \"4116690128000032\",\r\n        \"expiryDate\": \"2803\",\r\n        \"cardProgram\": \"WalloVirtual\",\r\n        \"cardStatus\": \"1\",\r\n        \"securePVV\": \"\",\r\n        \"holdResponseCode\": \"\",\r\n        \"sequenceNumber\": \"001\"\r\n    },\r\n    /*\"account\":{\r\n        \"accountId\": \"000312\",\r\n        \"accountType\": \"10\",\r\n        \"currencyCode\": \"170\"        \r\n    },*/\r\n    /*\"customer\": {\r\n        \"customerId\": \"12343898\",\r\n        //\"nationalId\": \"V14035585\",\r\n        //\"c1FirstName\": \"Buddy\",\r\n        //\"c1LastName\": \"Kunde\",\r\n        //\"c1NameOnCard\": \"YENNY CABRERA QUINTERO\",\r\n        \"dateOfBirth\": \"19810713\"\r\n        \r\n    },*/\r\n    /*\"cardAccount\": {},*/\r\n    /*\"customerAccount\": {},*/\r\n    /*\"accountBalance\": {},*/\r\n    /*\"cardOverride\": {},\r\n    \"cardExtended\": {},\r\n    \"accountOverrideLimits\": {},\r\n    \"accountExtendedLimits\": {},\r\n    \"cardManagementUpdateLoad\": {},*/\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/update/data",
+											"host": [
+												"{{uat-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"update",
+												"data"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Issuance",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"//Crear un dato random para el customer id de 9 digitos\r",
+													"const customerId = Math.floor((Math.random() * 999999999) + 1);\r",
+													"//Asigna la variable de manera global\r",
+													"pm.environment.set('customer-Id',customerId)\r",
+													"//console.log(customerId);\r",
+													"\r",
+													"\r",
+													"//Crear un dato random para el customer id de 9 digitos\r",
+													"const accountId = Math.floor((Math.random() * 9999999) + 1);\r",
+													"//Asigna la variable de manera global\r",
+													"pm.environment.set('accountId',accountId)\r",
+													"//console.log(accountId);\r",
+													"\r",
+													"//Crear un dato random para el nombre\r",
+													"// Lista de nombres y apellidos\r",
+													"let c1FirstName = [\"Jeffersson\", \"Juan\", \"Giovanny\", \"Harold\", \"Pedro\", \"Sofia\", \"Miguel\", \"Valentina\"];\r",
+													"let c1LastName = [\"Gomez\", \"Rodriguez\", \"Martinez\", \"Lopez\", \"Hernandez\", \"Perez\", \"Diaz\", \"Moreno\"];\r",
+													" \r",
+													"// Seleccionar un nombre y apellido aleatorio\r",
+													"let nombreAleatorio = c1FirstName[Math.floor(Math.random() * c1FirstName.length)];\r",
+													"let apellidoAleatorio = c1LastName[Math.floor(Math.random() * c1LastName.length)];\r",
+													" \r",
+													"// Concatenar y guardar en una variable de entorno\r",
+													"let nombreCompleto = nombreAleatorio + \" \" + apellidoAleatorio;\r",
+													"pm.environment.set(\"c1FirstName\",nombreAleatorio);\r",
+													"pm.environment.set(\"c1LastName\",apellidoAleatorio);\r",
+													"pm.environment.set(\"c1NameOnCard\", nombreCompleto);\r",
+													" \r",
+													"// Mostrar en la consola de Postman\r",
+													"//console.log(\"Nombre completo:\", nombreCompleto);\r",
+													"//console.log(\"Nombre:\", nombreAleatorio);\r",
+													"//console.log(\"Apellido:\", apellidoAleatorio);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"//console.log(switchKey);\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"//Valida respuesta 00\r",
+													"pm.test(\"Validar respuesta codigo 00'\",function (){\r",
+													"    var jsonData = pm.response.json();\r",
+													"    //Comprobar que la propiedad 'specie' exista\r",
+													"    pm.expect(jsonData.responseCode).to.eqls(\"00\")\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bin\": \"4116690128\",\r\n    \"card\": {\r\n        \"sequenceNumber\": \"001\",\r\n        \"cardProgram\": \"WalloVirtual\",\r\n        \"defaultAccountType\": \"10\",\r\n        \"cardStatus\": \"1\"\r\n        /*\"process\": false,\r\n        \"hashCode\": 0*/\r\n    },\r\n    \"account\": {\r\n        \"accountType\": \"10\",\r\n        \"currencyCode\": \"170\",\r\n        \"accountId\": \"{{accountId}}\"\r\n        //\"accountProduct\": \"\",\r\n        //\"process\": false,\r\n        //\"hashCode\": 0\r\n    },\r\n    \"customer\": {\r\n        \"customerId\": \"{{customer-Id}}\",\r\n        \"nationalId\": \"V14035585\",\r\n        \"c1FirstName\": \"{{c1FirstName}}\",\r\n        \"c1LastName\": \"{{c1LastName}}\",\r\n        \"c1NameOnCard\": \"{{c1NameOnCard}}\",\r\n        \"dateOfBirth\": \"19780315\",\r\n        \"vip\": \"0\"\r\n        //\"process\": false,\r\n        //\"hashCode\": 0\r\n    },\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/issuance/data",
+											"host": [
+												"{{uat-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"issuance",
+												"data"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Customer",
+							"item": [
+								{
+									"name": "Addresses",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);\r",
+													"\r",
+													"var getPinBlock = {\r",
+													"    url: pm.environment.get(\"microservices-component-host\") + pm.environment.get(\"microservices-component-context-hsm\") + \"/transaction/pinblock\",\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"pin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"\r",
+													"var getPinBlockNew = {\r",
+													"    url: 'https://t-cards-api.novopayment.net/api-cards-multitenant-hsm-orchestrator/v1/transaction/pinblock',\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"newPin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(getPinBlock, function(err, res) {\r",
+													"    if(err == null) {\r",
+													"        var responseJson = res.json();\r",
+													"        console.log(\"pinBlock: \" + responseJson.pinblock);\r",
+													"        pm.globals.set('pinBlock', responseJson.pinblock);\r",
+													"    }\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"customerId\": \"{{customerId}}\",\r\n  \"switchKey\": \"{{switch-key}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{t-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/customer/addresses",
+											"host": [
+												"{{t-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"customer",
+												"addresses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Data",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);\r",
+													"\r",
+													"var getPinBlock = {\r",
+													"    url: pm.environment.get(\"microservices-component-host\") + pm.environment.get(\"microservices-component-context-hsm\") + \"/transaction/pinblock\",\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"pin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"\r",
+													"var getPinBlockNew = {\r",
+													"    url: 'https://t-cards-api.novopayment.net/api-cards-multitenant-hsm-orchestrator/v1/transaction/pinblock',\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"newPin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(getPinBlock, function(err, res) {\r",
+													"    if(err == null) {\r",
+													"        var responseJson = res.json();\r",
+													"        console.log(\"pinBlock: \" + responseJson.pinblock);\r",
+													"        pm.globals.set('pinBlock', responseJson.pinblock);\r",
+													"    }\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"customerId\": \"{{customerId}}\",\r\n  \"switchKey\": \"{{switch-key}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{t-microservices-component-context-administration}}{{context}}{{tenant}}transaction/customer/data",
+											"host": [
+												"{{t-microservices-component-context-administration}}{{context}}{{tenant}}transaction"
+											],
+											"path": [
+												"customer",
+												"data"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Account",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"var swithKey = uuid.substring(0,32);\r",
+													"var SystemTraceRandom = _.random(0, 10);\r",
+													"var SystemTrace = Math.floor((Math.random() * (999999 - 100000) + 100000));\r",
+													"var moment = require('moment');\r",
+													"var currentDate = moment().format((\"MMDDHHmmss\"));\r",
+													"\r",
+													"console.log(\"swithKey: \" + swithKey);\r",
+													"pm.globals.set(\"swithKey\", swithKey);\r",
+													"\r",
+													"console.log(\"SystemTrace: \" + SystemTrace);\r",
+													"pm.globals.set('SystemTrace', SystemTrace);\r",
+													"\r",
+													"console.log(\"currentDate: \" + currentDate);\r",
+													"pm.globals.set('currentDate', currentDate);\r",
+													"\r",
+													"var getPinBlock = {\r",
+													"    url: pm.environment.get(\"microservices-component-host\") + pm.environment.get(\"microservices-component-context-hsm\") + \"/transaction/pinblock\",\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"pin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"\r",
+													"var getPinBlockNew = {\r",
+													"    url: 'https://t-cards-api.novopayment.net/api-cards-multitenant-hsm-orchestrator/v1/transaction/pinblock',\r",
+													"    method: 'POST',\r",
+													"    header: 'Content-Type:application/json',\r",
+													"    body: {\r",
+													"        mode: 'application/json',\r",
+													"        raw: JSON.stringify(\r",
+													"            {\r",
+													"                \"cardNumber\": pm.environment.get(\"pan\"),\r",
+													"                \"pin\": pm.environment.get(\"newPin\"),\r",
+													"                \"keyName\": pm.environment.get(\"keyNameKWP\")\r",
+													"            }\r",
+													"        )\r",
+													"    }\r",
+													"};\r",
+													"\r",
+													"pm.sendRequest(getPinBlock, function(err, res) {\r",
+													"    if(err == null) {\r",
+													"        var responseJson = res.json();\r",
+													"        console.log(\"pinBlock: \" + responseJson.pinblock);\r",
+													"        pm.globals.set('pinBlock', responseJson.pinblock);\r",
+													"    }\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// generate a v4 UUID using the 'uuid' library\r",
+													"var uuidReandom = require('uuid');\r",
+													"var uuid = uuidReandom.v4();\r",
+													"\r",
+													"// remove hyphens from UUID\r",
+													"var processUuId = uuid.replace(/-/g, '');\r",
+													"\r",
+													"// take the first 32 characters of the UUID without dashes\r",
+													"var switchKey = processUuId.substring(0, 32);\r",
+													"\r",
+													"// save the new switchKey without dashes as a global variable\r",
+													"pm.globals.set(\"switch-key\", switchKey);\r",
+													"\r",
+													"// print the switchKey\r",
+													"console.log(switchKey);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"customerId\": \"{{customerId}}\",\r\n  \"switchKey\": \"{{switch-key}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{t-microservices-component-context-administration}}{{context}}{{tenant}}/transaction/customer/account",
+											"host": [
+												"{{t-microservices-component-context-administration}}{{context}}{{tenant}}"
+											],
+											"path": [
+												"transaction",
+												"customer",
+												"account"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Resync Transactions Mapping Copy",
+			"item": [
+				{
+					"name": "ReSync Transaction Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"bd69abc3836040a0adab417c0752f545\",\r\n    \"nroCtaEnvia\": \"\",\r\n    \"nroCtaRecibe\": \"\",\r\n    \"monto\": \"\",\r\n    \"fechaExp\": \"\",\r\n    \"commissionFee\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uat-microservices-component-context-administration}}{{context}}{{tenant}}/reSyncMapping",
+							"host": [
+								"{{uat-microservices-component-context-administration}}{{context}}{{tenant}}"
+							],
+							"path": [
+								"reSyncMapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReSync Transaction Request Transi",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"bd69abc3836040a0adab417c0752f545\",\r\n    \"nroCtaEnvia\": \"\",\r\n    \"nroCtaRecibe\": \"\",\r\n    \"monto\": \"\",\r\n    \"fechaExp\": \"\",\r\n    \"commissionFee\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://t-cards-api.novopayment.net/api-tbs-admin-orchestrator/v1/jm-primetrust/reSyncMapping",
+							"protocol": "https",
+							"host": [
+								"t-cards-api",
+								"novopayment",
+								"net"
+							],
+							"path": [
+								"api-tbs-admin-orchestrator",
+								"v1",
+								"jm-primetrust",
+								"reSyncMapping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"condition\": [\r\n            {\r\n                \"detail\": [\r\n                    {\r\n                        \"field\": \"3\",\r\n                        \"value\": \"/substring(0,2).equals(01)\"\r\n                    },\r\n                    {\r\n                        \"operator\": \"and\",\r\n                        \"field\": \"4\",\r\n                        \"value\": \"/isGreaterThan(000004999900)\"\r\n                    },\r\n                    {\r\n                        \"operator\": \"and\",\r\n                        \"field\": \"18\",\r\n                        \"value\": \"/contains(5541)\"\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"commission\": {\r\n            \"fee\": \"2124000\",\r\n            \"fee_overcounter\": \"2124000\",\r\n            \"limit_overcounter\": \"0\"\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		}
+	]
+}
