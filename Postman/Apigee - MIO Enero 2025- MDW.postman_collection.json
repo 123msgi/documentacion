@@ -1,0 +1,6957 @@
+{
+	"info": {
+		"_postman_id": "655ff079-dc63-432c-ad45-20ac6723d73f",
+		"name": "Apigee - MIO Enero 2025- MDW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7968016",
+		"_collection_link": "https://cuarteto-de-tres.postman.co/workspace/Orquestador-Mio~4fdaf68e-aa2a-4be1-9c05-383d8e28557c/collection/7968016-655ff079-dc63-432c-ad45-20ac6723d73f?action=share&source=collection_link&creator=7968016"
+	},
+	"item": [
+		{
+			"name": "Create Individual Customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"  \"userCredentials\": {\r",
+							"    \"username\": \"00171\"\r",
+							"  },\r",
+							"  \"generalInformation\": {\r",
+							"    \"firstNames\": \"Viviana\",\r",
+							"    \"lastNames\": \"Salinas\",\r",
+							"    \"gender\": {\r",
+							"      \"id\": \"1\"\r",
+							"    },\r",
+							"    \"civilStatus\": {\r",
+							"      \"id\": \"1\"\r",
+							"    },\r",
+							"    \"birthCountry\": {\r",
+							"      \"iso2\": \"VE\"\r",
+							"    },\r",
+							"    \"birthState\": {\r",
+							"      \"name\": \"Táchira\"\r",
+							"    },\r",
+							"    \"birthCity\": {\r",
+							"      \"name\": \"Rubio\"\r",
+							"    },\r",
+							"    \"birthDate\": \"1988/09/10\",\r",
+							"    \"educationLevel\": {\r",
+							"      \"id\": \"4\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"identityDocuments\": [   \r",
+							"    {\r",
+							"      \"documentType\": {\r",
+							"        \"id\": \"1\"\r",
+							"      },\r",
+							"      \"documentNumber\": \"10414226\",\r",
+							"      \"isPrimary\": true,\r",
+							"      \"issueDate\": \"2007/01/07\",\r",
+							"      \"expirationDate\": \"2017/01/07\",\r",
+							"      \"country\": {\r",
+							"        \"iso2\": \"CO\"\r",
+							"      }\r",
+							"    }\r",
+							"  ],\r",
+							"  \"personalAddress\": {\r",
+							"    \"country\": {\r",
+							"      \"iso2\": \"CO\"\r",
+							"    },\r",
+							"    \"state\": {\r",
+							"      \"name\": \"Bogotá D.C\"\r",
+							"    },\r",
+							"    \"city\": {\r",
+							"      \"name\": \"Bogotá\"\r",
+							"    },\r",
+							"    \"streetAddress\": \"carrera 9 # 10123-1123\",\r",
+							"    \"address2\": \"conjunto\",\r",
+							"    \"zipCode\": \"abc123\",\r",
+							"    \"buildingNumber\": \"1\",\r",
+							"    \"homeNumber\": \"504\"\r",
+							"  },\r",
+							"  \"contactInformation\": {\r",
+							"    \"phoneCodeIso2\": \"CO\",\r",
+							"    \"phoneNumber\": \"15144591\",\r",
+							"    \"email\": \"pruebas248@novopayment.com\"\r",
+							"  }\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "Y6RJUq6FDu1xcMGgFdkXHwyXNG1n",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/customers/v1/individuals",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"customers",
+						"v1",
+						"individuals"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Account And Card Creation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"\t\"card\": {\r",
+							"\t\t\"cardProgramId\": \"4\",\r",
+							"\t\t\"cardDesignId\": \"A1\",\r",
+							"        \"line1\": \"Sandra\",\r",
+							"        \"line2\": \"NOVOPAYMENT\",\r",
+							"        \"requestNumber\": \"64849\",\r",
+							"        \"reference\": \"AS749\",\r",
+							"        \"address\": {\r",
+							"            \"street\": \"calle\",\r",
+							"            \"number\": \"01\",\r",
+							"            \"homeNumber\": \"789\",\r",
+							"            \"sector\": \"sector\",\r",
+							"            \"city\": \"Bogotá\",\r",
+							"            \"state\": \"Bogotá D.C\"\r",
+							"        }\r",
+							"\t},\r",
+							"\t\"account\": {\r",
+							"\t\t\"accountProgramId\": \"1\"\r",
+							"\t}\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "tZBeI5yTU450rG7qB3dzVpXRP4NM",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/123C48D2E4EC58BA/accounts",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA",
+						"accounts"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Account Information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "Yk4R63rGHEDBJFIzpoCMW6VqzBlJ",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "es",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/123C48D2E4EC58BA/accounts/07F1E7C55A2E2EC973357AAE3CEACFF85ECD08EA",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA",
+						"accounts",
+						"07F1E7C55A2E2EC973357AAE3CEACFF85ECD08EA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "dAfdGxUW7vvxLG5Ps4NSwW2Vxksl",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "es",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/123C48D2E4EC58BA/accounts",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unblock Account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"observations\": \"account required again\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "DlYGksrKWmqlaac7LIJaBpT9V5F6",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/93AB9FE14DA30299/accounts/ED63C1FCE66730F42848619EEB47F780E0483D09/unblock",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"93AB9FE14DA30299",
+						"accounts",
+						"ED63C1FCE66730F42848619EEB47F780E0483D09",
+						"unblock"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Unblock",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"\t\"observations\": \"card required again\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "HfGzmHXpuJhRcCmnoRUzvUSWicGM",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/19347E3ABDA2EF12/cards/586789572708E4F9EAA55EC1C719525B1D66C157/unblock",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"19347E3ABDA2EF12",
+						"cards",
+						"586789572708E4F9EAA55EC1C719525B1D66C157",
+						"unblock"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Account Balance",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "iMc4AojPqXpUbHq0AN5HfbJS7TrI",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/123C48D2E4EC58BA/accounts/07F1E7C55A2E2EC973357AAE3CEACFF85ECD08EA/balance",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA",
+						"accounts",
+						"07F1E7C55A2E2EC973357AAE3CEACFF85ECD08EA",
+						"balance"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Creation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"account\": {\r",
+							"        \"accountId\": \"00023CB8093D68A5ECB108A4A6C4C96ACF311141\"\r",
+							"    },\r",
+							"    \"card\": {\r",
+							"        \"cardProgramId\": \"3\",\r",
+							"        \"cardDesignId\": \"A1\",\r",
+							"        \"line1\": \"JOHN DOE\",\r",
+							"        \"line2\": \"NOVOPAYMENT\",\r",
+							"        \"requestNumber\": \"64876\",\r",
+							"        \"reference\": \"AS749\",\r",
+							"        \"address\": {\r",
+							"            \"street\": \"calle\",\r",
+							"            \"number\": \"01\",\r",
+							"            \"homeNumber\": \"789\",\r",
+							"            \"sector\": \"sector\",\r",
+							"            \"city\": \"Bogotá\",\r",
+							"            \"state\": \"Bogotá D.C\"\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "buCvNisFfWhrj5l9TrEIx2WLbtic",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en"
+					},
+					{
+						"key": "language",
+						"value": "en"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/0267F0D0852DA516/cards/EC3829BD7B6B6075B0233E034C9020E2CCC1E8D7/block",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"0267F0D0852DA516",
+						"cards",
+						"EC3829BD7B6B6075B0233E034C9020E2CCC1E8D7",
+						"block"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Block Account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = { \r",
+							"    \"blockType\": \"TEMPORARY_BLOCKED\", //TEMPORARY_BLOCKED\r",
+							"    \"blockReasonId\": \"1\",\r",
+							"    \"observations\": \"the comment\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "d3AM91tDOThWKxoT7r8p4yMxCrIF",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/48443F861D6060D1/accounts/02F29123CA89AB709053A7269FF4C3027ADE419F/block",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"48443F861D6060D1",
+						"accounts",
+						"02F29123CA89AB709053A7269FF4C3027ADE419F",
+						"block"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Close Account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"\t\"blockReasonId\": \"1\",\r",
+							"    \"observations\": \"the comment\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "2qiib4deMJIh5q9JODzCEMwdKay4",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/674E4F41289941E8/accounts/5D6CCDC9DA2D3D81FFAAE1EF6D85645BF4E225F0/close",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"674E4F41289941E8",
+						"accounts",
+						"5D6CCDC9DA2D3D81FFAAE1EF6D85645BF4E225F0",
+						"close"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer General Information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "QBELCxdhZhNWedqnD85EdiB62S1m",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "es",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/customers/v1/customers/123C48D2E4EC58BA/generalinfo",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"customers",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA",
+						"generalinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsubscribe Customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"reasonId\":\"1\",\r",
+							"    \"observations\":\"unsubscribe customer\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "oAZGMUthHHp1iHnCZIGWjmBhPBIX",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/customers/v1/customers/8E8EA2FAC5DC0928/unsubscribe",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"customers",
+						"v1",
+						"customers",
+						"8E8EA2FAC5DC0928",
+						"unsubscribe"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"userCredentials\": {\r",
+							"        \"username\": \"lmaxcastillo0212\"\r",
+							"    },\r",
+							"    \"generalInformation\": {\r",
+							"        \"firstNames\": \"viviana2\",\r",
+							"        \"lastNames\": \"Salinas\",\r",
+							"        \"civilStatusId\": \"2\",\r",
+							"        \"birthCountry\": {\r",
+							"            \"iso2\": \"CO\"\r",
+							"        },\r",
+							"        \"birthState\": {\r",
+							"            \"name\": \"Bogotá D.C\"\r",
+							"        },\r",
+							"        \"birthCity\": {\r",
+							"            \"name\": \"Bogotá\"\r",
+							"        },\r",
+							"        \"birthDate\": \"1988/09/11\",\r",
+							"        \"educationLevelId\": \"2\"\r",
+							"    },\r",
+							"    \"personalAddress\": {\r",
+							"        \"country\": {\r",
+							"            \"iso2\": \"VE\"\r",
+							"        },\r",
+							"        \"state\": {\r",
+							"            \"name\": \"Distrito capital\"\r",
+							"        },\r",
+							"        \"city\": {\r",
+							"            \"name\": \"Caracas\"\r",
+							"        },\r",
+							"        \"streetAddress\": \"street example\",\r",
+							"        \"address2\": \"conjunto12\",\r",
+							"        \"zipCode\": \"1234\",\r",
+							"        \"buildingNumber\": \"123\",\r",
+							"        \"homeNumber\": \"2\"\r",
+							"    },\r",
+							"    \"contactInformation\": {\r",
+							"        \"phoneCodeIso2\": \"VE\",\r",
+							"        \"phoneNumber\": \"5833234ff53277\",\r",
+							"        \"email\": \"lmaxcastio0212@novopayment.com\"\r",
+							"    }\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "InCg1EDCks20He27MCWhOQEwoRsA",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/customers/v1/customers/123C48D2E4EC58BA",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"customers",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer Identity Documents",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"documentTypeId\": \"1\",\r",
+							"    \"documentNumber\": \"19032229\",\r",
+							"    \"firstNames\": \"gerson\",\r",
+							"    \"lastNames\": \"quintero\",\r",
+							"    \"isPrimary\": true,\r",
+							"    \"issueDate\": \"2022/01/01\",\r",
+							"    \"expirationDate\": \"2024/01/01\",\r",
+							"    \"genderId\": \"1\",\r",
+							"    \"birthDate\": \"1990/01/01\",\r",
+							"    \"country\": {\r",
+							"        \"id\": \"1\",\r",
+							"        \"iso2\":\"VE\"\r",
+							"    }\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "CWibkDWZVFvaFG8JBLHylPUolTyi",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/customers/v1/customers/333FD0419A8BFDD8/documents/22",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"customers",
+						"v1",
+						"customers",
+						"333FD0419A8BFDD8",
+						"documents",
+						"22"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer List",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "lkJzpcsuwpsfG2yLguPQnGhScCMX",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{apigee_host}}/customers/v1/customers?customerId=123C48D2E4EC58BA",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"customers",
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "documentTypeId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "statusId",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "top",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "customerId",
+							"value": "123C48D2E4EC58BA"
+						},
+						{
+							"key": "fromCreatedDate",
+							"value": "20250129",
+							"disabled": true
+						},
+						{
+							"key": "toCreatedDate",
+							"value": "20250130",
+							"disabled": true
+						},
+						{
+							"key": "documentNumber",
+							"value": "26679",
+							"disabled": true
+						},
+						{
+							"key": "firstNames",
+							"value": "yoharlyn",
+							"disabled": true
+						},
+						{
+							"key": "lastNames",
+							"value": "alvarez",
+							"disabled": true
+						},
+						{
+							"key": "fromReviewDate",
+							"value": "20220301",
+							"disabled": true
+						},
+						{
+							"key": "toReviewDate",
+							"value": "20220301",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Block",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"\t\"blockTypeId\": \"PB\",\r",
+							"    \"observations\": \"Prueba Temporal\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "qJSggsZLZJKc3DM05gi0WNfsGjiw",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/19347E3ABDA2EF12/cards/586789572708E4F9EAA55EC1C719525B1D66C157/block",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"19347E3ABDA2EF12",
+						"cards",
+						"586789572708E4F9EAA55EC1C719525B1D66C157",
+						"block"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Block Permament",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"\t\"blockTypeId\": \"45\",\r",
+							"    \"reasonId\": \"1\",\r",
+							"    \"observations\": \"Prueba Permanente\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "qJSggsZLZJKc3DM05gi0WNfsGjiw",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/A627FA01978E6B3A/cards/5077E08817A22333E6A898A2A8E43184185035AC/block",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"A627FA01978E6B3A",
+						"cards",
+						"5077E08817A22333E6A898A2A8E43184185035AC",
+						"block"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Replacement",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"blockReasonId\": \"4\",\r",
+							"    \"observations\": \"REPLACE 1 EMBOSSE\",\r",
+							"    \"blockTypeId\": \"41\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "VcwMKFose9GrmOg6vInGKd4qGQJD",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/2AB856A833E404EE/cards/6779355A7DB9A0B5CBC31E39AC10A6FA057EEB65/replacement",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"2AB856A833E404EE",
+						"cards",
+						"6779355A7DB9A0B5CBC31E39AC10A6FA057EEB65",
+						"replacement"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card PIN Assignment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"   \"pin\": \"sDAu3rH+C7NAh2eWxxeobQ==\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "i7QzYgeu9DlHUXMChjkzgAQlBmd9",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/A627FA01978E6B3A/cards/5077E08817A22333E6A898A2A8E43184185035AC/pin",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"A627FA01978E6B3A",
+						"cards",
+						"5077E08817A22333E6A898A2A8E43184185035AC",
+						"pin"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card PIN Update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"pin\": \"sDAu3rH+C7NAh2eWxxeobQ==\",\r",
+							"    \"newPin\": \"F+DB9tHNR43hWObHquv8lA==\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "OlfIAjXwjYJtvG5TQDAx87qDlQoG",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/A627FA01978E6B3A/cards/5077E08817A22333E6A898A2A8E43184185035AC/pin",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"A627FA01978E6B3A",
+						"cards",
+						"5077E08817A22333E6A898A2A8E43184185035AC",
+						"pin"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Security Code CVV2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "ttgsbQGRzjrMxFbu5rqeSgjphskC",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "es",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/A627FA01978E6B3A/cards/5077E08817A22333E6A898A2A8E43184185035AC/securitycode",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"A627FA01978E6B3A",
+						"cards",
+						"5077E08817A22333E6A898A2A8E43184185035AC",
+						"securitycode"
+					],
+					"query": [
+						{
+							"key": "isDynamicCVV2",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "c7usMJGIXAfqj3DSkU4r2gmRdXDX",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Access Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "es",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/A627FA01978E6B3A/cards/5077E08817A22333E6A898A2A8E43184185035AC",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"A627FA01978E6B3A",
+						"cards",
+						"5077E08817A22333E6A898A2A8E43184185035AC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Transactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "XXZYcd5jNllff9dUKPlOgAICUU9h",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "x-customer-type",
+						"value": "retail",
+						"type": "text"
+					},
+					{
+						"key": "x-context-id",
+						"value": "mio-rd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/123C48D2E4EC58BA/accounts/07F1E7C55A2E2EC973357AAE3CEACFF85ECD08EA/transactions?fromDate=20250129&toDate=20250130",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"123C48D2E4EC58BA",
+						"accounts",
+						"07F1E7C55A2E2EC973357AAE3CEACFF85ECD08EA",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "20250129"
+						},
+						{
+							"key": "toDate",
+							"value": "20250130"
+						}
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Or Debit Adjustment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"accountNumber\": \"rIo2vQ1tFuuhkBL2GMQYmQ==\",\r",
+							"    \"amount\": \"2500\",\r",
+							"    \"fee\": \"15\",\r",
+							"    \"tax\": \"120\",\r",
+							"    \"description\": \"test\",\r",
+							"    \"sign\": \"-\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "GxChkZBgsnzEoRrvERq5SdRkTkYq",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "x-customer-type",
+						"value": " retail",
+						"type": "text"
+					},
+					{
+						"key": "x-context-id",
+						"value": " mio-rd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/adjustments",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"adjustments"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account To Account Transaction",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"  \"amount\": \"15.00\",\r",
+							"  \"fee\": \"0\",\r",
+							"  \"tax\": \"0\",\r",
+							"  \"destinationAccountId\": \"C9FE514A36E8868956EC8F66B1209EF40C7DB854\",\r",
+							"  \"transactionPurposeId\": \"2\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "WB0BAKQvOI4LoFL2lQj5jUrD5qx8",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "x-customer-type",
+						"value": " retail",
+						"type": "text"
+					},
+					{
+						"key": "x-context-id",
+						"value": " mio-rd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/2AA44BA907F0B846/accounts/75EF14142A7344C981033027841F6E4C2C7C52B7/transactions",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"2AA44BA907F0B846",
+						"accounts",
+						"75EF14142A7344C981033027841F6E4C2C7C52B7",
+						"transactions"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Transactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "GZdyBy7nOQKjddQcAdrvsaVm5CKp",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "x-customer-type",
+						"value": " retail",
+						"type": "text"
+					},
+					{
+						"key": "x-context-id",
+						"value": " mio-rd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/8C1B4C8C618E0162/cards/4C5C74222B5AF2D7C7D3AAB3F659D371FA73B71C/transactions",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"8C1B4C8C618E0162",
+						"cards",
+						"4C5C74222B5AF2D7C7D3AAB3F659D371FA73B71C",
+						"transactions"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Embossing",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"line1\": \"pepito perez\",\r",
+							"    \"line2\": \"novopayment\",\t\r",
+							"    \"observations\": \"customer requests a physical card\",\r",
+							"    \"cardDesignId\": \"A1\",\r",
+							"    \"requestNumber\": \"64876\",\r",
+							"    \"reference\": \"AS749\",\r",
+							"    \"address\": {\r",
+							"        \"street\": \"calle\",\r",
+							"        \"number\": \"01\",\r",
+							"        \"homeNumber\": \"789\",\r",
+							"        \"sector\": \"sector\",\r",
+							"        \"city\": \"Bogotá\",\r",
+							"        \"state\": \"Bogotá D.C\"\r",
+							"    }\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "DE6pkYOpJLZeRWKmqfGDXcg9wPUP",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/8C1B4C8C618E0162/cards/6BBCC2DE2635B4EB7314BB05FE1C987ACFEAC411/emboss",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"8C1B4C8C618E0162",
+						"cards",
+						"6BBCC2DE2635B4EB7314BB05FE1C987ACFEAC411",
+						"emboss"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Activation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"activationCode\": \"0000\",\r",
+							"    \"cvv2\": \"123\",\r",
+							"    \"expirationDate\": \"2702\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "MX90tYpvGjNrWt0E5ghTUWCNL2iN",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en"
+					},
+					{
+						"key": "language",
+						"value": "en"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/A9A371E691FAEB08/cards/18E7CB37DAFEE42A7065AF4897B37AF295C66A21/activate",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"A9A371E691FAEB08",
+						"cards",
+						"18E7CB37DAFEE42A7065AF4897B37AF295C66A21",
+						"activate"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Creation of Card Batches",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"   \"quantity\":5,\r",
+							"   \"cardProgramId\":\"2\",\r",
+							"   \"createdBy\":\"Richard\",\r",
+							"   \"branchName\":\"test_Richard\",\r",
+							"   \"cardDesignId\":\"100\" ,\r",
+							"   \"cardEmbosserId\":\"1\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "iMc4AojPqXpUbHq0AN5HfbJS7TrI",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en"
+					},
+					{
+						"key": "language",
+						"value": "en"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/cards/anonymous/batches",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"cards",
+						"anonymous",
+						"batches"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Anonymous Card Batch Status Update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"\t\"updatedBy\": \"Richard\",\r",
+							"\t\"statusId\": \"2\"\r",
+							"}\r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "iMc4AojPqXpUbHq0AN5HfbJS7TrI",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/cards/anonymous/batches/511/status",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"cards",
+						"anonymous",
+						"batches",
+						"511",
+						"status"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Batch Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/cards/anonymous/batches/511",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"cards",
+						"anonymous",
+						"batches",
+						"511"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Batch List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/cards/anonymous/batches",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"cards",
+						"anonymous",
+						"batches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Lookup",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {    \r",
+							"    \"cardNumber\": \"uoZIHgIl2G4qKyC6OKWVf/r99uRLEeh/B8iz/AGgMPY=\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "iMc4AojPqXpUbHq0AN5HfbJS7TrI",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en"
+					},
+					{
+						"key": "language",
+						"value": "en"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/cards/lookup?type=ACTIVATION_CODE",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"cards",
+						"lookup"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "ACTIVATION_CODE"
+						}
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card To Account Association",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"accountId\": \"CD6D2D3D2DBD401C479E6D5B65C47AFC0DE76F89\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "iMc4AojPqXpUbHq0AN5HfbJS7TrI",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "language",
+						"value": "en",
+						"type": "text"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota",
+						"type": "text"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/AB261056134A60AB/cards/1A5F80052A48E5BC914AC9AF9098D5EA29ABD308/associate",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"AB261056134A60AB",
+						"cards",
+						"1A5F80052A48E5BC914AC9AF9098D5EA29ABD308",
+						"associate"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		},
+		{
+			"name": "Card Disassociate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//REQUEST BODY\r",
+							"const body = {\r",
+							"    \"comments\": \"reverse card association due to system error\",\r",
+							"    \"updatedBy\": \"MASTER\"\r",
+							"} \r",
+							"\r",
+							"const encrypt = {\r",
+							"    url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/encrypt`,\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"    'Content-Type': 'application/json',\r",
+							"    'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({data: body})\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(encrypt, function(err, data){\r",
+							"    var response = data.json();\r",
+							"    pm.globals.set(\"data\", response.data);\r",
+							"\r",
+							"    const signature = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jws/v2/generate`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data:pm.globals.get(\"data\")})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(signature, function(err, data){\r",
+							"        var response = data.json();\r",
+							"        pm.globals.set(\"signature\", response[\"x-token\"]);\r",
+							"\r",
+							"        pm.globals.set(\"encryptData\", pm.globals.get(\"data\"));\r",
+							"        pm.globals.set(\"signature\", pm.globals.get(\"signature\"));\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {\r",
+							"    const responseData = pm.response.json().data;\r",
+							"\r",
+							"    const decrypt = {\r",
+							"        url: `https://${pm.environment.get('apigee_host_dev')}/jwe/v1/decrypt`,\r",
+							"        method: \"POST\",\r",
+							"        header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({data: responseData})\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    pm.sendRequest(decrypt, function(err, data){\r",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));\r",
+							"        pm.globals.set(\"cardId_const\", data.json().cardId);\r",
+							"        pm.globals.set(\"userId_const\", data.json().userId);\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.globals.unset(\"plainData\");\r",
+							"}\r",
+							"\r",
+							"pm.globals.unset(\"data\");\r",
+							"pm.globals.unset(\"signature\");\r",
+							"pm.globals.unset(\"encryptData\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "{{apigee_app_credentials_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{apigee_app_credentials_key}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "BearerToken",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "iMc4AojPqXpUbHq0AN5HfbJS7TrI",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://{{apigee_host}}/oauth2/v1/token",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en"
+					},
+					{
+						"key": "language",
+						"value": "en"
+					},
+					{
+						"key": "X-Time-Zone",
+						"value": "America/Bogota"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "{{tenant_id}}"
+					},
+					{
+						"key": "X-Token",
+						"value": "JWS {{signature}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{apigee_host}}/accounts/v1/customers/EDEAAFD672E581BC/cards/D89D5115567AD54D3E8913C88CD6BCF09974E431/disassociate",
+					"protocol": "https",
+					"host": [
+						"{{apigee_host}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"customers",
+						"EDEAAFD672E581BC",
+						"cards",
+						"D89D5115567AD54D3E8913C88CD6BCF09974E431",
+						"disassociate"
+					]
+				},
+				"description": "This operation can be used for issuing a new card"
+			},
+			"response": []
+		}
+	]
+}

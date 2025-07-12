@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "d0f2a9e5-9c45-4aea-a1a7-3cadb77029a9",
+		"name": "Tokenizacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7968016",
+		"_collection_link": "https://cuarteto-de-tres.postman.co/workspace/Orquestador-Mio~4fdaf68e-aa2a-4be1-9c05-383d8e28557c/collection/7968016-d0f2a9e5-9c45-4aea-a1a7-3cadb77029a9?action=share&source=collection_link&creator=7968016"
+	},
+	"item": [
+		{
+			"name": "Tokenizacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-request-id",
+						"value": "e75c07da-e339-11ed-b5ea-0242ac120002"
+					},
+					{
+						"key": "X-User-id",
+						"value": "pa-bnp"
+					},
+					{
+						"key": "X-Tenant-Id",
+						"value": "pa-bnp"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"pan\": \"4213020010000050\",\n   \"expiryDate\":\"2408\",\n   \"dynamicCvv2\":\"571\",\n   \"cardAcceptorTerminalId\":\"00000001\",\n   \"cardAcceptorIdCode\":\"000000000000001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://uat-core-multitenant.novopayment.net/api-tsp-verify-cvv/v1/transactions/validateCvv2",
+					"protocol": "https",
+					"host": [
+						"uat-core-multitenant",
+						"novopayment",
+						"net"
+					],
+					"path": [
+						"api-tsp-verify-cvv",
+						"v1",
+						"transactions",
+						"validateCvv2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
