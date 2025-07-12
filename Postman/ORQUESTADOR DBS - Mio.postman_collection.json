@@ -1,0 +1,1456 @@
+{
+	"info": {
+		"_postman_id": "6dc01f4b-2412-415a-a879-40b47bc94b64",
+		"name": "ORQUESTADOR DBS - Mio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7968016",
+		"_collection_link": "https://cuarteto-de-tres.postman.co/workspace/Orquestador-Mio~4fdaf68e-aa2a-4be1-9c05-383d8e28557c/collection/7968016-6dc01f4b-2412-415a-a879-40b47bc94b64?action=share&source=collection_link&creator=7968016"
+	},
+	"item": [
+		{
+			"name": "Resync Transactions Mapping",
+			"item": [
+				{
+					"name": "ReSync Transaction Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"bd69abc3836040a0adab417c0752f545\",\r\n    \"nroCtaEnvia\": \"\",\r\n    \"nroCtaRecibe\": \"\",\r\n    \"monto\": \"\",\r\n    \"fechaExp\": \"\",\r\n    \"commissionFee\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{uat-microservices-component-host}}{{microservices-component-context}}/reSyncMapping",
+							"host": [
+								"{{uat-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"reSyncMapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReSync Transaction Request Transi",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"bd69abc3836040a0adab417c0752f545\",\r\n    \"nroCtaEnvia\": \"\",\r\n    \"nroCtaRecibe\": \"\",\r\n    \"monto\": \"\",\r\n    \"fechaExp\": \"\",\r\n    \"commissionFee\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://t-cards-api.novopayment.net/api-tbs-admin-orchestrator/v1/jm-primetrust/reSyncMapping",
+							"protocol": "https",
+							"host": [
+								"t-cards-api",
+								"novopayment",
+								"net"
+							],
+							"path": [
+								"api-tbs-admin-orchestrator",
+								"v1",
+								"jm-primetrust",
+								"reSyncMapping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pod Health",
+			"item": [
+				{
+					"name": "Get Pod Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"url": {
+							"raw": "{{microservices-component-host}}{{microservices-component-context}}/podInfo",
+							"host": [
+								"{{microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"podInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Actuator Health",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"url": {
+							"raw": "{{microservices-component-host}}{{microservices-component-context}}/actuator/health",
+							"host": [
+								"{{microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Transactions Request",
+			"item": [
+				{
+					"name": "Balance",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "do-mio"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "7781571c-9a54-4ce2-a13f-214b28223619"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"nroCuenta\": \"4235855638\",\r\n    \"idTransaccionSeq\": \"230454\"\r\n    //\"systemTrace\": \"045465\",\r\n    //\"fechaExp\": \"{{ed-negative-card}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/balance",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash_Out_Extendido",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli",
+								"disabled": true
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"4275613132\",\r\n    \"amount\": \"020\",\r\n    \"fee\": \"0\",\r\n    \"transactionId\": \"804412\",\r\n    \"description\": \"DEBIT ADJUSTMENT2\",\r\n    \"terminalId\": \"MBRSHFEE\",\r\n    \"cardAcceptorIdCode\":\"MIO-REDO       \",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/debit",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"debit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash_Out_Reverse",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"4235855638\",\r\n    \"amount\": \"1.22\",\r\n    \"fee\": \"0\",\r\n    \"transactionId\": \"804412\",\r\n    \"description\": \"REVERSE DEBIT ADJUSTMENT2\",\r\n    \"transactionDateTime\": \"0118104623\",\r\n    \"originalSwitchKey\": \"d276028842914d8f8758c063b141facf\",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/debit/reverse",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"debit",
+								"reverse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Blocking Transaction",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"cardNumber\": \"0454\",\r\n    \"cardSequenceNumber\": \"12\", \r\n    \"expirationDate\": \"0926\",\r\n    \"blockCode\": \"BLOCK_CODE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/card/block",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"card",
+								"block"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Execute  Blocking Transaction Request Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"cardNumber\": \"0454\",\r\n    \"cardSequenceNumber\": \"12\", \r\n    \"expirationDate\": \"0926\",\r\n    \"blockCode\": \"BLOCK_CODE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://t-cards-api.novopayment.net/api-tbs-admin-orchestrator/v1/jm-primetrust/transaction/card/block",
+							"protocol": "https",
+							"host": [
+								"t-cards-api",
+								"novopayment",
+								"net"
+							],
+							"path": [
+								"api-tbs-admin-orchestrator",
+								"v1",
+								"jm-primetrust",
+								"transaction",
+								"card",
+								"block"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendMoney",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"fromAccount\": \"4277712386\",\r\n    \"toAccount\": \"4254540567\",\r\n    \"amount\": \"1.00\",\r\n    \"fee\": \"0.00\",\r\n    \"transactionId\": \"804412\"\r\n    /*\"channel\": \"123\"*/\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/transfer",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendMoney Reverse",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"originalSwitchKey\": \"3688765cb23f49f49b12aaee4fcdb600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/transfer/reverse",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"transfer",
+								"reverse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash_In",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"4217014634\",//\"4217014634\",//4235855638\r\n    //\"amount\": \"4535\",\r\n    \"amount\": \"2.50\",\r\n    \"fee\": \"0\",\r\n    \"transactionId\": \"804412\",\r\n    \"description\": \"CREDIT ADJUSTMENT2\",\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"extendedInfo\": {\r\n        \"tax\": \"0\",\r\n        \"fee\": \"0\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/credit",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash_In Reverse",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "4dd4abf1-f6fc-4a48-8280-25fdc971b970"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"4217014634\",\r\n    \"amount\": \"2.50\",\r\n    \"fee\": \"0\",\r\n    \"transactionId\": \"804412\",\r\n    \"description\": \"REVERSE CREDIT ADJUSTMENT2\",\r\n    \"transactionDateTime\": \"0118104623\",\r\n    \"originalSwitchKey\": \"9b81462c6d9b4d22977b1c45e36ba851\",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/credit/reverse",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"credit",
+								"reverse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "P2P Transfer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid'); \r",
+									"var myUUID = uuid.v4();\r",
+									"console.log(myUUID);\r",
+									"pm.environment.set(\"xRequestId\", myUUID);\r",
+									"\r",
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{xRequestId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccount\": \"4277712386\", \r\n    \"toAccount\": \"4254540567\", \r\n    \"amount\": \"010\", \r\n    \"fee\": \"0\", \r\n    \"description\": \"INTERNAL TRANSFER2\", \r\n    \"transactionId\":\"348102\",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/transfer",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CashOut",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\": \"4235855638\",\n    \"amount\": \"1.22\",\n    \"fee\": \"0\",\n    \"transactionId\": \"804412\",\n    \"description\": \"DEBIT ADJUSTMENT2\",\n    \"switchKey\": \"{{switch-key}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/debit",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"debit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card Transactions Request",
+			"item": [
+				{
+					"name": "Balance",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "do-mio"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{xRequestId}}"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cardNumber\": \"4669050006965099\",\r\n  \"expirationDate\": \"2804\",\r\n  \"transactionId\": \"666685\",\r\n  \"switchKey\": \"{{switch-key}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/card/balance",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"card",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash_Out",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "7781571c-9a54-4ce2-a13f-214b28223619"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cardNumber\": \"4424090019160705\",\r\n  \"expirationDate\": \"3004\",\r\n  \"amount\": \"08.22\",\r\n  \"fee\": \"0.00\",\r\n  \"description\": \"DEBIT ADJUSTMENT2\",\r\n  \"transactionId\": \"804412\",\r\n  \"switchKey\": \"{{switch-key}}\",\r\n      \"extendedInfo\": {\r\n        \"tax\": \"0\",\r\n        \"fee\": \"0\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/card/debit",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"card",
+								"debit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reverse Cash_In",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "7781571c-9a54-4ce2-a13f-214b28223619"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardNumber\": \"4424090010122100\",\r\n    \"expirationDate\": \"2809\",\r\n    \"amount\": \"02.50\",\r\n    \"fee\": \"0.00\",\r\n    \"description\": \"REVERSE CREDIT ADJUSTMENT2\",\r\n    \"transactionId\":\"804412\",\r\n    \"transactionDateTime\": \"0118110322\",\r\n    \"originalSwitchKey\": \"e882ed0715974e7c890d9d66215c068b\",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/card/credit/reverse",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"card",
+								"credit",
+								"reverse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reverse Cash_Out",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "7781571c-9a54-4ce2-a13f-214b28223619"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardNumber\": \"4424090010122100\",\r\n    \"expirationDate\": \"2809\",\r\n    \"amount\": \"10.00\",\r\n    \"fee\": \"0.00\",\r\n    \"description\": \"REVERSE DEBIT ADJUSTMENT2\",\r\n    \"transactionId\":\"804412\",\r\n    \"transactionDateTime\": \"0118125422\",\r\n    \"originalSwitchKey\": \"dbba14f7df914f36859492e44f234d41\",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/card/debit/reverse",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"card",
+								"debit",
+								"reverse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash_In",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "pa-zinli"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "7781571c-9a54-4ce2-a13f-214b28223619"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cardNumber\": \"4424090019160705\",\r\n  \"expirationDate\": \"3004\",\r\n  \"amount\": \"5.20\",\r\n  \"fee\": \"0\",\r\n  \"description\": \"CREDIT ADJUSTMENT2\",\r\n  \"transactionId\": \"804412\",\r\n  \"switchKey\": \"{{switch-key}}\",\r\n      \"extendedInfo\": {\r\n        \"tax\": \"0\",\r\n        \"fee\": \"0\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/card/credit",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"card",
+								"credit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Transactions- End Point 2",
+			"item": [
+				{
+					"name": "Balance-2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "do-mio"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "7781571c-9a54-4ce2-a13f-214b28223619"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"switchKey\": \"{{switch-key}}\",\r\n    \"accountNumber\": \"{{uat-negative-account}}\",\r\n    \"transactionId\": \"230454\"\r\n    //\"systemTrace\": \"045465\",\r\n    //\"fechaExp\": \"{{ed-negative-card}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/balance2",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"balance2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "P2P Transfer-2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid'); \r",
+									"var myUUID = uuid.v4();\r",
+									"console.log(myUUID);\r",
+									"pm.environment.set(\"xRequestId\", myUUID);\r",
+									"\r",
+									"// generate a v4 UUID using the 'uuid' library\r",
+									"var uuidReandom = require('uuid');\r",
+									"var uuid = uuidReandom.v4();\r",
+									"\r",
+									"// remove hyphens from UUID\r",
+									"var processUuId = uuid.replace(/-/g, '');\r",
+									"\r",
+									"// take the first 32 characters of the UUID without dashes\r",
+									"var switchKey = processUuId.substring(0, 32);\r",
+									"\r",
+									"// save the new switchKey without dashes as a global variable\r",
+									"pm.globals.set(\"switch-key\", switchKey);\r",
+									"\r",
+									"// print the switchKey\r",
+									"console.log(switchKey);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{xRequestId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromAccount\": \"4277712386\", \r\n    \"toAccount\": \"4254540567\", \r\n    \"amount\": \"2.00\", \r\n    \"fee\": \"0.00\", \r\n    \"description\": \"INTERNAL TRANSFER2\", \r\n    \"idTransaccionSeq\":\"348102\",\r\n    \"switchKey\": \"{{switch-key}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{t-microservices-component-host}}{{microservices-component-context}}/transaction/account/transfer2",
+							"host": [
+								"{{t-microservices-component-host}}{{microservices-component-context}}"
+							],
+							"path": [
+								"transaction",
+								"account",
+								"transfer2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "microservices-component-host",
+			"value": "localhost"
+		},
+		{
+			"key": "microservices-component-context",
+			"value": "api-tbs-dbs-orchestrator-microservice",
+			"type": "string"
+		}
+	]
+}

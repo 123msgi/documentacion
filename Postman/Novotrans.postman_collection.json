@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "b4dcbe46-cd48-4f4d-b7b8-136cced5a7fb",
+		"name": "Novotrans",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7968016",
+		"_collection_link": "https://cuarteto-de-tres.postman.co/workspace/Orquestador-Mio~4fdaf68e-aa2a-4be1-9c05-383d8e28557c/collection/7968016-b4dcbe46-cd48-4f4d-b7b8-136cced5a7fb?action=share&source=collection_link&creator=7968016"
+	},
+	"item": [
+		{
+			"name": "Emision_Novotrans",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//Crear un dato random para el customer id de 9 digitos\r",
+							"const customerId = Math.floor((Math.random() * 999999999) + 1);\r",
+							"//Asigna la variable de manera global\r",
+							"pm.environment.set('customer-Id',customerId)\r",
+							"//console.log(customerId);\r",
+							"\r",
+							"\r",
+							"//Crear un dato random para el customer id de 7 digitos\r",
+							"const accountId = Math.floor((Math.random() * 9999999) + 1);\r",
+							"//Asigna la variable de manera global\r",
+							"pm.environment.set('accountId',accountId)\r",
+							"//console.log(accountId);\r",
+							"\r",
+							"//Crear un dato random para el nombre\r",
+							"// Lista de nombres y apellidos\r",
+							"let c1FirstName = [\"Jeffersson\", \"Juan\", \"Giovanny\", \"Harold\", \"Pedro\", \"Sofia\", \"Miguel\", \"Valentina\"];\r",
+							"let c1LastName = [\"Gomez\", \"Rodriguez\", \"Martinez\", \"Lopez\", \"Hernandez\", \"Perez\", \"Diaz\", \"Moreno\"];\r",
+							" \r",
+							"// Seleccionar un nombre y apellido aleatorio\r",
+							"let nombreAleatorio = c1FirstName[Math.floor(Math.random() * c1FirstName.length)];\r",
+							"let apellidoAleatorio = c1LastName[Math.floor(Math.random() * c1LastName.length)];\r",
+							" \r",
+							"// Concatenar y guardar en una variable de entorno\r",
+							"let nombreCompleto = nombreAleatorio + \" \" + apellidoAleatorio;\r",
+							"pm.environment.set(\"c1FirstName\",nombreAleatorio);\r",
+							"pm.environment.set(\"c1LastName\",apellidoAleatorio);\r",
+							"pm.environment.set(\"c1NameOnCard\", nombreCompleto);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=node0i46fdb39xd2v17n1oycpyr4r50.node0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bin\": \"54406018\",\n    \"card\": {\n        \"sequenceNumber\": \"001\",\n        \"cardProgram\": \"MIO MC F\",\n        \"defaultAccountType\": \"10\",\n        \"cardStatus\": \"1\"\n    },\n    \"account\": {\n        \"accountType\": \"10\",\n        \"currencyCode\": \"214\",\n        \"accountProduct\": \"Account MIO\"\n    },\n    \"customer\": {\n        \"customerId\": \"{{customer-Id}}\",\n        \"nationalId\": \"557637885815\",\n        \"c1FirstName\": \"{{c1FirstName}}\",\n        \"c1LastName\": \"{{c1LastName}}\",\n        \"c1NameOnCard\": \"{{c1NameOnCard}}\",\n        \"dateOfBirth\": \"19900101\",\n        \"vip\": \"0\"\n    }\n}\n\n\n\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_aws_uat}}:2314/api/1.1/issuance",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2314",
+					"path": [
+						"api",
+						"1.1",
+						"issuance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"bin\": \"44240900\",\n        \"cards\": [\n            {\n                \"pan\": \"4424090014596630\",\n                \"expiryDate\": \"2907\",\n                \"cardProgram\": \"Cuenta Digital MIO\",\n                \"cardStatus\": \"1\",\n                \"securePVV\": \"4177\",\n                \"holdResponseCode\": \"00\",\n                \"sequenceNumber\": \"001\"\n            }\n        ]/*,\n         \"accounts\": [\n            {\n                \"accountId\": \"000312\",\n                \"accountType\": \"10\",\n                \"currencyCode\": \"170\"    \n\n            }\n        ]\n        /*\"customers\": [\n            {\n                \"customerId\": \"123438980\",\n                \"dateOfBirth\": \"19810713\"\n            }\n        ]*/\n        //\"cardAccounts\": [],\n        //\"customerAccounts\": []\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_aws_uat}}:2314/api/1.1/update",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2314",
+					"path": [
+						"api",
+						"1.1",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"bin\": \"44240900\",\n        \"cards\": [\n            {\n                \"pan\": \"4424090010122100\",\n                \"expiryDate\": \"2809\",\n                \"cardProgram\": \"Cuenta Digital MIO\",\n                \"cardStatus\": \"1\",\n                \"securePVV\": \"\",\n                \"holdResponseCode\": \"\",\n                \"sequenceNumber\": \"\"\n                //\"defaultAccountType\":\"00\"\n            }\n        ]\n        /*\"accounts\": [\n            {\n                \"accountId\": \"000312\",\n                \"accountType\": \"10\",\n                \"currencyCode\": \"170\"    \n\n            }\n        ]*//*\n        \"customers\": [\n            {\n                \"customerId\": \"143605521\",\n                \"dateOfBirth\": \"19810713\"\n            }\n        ]*/\n        //\"cardAccounts\": [],\n        //\"customerAccounts\": []\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_aws_uat}}:2314/api/1.1/update",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2314",
+					"path": [
+						"api",
+						"1.1",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PVV",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=node0uaskyyebgb1j7n90qnte9kgo10.node0"
+					}
+				],
+				"url": {
+					"raw": "{{url_aws_uat}}:3022/api/pvv/1234/4424090014596630/Novo_PVV",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "3022",
+					"path": [
+						"api",
+						"pvv",
+						"1234",
+						"4424090014596630",
+						"Novo_PVV"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pinblock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_aws_uat}}:2023/api/pinblock/1234/4424090014596630/VISANET_KWP_SGC_C",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2023",
+					"path": [
+						"api",
+						"pinblock",
+						"1234",
+						"4424090014596630",
+						"VISANET_KWP_SGC_C"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CVV",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=6179A2DE1999CBC517505B21C97CC561"
+					}
+				],
+				"url": {
+					"raw": "{{url_aws_uat}}:2212/hsm/api/v1/cvv/VISA_ICVV/4424090017003311/2907/201",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2212",
+					"path": [
+						"hsm",
+						"api",
+						"v1",
+						"cvv",
+						"VISA_ICVV",
+						"4424090017003311",
+						"2907",
+						"201"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dcvv2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_aws_uat}}:2170/api/dinamiccvv2/4424090014637962/0729/VISA_ICVV/HSM_TCS_ZEK/",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2170",
+					"path": [
+						"api",
+						"dinamiccvv2",
+						"4424090014637962",
+						"0729",
+						"VISA_ICVV",
+						"HSM_TCS_ZEK",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dcvv2 MC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_aws_uat}}:2170/api/dinamiccvv2/5440601809519129/0929/MASTERCARD_ICVV/HSM_TCS_ZEK/",
+					"host": [
+						"{{url_aws_uat}}"
+					],
+					"port": "2170",
+					"path": [
+						"api",
+						"dinamiccvv2",
+						"5440601809519129",
+						"0929",
+						"MASTERCARD_ICVV",
+						"HSM_TCS_ZEK",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
