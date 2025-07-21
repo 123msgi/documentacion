@@ -1,0 +1,22 @@
+java -jar batch-visabase12-injector-0.0.1.jar C:\Temp\InjectorVisa\archivo100.txt 172.20.3.102 9560 countInyector=1 timeout=10
+
+java -jar batch-visabase12-injector-0.0.1.jar C:\Temp\InjectorVisa\archivo0800.txt 172.20.3.102 9560 countInyector=1 timeout=10
+
+java -jar batch-visabase12-injector-0.0.1.jar C:\Temp\InjectorVisa\archivo400.txt 172.20.3.102 9560 countInyector=1 timeout=10
+
+java -jar batch-visabase12-injector-0.0.1.jar C:\Temp\InjectorVisa\archivo120.txt 172.20.3.102 9560 countInyector=1 timeout=10
+
+
+  ./transacciones_v1.xlsx 192.168.100.164 9560 timeout=10
+
+java -jar batch-visabase12-injector-0.0.3.jar C:\Temp\InjectorVisa\transacciones_v5.xlsx 172.20.3.102 9560 timeout=10 writeFileLogs=on
+
+parametro
+
+117660 604 0 0 24 50 1 00 2001010100000000 1 1 1 0 Z0 120 -f0 -opt:uft1
+
+
+/dateFormat(MMDDhhmmss)
+
+
+java -jar batch-visabase12-injector-0.0.3.jar C:\temp\InjectorVisa\transacciones_v5.xlsx 172.21.72.237 9560 timeout=10 writeFileLogs=on
