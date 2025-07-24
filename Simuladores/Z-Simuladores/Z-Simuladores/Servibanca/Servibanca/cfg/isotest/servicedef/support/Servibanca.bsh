@@ -1,0 +1,34 @@
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.PostMethod;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+switch (message.getString(0).substring(12,16)){
+	
+	case "0800":
+	switch (message.getString(70)){
+		case "001":
+		case "002":
+		case "301":
+			message.set(0,"ISO0060000550810");
+			message.set(39,"00");
+			source.send(message);
+			break;
+		
+		default:
+			//log.info("SIMULATOR ERROR: ADMINISTRATIVE MESSAGE NOT ENCODED");
+			break;
+		}
+	break;
+	
+	default:
+		//log.info("SIMULATOR ERROR: MTI NOT ENCODED");
+		break;
+		
+	
+}
+
+

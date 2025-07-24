@@ -1,0 +1,80 @@
+import org.jpos.space.Space;
+import org.jpos.space.SpaceFactory;
+import org.jpos.iso.ISOMsg;
+import org.jpos.ee.hairi.ISOMsgShard;
+import org.jpos.ee.hairi.ISOMsgLog;
+import org.jpos.util.Log;
+import org.jpos.util.LogEvent;
+import org.jpos.util.Logger;
+import org.jpos.util.Profiler;
+import javax.naming.*;
+import org.jpos.q2.iso.*;
+import org.jpos.iso.*;
+import org.jpos.util.*;
+import org.jpos.iso.channel.*;
+import org.jpos.simulator.channel.*;
+import org.jpos.simulator.packager.*;
+
+
+
+
+
+
+
+
+
+
+        try {
+
+
+        Space sp = SpaceFactory.getSpace();
+        message.set (3, "000001");
+        message.set(4, "000000000000");
+
+
+        message.set (70, "301");
+
+ //   SIKM1Channel ca = (SIKM1Channel) NameRegistrar.get("channel.clientsimulator-adaptor");
+
+       
+   //  message.setPackager(ca.getPackager());
+     
+
+
+        message.setPackager(new COOPPackager());
+                
+
+        sp.out ("serversimulator-send", message);
+
+     // sendingTime=new Date().getTime()-startTime;
+
+
+        m = sp.in ("serversimulator-receive", 60000);
+
+       //   receiveTime=new Date().getTime()-sendingTime;
+            
+
+
+        source.send (m);
+
+
+        ISOMsgShard isoshard = new ISOMsgShard();
+
+//isoshard.setTransactionID="12345";
+
+
+        isoshard.setTransactionID(m.getString(3));
+        isoshard.setSource("channel1");
+        isoshard.setDest("channel2");
+        isoshard.setDatenow(new Date());
+
+
+        ISOMsgLog isolog = new ISOMsgLog();
+
+        isolog.log(isoshard);
+   //  dbTime = new Date().getTime()-receiveTime;
+
+
+ System.out.println(sendingTime + ";"+receiveTime+";"+dbTime);
+  log.info("test log");
+  } catch(Exception e) {System.out.println(e);}

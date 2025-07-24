@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 05 10:00:51 COT 2021.242">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=7814360
+      totalMemory=26992640
+      inUseMemory=19178280
+    </memory>
+    <threads>
+            delay=-307 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=8, rx=417, connects=3, last=1612536132759, idle=1118491ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=417, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 05 11:00:50 COT 2021.984">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=7801392
+      totalMemory=26992640
+      inUseMemory=19195632
+    </memory>
+    <threads>
+            delay=-266 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=8, rx=417, connects=3, last=1612536132759, idle=4718247ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=417, connected=true, last=0
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Fri Feb 12 08:15:59 COT 2021.875">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:15:59 COT 2021.927">
+  <info>
+    new classloader [ff0aa7] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:15:59 COT 2021.930">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:15:59 COT 2021.938">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:16:00 COT 2021.140">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:16:00 COT 2021.156">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy\Kubo-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:16:00 COT 2021.167">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy\Kubo-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 12 08:16:00 COT 2021.188">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Kubo\coredeploy3_Kubo\deploy\Kubo.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 08:16:02 COT 2021.448">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 08:16:02 COT 2021.450">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=5730088
+      totalMemory=16318464
+      inUseMemory=10588376
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=0, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 09:16:02 COT 2021.307">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=16347208
+      totalMemory=26619904
+      inUseMemory=10272696
+    </memory>
+    <threads>
+            delay=-149 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=3, rx=33, connects=1, last=1613139243246, idle=119081ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=33, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 10:16:02 COT 2021.78">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9182776
+      totalMemory=26619904
+      inUseMemory=17437128
+    </memory>
+    <threads>
+            delay=-250 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=65, connects=2, last=1613142873512, idle=88579ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=65, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 11:16:01 COT 2021.928">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=11129016
+      totalMemory=26619904
+      inUseMemory=15490888
+    </memory>
+    <threads>
+            delay=-164 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=95, connects=2, last=1613146473506, idle=88429ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=95, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 12:16:01 COT 2021.569">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9237256
+      totalMemory=26619904
+      inUseMemory=17382648
+    </memory>
+    <threads>
+            delay=-366 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=125, connects=2, last=1613150073447, idle=88136ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=125, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 14:06:11 COT 2021.849">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=15257544
+      totalMemory=27987968
+      inUseMemory=12730424
+    </memory>
+    <threads>
+            delay=3010265 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=155, connects=3, last=1613156709495, idle=62359ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=155, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 15:06:11 COT 2021.581">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=11835120
+      totalMemory=27987968
+      inUseMemory=16152848
+    </memory>
+    <threads>
+            delay=-273 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=185, connects=4, last=1613160271913, idle=99673ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=185, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 16:06:11 COT 2021.327">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=14247976
+      totalMemory=27987968
+      inUseMemory=13739992
+    </memory>
+    <threads>
+            delay=-259 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=213, connects=4, last=1613163631675, idle=339662ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=213, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 17:06:11 COT 2021.212">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=12585256
+      totalMemory=27987968
+      inUseMemory=15402712
+    </memory>
+    <threads>
+            delay=-125 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=243, connects=6, last=1613167512022, idle=59194ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=243, connected=true, last=0
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 12 18:06:10 COT 2021.947">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=14367168
+      totalMemory=27987968
+      inUseMemory=13620800
+    </memory>
+    <threads>
+            delay=-269 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7 - Acceptor0 SslSocketConnector@0.0.0.0:17075,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:17073,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Kubo-send,5,main]
+            Thread[channel-receiver-Kubo-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Kubo-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      Kubo-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=4, rx=269, connects=8, last=1613171091551, idle=79400ms
+      channel.Kubo-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      logger.: org.jpos.util.Logger
+      mux.Kubo-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=269, connected=true, last=0
+  </info>
+</log>
+<log realm="rotate-log-listener" at="Mon Feb 15 07:47:02 COT 2021">
+   time exceeded - log rotated
+</log>
+</logger>

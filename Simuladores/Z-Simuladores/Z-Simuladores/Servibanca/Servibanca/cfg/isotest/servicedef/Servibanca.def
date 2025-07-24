@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<channel-adaptor name='Servibanca-adaptor'
+    class="org.jpos.q2.iso.ChannelAdaptor" logger="Servibanca-log">
+ <channel class="org.jpos.ee.action.isotest.HarBSHChannel" logger="Servibanca-log"
+       packager="org.jpos.iso.packager.GenericPackager">
+ <property name="packager-config" value="cfg/isotest/packagers/base24.xml" />
+  <property name="channel-config" value="cfg/isotest/channels/Ch_TCPPostilion2.bsh" />
+
+
+  <property name="host" value="172.20.2.200" />
+  <property name="port" value="13201" />
+ </channel>
+ <in>Servibanca-send</in>
+ <out>Servibanca-receive</out>
+ <reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>
+

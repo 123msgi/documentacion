@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/ HTTP/1.1" 302 0 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/login.html HTTP/1.1" 200 3820 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/css/cssmenu.css HTTP/1.1" 200 8896 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/style.css HTTP/1.1" 200 5840 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/images/jpos_t.jpg HTTP/1.1" 200 1902 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/images/go.gif HTTP/1.1" 200 983 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/js/cookies.js HTTP/1.1" 200 350 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:46 +0000] "GET /jposee/js/md5.js HTTP/1.1" 200 9308 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:47 +0000] "GET /favicon.ico HTTP/1.1" 404 1376 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:51 +0000] "POST /jposee/login.html HTTP/1.1" 302 0 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:51 +0000] "GET /jposee/ HTTP/1.1" 200 5410 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:53 +0000] "GET /jposee/isotest/list.html HTTP/1.1" 200 8148 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:54 +0000] "GET /jposee/js/listinfo.js HTTP/1.1" 200 1757 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:54 +0000] "GET /jposee/isotest/list_data_nameregistrar.html?sid=0.02294887433113768 HTTP/1.1" 200 21 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:59 +0000] "GET /jposee/isotest/list_data_nameregistrar.html?sid=0.05179024691464962 HTTP/1.1" 302 0 
+0:0:0:0:0:0:0:1 -  -  [05/feb/2021:16:23:59 +0000] "GET /jposee/login.html HTTP/1.1" 200 3820 

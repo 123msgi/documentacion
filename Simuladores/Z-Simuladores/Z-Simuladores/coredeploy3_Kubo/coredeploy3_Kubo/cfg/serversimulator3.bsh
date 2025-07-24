@@ -1,0 +1,176 @@
+import org.jpos.space.Space;
+import org.jpos.space.SpaceFactory;
+import org.jpos.iso.ISOMsg;
+import org.jpos.ee.hairi.ISOMsgShard;
+import org.jpos.ee.hairi.ISOMsgLog;
+import org.jpos.util.Log;
+import org.jpos.util.LogEvent;
+import org.jpos.util.Logger;
+import org.jpos.util.Profiler;
+import javax.naming.*;
+import org.jpos.q2.iso.*;
+import org.jpos.iso.*;
+import org.jpos.util.*;
+import org.jpos.iso.channel.*;
+
+
+      ISOMsg formatTLKMInqOutgoing(ISOMsg m)
+          {
+
+          m.set(3, "010072");
+
+          String phoneNum = m.getString(48);
+
+          StringTokenizer st = new StringTokenizer(phoneNum, "|");
+
+              String phoneNumF="";
+
+          while(st.hasMoreTokens())
+              phoneNumF+=st.nextToken();
+
+
+          m.unset(48);
+          m.set(103, phoneNumF);
+              
+              
+          return m;
+              
+
+          }
+
+              ISOMsg formatTLKMInqIncoming(ISOMsg m)
+                        {
+
+
+                        m.set(4, m.getString(4).substring(4, 16));
+                        m.set(3, "380000");
+
+                        String telkomfields = m.getString(48);
+
+                        String phoneNum = telkomfields.substring(0, 15);
+                        phoneNume=phoneNum.trim();
+                        String name = telkomfields.substring(15, 45);
+                        name=name.trim();
+
+                        
+                        String totalStr = phoneNum+"|"+name;
+
+
+                        String n = telkomfields.substring(45, 46);
+                        int in = 1;
+
+                    in = Integer.parseInt(n);
+         
+
+                      int refposi = 46;
+
+
+                        for ( int i=0;i<in;i++)
+
+              {
+
+                        refpos=refposi+i*41;
+              
+                        String amount = telkomfields.substring(refpos, refpos+16);
+                        print(amount);
+                        totalStr+="|"+amount;
+
+                        amount=amount.trim();
+                        String periodBill = telkomfields.substring(refpos+16, refpos+16+6);
+              totalStr+="|"+periodBill;
+
+                        String fineAmount = telkomfields.substring(refpos+16+6,refpos+16+6+9);
+                        String vatAmount = telkomfields.substring(refpos+16+6+9, refpos+16+6+9+10);
+
+
+
+              }
+
+                         m.set(48, totalStr);
+
+
+                        return m;
+
+
+                        }
+
+
+  System.out.println("Staring to log");
+          
+ISOMsg m = new ISOMsg();
+  
+  long startTime = new Date().getTime();
+  long sendingTime = 0;
+  long receiveTime = 0;
+  long dbTime = 0;
+
+
+        try {
+
+
+        Space sp = SpaceFactory.getSpace();
+       // message.set (3, "000001");
+
+
+
+      //  message.set (70, "301");
+
+
+        message.pack();
+          
+
+        MUX mux  = (MUX) NameRegistrar.get("mux.clientsimulator-mux");         
+
+          String proc="";
+          if(message.getString(3)!=null)
+                proc = message.getString(3);
+
+
+          if(proc.equals("380000"))
+            message = formatTLKMInqOutgoing(message);
+
+
+
+     
+        ISOMsg m = mux.request (message, 60000);
+
+              if(m.getString(3)!=null)
+                  proc = m.getString(3);
+
+
+                      if(proc.equals("010072"))
+                        m = formatTLKMInqIncoming(m);
+
+        
+
+    
+          source.send(m);
+       
+    
+          receiveTime=new Date().getTime()-startTime;
+            
+
+
+
+
+        ISOMsgShard isoshard = new ISOMsgShard();
+
+
+
+        isoshard.setTransactionID(m.getString(3));
+        isoshard.setSource("channel1");
+        isoshard.setDest("channel2");
+        isoshard.setDatenow(new Date());
+
+
+        ISOMsgLog isolog = new ISOMsgLog();
+
+        isolog.log(isoshard);
+     dbTime = new Date().getTime()-receiveTime-startTime;
+
+
+ System.out.println(sendingTime + ";"+receiveTime+";"+dbTime);
+  log.info("test log");
+  } catch(Exception e) {System.out.println(e);}
+
+

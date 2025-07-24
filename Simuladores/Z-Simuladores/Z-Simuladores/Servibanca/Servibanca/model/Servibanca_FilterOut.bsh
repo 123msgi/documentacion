@@ -1,0 +1,49 @@
+import org.jpos.iso.*;
+import java.util.random;
+import java.security.*;
+import javax.crypto.*;
+import org.omg.CORBA.portable.OutputStream;
+
+
+// Random campo P11
+Random random = new Random();
+int randomNum = random.nextInt((999999 - 100000) + 1) + 100000;
+String traceID = Integer.toString(randomNum);
+
+switch (message.getString(0).substring(12, 16)){
+
+	case "0800":
+		message.set(7, ISODate.getDateTime (new Date(),TimeZone.getTimeZone("GMT")));
+		message.set(11, traceID);
+		break;
+
+	case "0200":
+		message.set(7, ISODate.getDateTime (new Date(), TimeZone.getTimeZone("GMT")));
+		message.set(11, traceID);
+		message.set(12, ISODate.getTime(new Date()));
+		message.set(13, ISODate.getDate(new Date()));
+		message.set(17, ISODate.getDate(new Date()));
+		message.set(37, traceID + message.getString(12));
+		
+		switch (message.getString(3).substring(0, 2)){
+			case "01":
+			case "31":
+				if (message.getString(126) != null){
+					String s126 = message.getString(126);
+					message.set(126, s126.replace('@', '&'));
+				}
+				break;
+			
+			case "89":
+				if (message.getString(126) != null){
+					String s126 = message.getString(126).substring(0, 28) + message.getString(37) + message.getString(126).substring(40, 84);
+					message.set(126, s126.replace('@', '&'));
+				}
+				break;
+		}
+		break;
+
+	default:
+		//evt.addMessage("SIMULATOR ERROR: MTI NO CODIFICADO");
+		break;
+}

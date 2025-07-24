@@ -1,0 +1,226 @@
+import org.jpos.iso.ISOException;
+import org.jpos.iso.ISOMsg;
+import org.jpos.iso.ISOUtil;
+
+import org.jpos.iso.ISODate;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.omg.CORBA.portable.OutputStream;
+
+void getFileFinalcialData(String MTI) {
+
+	String FileReverse = "";
+	String FileDelete = "";
+
+	// Declaración e inicialización de variables
+	if(MTI.substring(0, 2).equals("02")){
+
+		// Se lee el archivo financial para cargar datos originales
+		FileReverse = "Kubo/financial/" + message.getString(3).substring(0, 4) + "00" + "_financial.properties";	
+		Properties reversalProperties = new Properties();
+		InputStream reversalInputStream = null;
+		reversalInputStream = new FileInputStream(FileReverse);
+		//Se cargan llaves
+		reversalProperties.load(reversalInputStream);
+		FileOutputStream outputStreamReversal = new FileOutputStream(FileReverse);
+		
+		if(message.getString(38) != null){
+			reversalProperties.setProperty("P38", message.getString(38));
+		}
+		
+		if(message.getString(39) != null){
+			reversalProperties.setProperty("P39", message.getString(39));
+		}
+		
+		reversalProperties.store(outputStreamReversal, "Reversal Actualizado:");
+		outputStreamReversal.close();
+		
+		// Se elimina archivo financial si la anulacion o cancelacion es exitosa
+		/*(message.getString(39).equals("00") && (typeTx.equals("02") || typeTx.equals("20"))){
+			reversalInputStream.close();
+			FileDelete = "Kubo/financial/" + "001000" + "_financial.properties";	
+			File fichero = new File(FileDelete);
+			fichero.delete();
+		}*/
+	}
+	
+}
+
+
+void calculateDataAscii(String MTI) {
+
+	Vector fieldPrinter = new Vector();
+	String ascciData = "";
+	String bitmapbit = "";
+	String indicatorField = "";
+	String length = "";
+	int lengthIndicator = 0;
+
+	for (int i = 0 ;i < 129; i++){
+		if (i <= 64) {
+			indicatorField = "P";
+		} else {
+			indicatorField = "S";
+		}
+		if (message.getString(i) != null){
+			if (i > 0){
+				bitmapbit = bitmapbit + "1";
+			}
+			fieldPrinter.add(indicatorField + Integer.toString(i) + "-> [" + message.getString(i) + "]");
+			// Dos primeras posiciones son indicadores de longitud
+			// Se adiciona campo P44
+			if (i == 2 || i == 32 || i == 33 || i == 35 || i == 44 || i == 45 || i == 100 || i == 102 || i == 103 || i == 104){
+				length = (message.getString(i).length()).toString();
+				lengthIndicator = ((message.getString(i).length()).toString()).length();
+				for (int i=0; i < 2 - lengthIndicator; i++) {
+					length = "0"+length;
+				}
+				ascciData = ascciData + length + message.getString(i);
+			}
+			// Tres primeras posiciones son indicadores de longiud
+			else if (i == 46 || i == 47 || i == 48 || i == 54 || i == 58 || i == 59 || i == 60 || i == 61 || i == 62 || i == 63 || i == 106 || i == 107 || i == 105 || i == 120 || i == 121 || i == 123 || i == 124 || i == 125 || i == 126)
+				{
+					length = (message.getString(i).length()).toString();
+					lengthIndicator = ((message.getString(i).length()).toString()).length();
+					for (int i=0; i < 3 - lengthIndicator; i++) {
+						length = "0" + length;
+				}
+				ascciData = ascciData + length + message.getString(i);
+			}
+			// Longitud fija		
+			else{
+					ascciData = ascciData+message.getString(i);
+				}
+		} 
+		else {
+			bitmapbit = bitmapbit + "0";
+			}
+	}
+
+	if (message.getMaxField() > 64){
+		bitmapbit = 1 + bitmapbit.substring(1, bitmapbit.length());
+	}
+	
+	bitmap = calculateDataBitmap(bitmapbit);
+	setLog(MTI, fieldPrinter);
+	
+	ascciData = ascciData.substring(0,16) + bitmap + ascciData.substring(16, ascciData.length());
+	evt.addMessage("ASCII Data: " + ascciData);
+
+}
+
+String calculateDataBitmap(String bitmapbit) {
+
+	// Se realiza calculo manual de BITMAP
+	int digitNumber = 1;
+	int sum = 0;
+	String binary = bitmapbit;
+	String bitmap = "";
+	for (int i = 0; i < binary.length(); i++) {
+		if (digitNumber == 1)
+			sum += Integer.parseInt(binary.charAt(i) + "") * 8;
+		else if (digitNumber == 2)
+			sum += Integer.parseInt(binary.charAt(i) + "") * 4;
+		else if (digitNumber == 3)
+			sum += Integer.parseInt(binary.charAt(i) + "") * 2;
+		else if (digitNumber == 4 || i < binary.length() + 1) {
+			sum += Integer.parseInt(binary.charAt(i) + "") * 1;
+			digitNumber = 0;
+			if (sum < 10)
+				bitmap = bitmap+String.valueOf(sum);
+			// System.out.print(sum);
+			else if (sum == 10)
+				//System.out.print("A");
+				bitmap = bitmap + "A";
+			else if (sum == 11)
+				//System.out.print("B");
+				bitmap = bitmap + "B";
+			else if (sum == 12)
+				//System.out.print("C");
+			bitmap = bitmap + "C";
+			else if (sum == 13)
+			//	System.out.print("D");
+			bitmap = bitmap + "D";
+			else if (sum == 14)
+				//System.out.print("E");
+			bitmap = bitmap + "E";
+			else if (sum == 15)
+				//System.out.print("F");
+			bitmap = bitmap + "F";
+			sum = 0;
+		}
+		digitNumber++;
+	}
+	
+	return bitmap;
+	// Fin calculo de BITMAP
+}
+
+
+void setLog(String MTI, Vector fieldPrinter) {
+	//evt.addMessage("MTI: " + MTI);
+	/*Crear archivo de salida de transaccion*/
+
+	String file = "";
+	boolean isSaveLog = false;
+
+	if("08".equals(MTI.substring(0,2))){
+		file = "Kubo/log/Tx_Admin/" + MTI + "_" + message.getString(70) + "_" + message.getString(11) + "_" + message.getString(7) + "_Adqu";
+		isSaveLog = false;
+	}
+	else {
+		file = "Kubo/log/Tx_Financial/" + MTI + "_" + message.getString(3) + "_" + message.getString(11) + "_" + message.getString(7).substring(0,4) + "_" +message.getString(7).substring(4,10) + "_" + message.getString(32) + "_Adqu";
+		isSaveLog = true;
+	}
+
+	if(isSaveLog) {
+
+		BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+
+		/*Escribir archivo de salida de transaccion*/
+		int i = 0;
+
+		while (i < fieldPrinter.size()) {
+			bw.write(fieldPrinter.elementAt(i) + "\n");
+			i += 1;
+		}
+
+		bw.close();
+		isSaveLog = false;
+	}
+}
+
+void main() {
+	
+	// Message Type
+	/* 
+	08xx - Administrativas
+	02xx - Financieras
+	04xx - Reversos
+	*/
+	String MTI = message.getString(0).substring(message.getString(0).length() - 4);
+
+	// Type Transaction
+	/* 
+	00 - Compra
+	01 - Retiro
+	02 - Anulacion
+	20 - Cancelacion
+	*/
+	String typeTx = message.getString(3) == null ? null :  message.getString(3).substring(0, 2);
+	
+	getFileFinalcialData(MTI);
+	calculateDataAscii(MTI);
+}
+
+
+main();

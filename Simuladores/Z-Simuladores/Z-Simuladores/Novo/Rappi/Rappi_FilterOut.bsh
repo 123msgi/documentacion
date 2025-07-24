@@ -1,0 +1,142 @@
+import org.jpos.iso.ISOException;
+import org.jpos.iso.ISOMsg;
+import org.jpos.iso.ISOUtil;
+import org.jpos.iso.ISODate;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import org.omg.CORBA.portable.OutputStream;
+
+String MTI = message.getString(0).substring(message.getString(0).length()-4);
+
+// Random campo P37
+Random random = new Random();
+int randomNum = random.nextInt((999999 - 100000) + 1) + 100000; 
+Random random2 = new Random();
+int randomNum2 = random.nextInt((999999 - 100000) + 1) + 100000; 
+String randomString = Integer.toString(randomNum);
+String randomString2 = Integer.toString(randomNum2);
+String randomString3 = randomString + randomString2;
+
+// Random campo P11
+Random  random3 = new Random();
+int p11 = random.nextInt((999999 - 100000) + 1) + 100000;
+String st11 = Integer.toString(p11);
+
+String nameFile = "";
+//String nameFileRev="";
+
+switch (message.getString(0).substring(12,16)){
+//evt.addMessage("MTI= " + message.getString(0).substring(12,16));
+
+	case "0800":
+	message.set(7,ISODate.getDateTime (new Date(),TimeZone.getTimeZone("GMT")));
+	message.set(11,st11);
+	break;
+
+	case "0200":
+	message.set(7,ISODate.getDateTime (new Date(), TimeZone.getTimeZone("GMT")));
+	message.set(11,st11);
+	message.set(12,ISODate.getTime(new Date()));
+	message.set(13,ISODate.getDate(new Date()));
+	message.set(17,ISODate.getDate(new Date()));
+	message.set(37,randomString3);
+	
+	// Campo 60, 63 y 126
+	if (message.getString(60) != null){
+		String campo60 = message.getString(60);
+		campo60 = campo60.replace('*', '+');
+		message.set(60, campo60);
+	}
+	if (message.getString(63) != null){
+		String campo63 = message.getString(63);
+		campo63 = campo63.replace('@', '&');
+		message.set(63, campo63);
+	}
+	if (message.getString(126) != null){
+		String campo126 = message.getString(126);
+		campo126 = campo126.replace('@', '&');
+		message.set(126, campo126);
+	}
+	
+	//Vector campos
+	Vector fields = new Vector();
+	for (int i=0;i<129;i++){
+		if (message.getString(i) != null){
+			if (i<=64){
+				fields.add("P"+Integer.toString(i)+"="+message.getString(i));
+			}
+			else {
+				fields.add("S"+Integer.toString(i)+"="+message.getString(i));
+			}
+		}
+	}
+	
+	//File
+	nameFile = "../Novo/Rappi/financial/"+message.getString(3)+"_financial.properties";
+	File output = new File(nameFile);
+	BufferedWriter bw = new BufferedWriter(new FileWriter(nameFile));
+	
+	int i = 0;
+	while (i<fields.size()) {
+		bw.write(fields.elementAt(i)+"\n");
+		i += 1;
+	}
+	bw.close();
+	break;
+	
+	case "0420":
+	public Properties getProperties();
+	Properties propertiesRev = new Properties();
+	InputStream is = null;
+	is = new FileInputStream("../Novo/Rappi/financial/"+message.getString(3)+"_financial.properties");
+	propertiesRev.load(is);
+	
+	Vector orderPropertiesVector = new Vector();
+	
+	Enumeration e = propertiesRev.keys();
+	while (e.hasMoreElements()) {
+		Object obj = e.nextElement();
+		orderPropertiesVector.add(Integer.parseInt(obj.toString().substring(1, obj.toString().length())));
+	}
+
+	Collections.sort(orderPropertiesVector);
+
+	int i = 1;
+
+	while (i < orderPropertiesVector.size()) {
+		String fieldProperties = "";
+		if (orderPropertiesVector.elementAt(i) < 64) {
+			fieldProperties = "P" + orderPropertiesVector.elementAt(i);
+		} else {
+			fieldProperties = "S" + orderPropertiesVector.elementAt(i);
+		}
+		if (propertiesRev.getProperty(fieldProperties) != null) {
+			message.set (orderPropertiesVector.elementAt(i), propertiesRev.getProperty(fieldProperties));
+			}
+		i++;
+	}
+	
+	message.set(7,ISODate.getDateTime (new Date(), TimeZone.getTimeZone("GMT")));
+	message.set(11,st11);
+	message.set(18,null);
+	message.set(25,null);
+	message.set(42,null);
+	message.set(47,null);
+	message.set(52,null);
+	message.set(58,null);
+	message.set(63,null);
+	message.set(90, "0200" + propertiesRev.getProperty("P37") + propertiesRev.getProperty("P13") + propertiesRev.getProperty("P12") + "00" + propertiesRev.getProperty("P13") + "0000000000");
+	message.set(95,"                                          ");
+	message.set(121,"                    ");
+	break;
+	
+	default:
+	evt.addMessage("SIMULATOR ERROR: MTI NO CODIFICADO");
+	break;
+}

@@ -1,0 +1,102 @@
+
+
+<p>&nbsp;</p>
+<form action="config_create.html" method="POST">
+<table width="80%" border="1">
+  <tr>
+    <td width="275" bgcolor="#99CCCC">&nbsp;</td>
+    <td width="634"><p>&nbsp;</p>
+      <p>CONFIGTYPE &nbsp;$cDef.configType</p>
+      <p>MESSAGE</p>
+      <table width="611" height="41" border="1">
+        <tr>
+          <td><div id="message">$message</div></td>
+        </tr>
+      </table>
+    <p>&nbsp;</p></td>
+    <td width="71" bgcolor="#99CCCC">&nbsp;</td>
+    <td width="138" bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>CONFIGNAME 
+      <input type="text" name="configname" id="configname" value="$cDef.configName" />
+      <input type="hidden" name="configtype" id="configtype" value="$cDef.configType" />
+      
+      </td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>MESSAGE TEMPLATE 
+      
+      </label></td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>CONTENT</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td><label>
+      <textarea name="content" id="content" cols="100" rows="10">$cDef.content</textarea>
+    </label></td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>DESCRIPTION</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td><label>
+      <textarea name="desc" id="desc" cols="100" rows="5">$cDef.desc</textarea>
+    </label></td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td><label>
+    <input type="submit" name="action" id="SAVE" value="CREATE" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="action" id="DELETE" value="DELETE" />
+    </label></td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+    <td bgcolor="#99CCCC">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</form>

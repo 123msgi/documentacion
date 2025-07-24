@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu name="main"> 
+ 
+     <node name="ISO8583 Test Service">
+        <node name="Create Service" url="isotest/stuff.html"/>
+        <separator/>
+      
+        <node url="isotest/list.html" name="List Services "   weight="10"/>
+     
+
+    </node>
+
+   <node name="Configurations">
+        <node name="Create ISOMessage" url="isotest/config_create.html?configtype=ISOMSG"/>
+        <node name="List ISOMessages" url="isotest/list_config.html?configtype=ISOMSG"/>
+  
+        <separator/>
+        <node name="Create Channels" url="isotest/config_create.html?configtype=CHANNEL"/>
+        <node name="List Channels" url="isotest/list_config.html?configtype=CHANNEL"/>
+     
+        <separator/>
+        <node name="Create Packagers" url="isotest/config_create.html?configtype=PACKAGER"/>
+        <node name="List Packagers" url="isotest/list_config.html?configtype=PACKAGER"/>
+     
+     
+
+    </node>
+
+
+ 
+</menu>
+

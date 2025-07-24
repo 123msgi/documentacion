@@ -1,0 +1,10 @@
+<mux class="org.jpos.q2.iso.QMUX" logger="Rappi-log" name="Rappi-mux">
+ <in>Rappi-receive</in>
+ <out>Rappi-send</out>
+ <unhandled>Rappi-unhandled</unhandled>
+ <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Rappi-log">
+  <property name="source" value="cfg/isotest/servicedef/support/Rappi.bsh" />
+  <property name="targeturl" value="http://" />
+ </request-listener>
+</mux>
+

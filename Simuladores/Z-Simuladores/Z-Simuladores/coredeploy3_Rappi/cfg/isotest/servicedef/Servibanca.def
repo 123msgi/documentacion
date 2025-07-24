@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<server class="org.jpos.q2.iso.QServer" logger="Servibanca-log"
+  name="Servibanca">
+ <attr name="port" type="java.lang.Integer">8522</attr>
+<channel name="post.channel"  class="org.jpos.iso.channel.ASCIIChannel"
+                                    packager="org.jpos.iso.packager.GenericPackager" logger="Servibanca-log">
+ <property name="packager-config" value="cfg/isotest/packagers/base24Rappi.xml" />
+
+ </channel>
+ <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Servibanca-log">
+  <property name="source" value="cfg/isotest/servicedef/support/Servibanca.bsh" />
+  <property name="targeturl" value="http://" />
+                                                              
+ </request-listener>
+<in>Servibanca-send</in>
+ <out>Servibanca-receive</out>
+
+
+</server>

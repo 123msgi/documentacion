@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.448">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.477">
+  <info>
+    new classloader [4d09b6db] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.479">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.485">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.605">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.611">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.616">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:39:48 COT 2021.627">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Tue Mar 02 16:39:49 COT 2021.204">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Tue Mar 02 16:39:49 COT 2021.207">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=32394632
+      totalMemory=41943040
+      inUseMemory=9548408
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Notification Thread,9,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor0 SelectChannelConnector@0.0.0.0:7000,5,main]
+            Thread[btpool0-3 - Acceptor1 SelectChannelConnector@0.0.0.0:7000,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6 - Acceptor0 SslSocketConnector@0.0.0.0:7002,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-16,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Common-Cleaner,8,InnocuousThreadGroup]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      mux.Servibanca-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=0, connected=true, last=0
+      logger.Servibanca-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:48 COT 2021.997">
+  <info>
+    shutting down (hook)
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.125">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.136">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.150">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.162">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.165">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.177">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\Servibanca-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.180">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\99_sysmon.xml
+  </trace>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Tue Mar 02 16:57:49 COT 2021.182">
+  <info>
+    Stopping SystemMonitor
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.195">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.197">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\90_jetty.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.210">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.213">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\01_start.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.223">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Tue Mar 02 16:57:49 COT 2021.226">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\Servibanca\Servibanca\deploy\00_logger.xml
+  </trace>
+</log>
+</logger>

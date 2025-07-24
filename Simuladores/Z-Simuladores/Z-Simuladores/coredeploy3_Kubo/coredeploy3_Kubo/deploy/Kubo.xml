@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<channel-adaptor name='Kubo-adaptor' class="org.jpos.q2.iso.ChannelAdaptor" logger="Kubo-log">
+	<channel class="org.jpos.ee.action.isotest.HarBSHChannel" logger="Kubo-log" packager="org.jpos.iso.packager.GenericPackager">
+		<property name="packager-config" value="cfg/isotest/packagers/base24.xml"/>
+		<property name="channel-config" value="cfg/isotest/channels/Ch_TCPPostilion2.bsh"/>
+		<!--Configuracion archivos filtro de mensajeria-->
+		<filter class="org.jpos.bsh.BSHFilter" direction="incoming">
+			<property name="source" value="Kubo/Kubo_FilterIn.bsh"/>
+		</filter>
+		<filter class="org.jpos.bsh.BSHFilter" direction="outgoing">
+			<property name="source" value="Kubo/Kubo_FilterOut.bsh"/>
+		</filter>
+		<property name="host" value="172.20.2.200"/>
+		<property name="port" value="8011"/>
+	</channel>
+	<request-listener class="org.jpos.bsh.BSHRequestListener" logger="Kubo-log">
+		<property name="source" value="cfg/isotest/servicedef/support/Kubo.bsh"/>
+		<property name="targeturl" value="http://"/>
+	</request-listener>
+	<in>Kubo-send</in>
+	<out>Kubo-receive</out>
+	<reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>

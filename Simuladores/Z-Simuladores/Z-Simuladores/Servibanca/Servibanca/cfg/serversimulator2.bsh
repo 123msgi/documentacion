@@ -1,0 +1,83 @@
+import org.jpos.space.Space;
+import org.jpos.space.SpaceFactory;
+import org.jpos.iso.ISOMsg;
+import org.jpos.ee.hairi.ISOMsgShard;
+import org.jpos.ee.hairi.ISOMsgLog;
+import org.jpos.util.Log;
+import org.jpos.util.LogEvent;
+import org.jpos.util.Logger;
+import org.jpos.util.Profiler;
+import javax.naming.*;
+import org.jpos.q2.iso.*;
+import org.jpos.iso.*;
+import org.jpos.util.*;
+import org.jpos.iso.channel.*;
+
+
+
+
+
+
+  System.out.println("Staring to log");
+          
+ISOMsg m = new ISOMsg();
+    //    Profiler prof = new Profiler();
+     //   LogEvent evt = new LogEvent (new Object(), "any-transaction", prof);
+
+  long startTime = new Date().getTime();
+  long sendingTime = 0;
+  long receiveTime = 0;
+  long dbTime = 0;
+
+
+        try {
+
+
+        Space sp = SpaceFactory.getSpace();
+        message.set (3, "000001");
+
+
+
+        message.set (70, "301");
+
+    ASCIIChannel ca = (ASCIIChannel) NameRegistrar.get("channel.clientsimulator-adaptor");         
+
+       
+     message.setPackager(ca.getPackager());
+     
+
+
+        sp.out ("clientsimulator-send", message); // "sample-send" is ChannelAdaptor's input
+
+      sendingTime=new Date().getTime()-startTime;
+
+
+        m = sp.in ("clientsimulator-receive", 60000);
+
+          receiveTime=new Date().getTime()-sendingTime;
+            
+
+
+        source.send (m);
+
+
+        ISOMsgShard isoshard = new ISOMsgShard();
+
+//isoshard.setTransactionID="12345";
+
+
+        isoshard.setTransactionID(m.getString(3));
+        isoshard.setSource("channel1");
+        isoshard.setDest("channel2");
+        isoshard.setDatenow(new Date());
+
+
+        ISOMsgLog isolog = new ISOMsgLog();
+
+        isolog.log(isoshard);
+     dbTime = new Date().getTime()-receiveTime;
+
+
+ System.out.println(sendingTime + ";"+receiveTime+";"+dbTime);
+  log.info("test log");
+  } catch(Exception e) {System.out.println(e);}

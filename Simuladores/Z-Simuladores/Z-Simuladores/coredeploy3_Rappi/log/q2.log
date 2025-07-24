@@ -1,0 +1,2877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 17:57:12 COT 2020.428">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=11861000
+      totalMemory=27410432
+      inUseMemory=15549432
+    </memory>
+    <threads>
+            delay=-11290 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=3342610ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 18:56:50 COT 2020.401">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10799832
+      totalMemory=27410432
+      inUseMemory=16610600
+    </memory>
+    <threads>
+            delay=-22030 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=6920587ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 19:56:39 COT 2020.325">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=14005384
+      totalMemory=27410432
+      inUseMemory=13405048
+    </memory>
+    <threads>
+            delay=-11083 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=10509511ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 20:57:23 COT 2020.930">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9982784
+      totalMemory=27410432
+      inUseMemory=17427648
+    </memory>
+    <threads>
+            delay=44598 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=14154125ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 21:57:24 COT 2020.881">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=13990792
+      totalMemory=27410432
+      inUseMemory=13423664
+    </memory>
+    <threads>
+            delay=935 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=17755062ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 22:56:42 COT 2020.447">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=12305728
+      totalMemory=27410432
+      inUseMemory=15104704
+    </memory>
+    <threads>
+            delay=-42436 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=21312636ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Wed Mar 11 23:57:05 COT 2020.674">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10594992
+      totalMemory=27410432
+      inUseMemory=16815440
+    </memory>
+    <threads>
+            delay=23217 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=285, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=0, rx=285, connects=2, last=1583964089821, idle=24935860ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.143">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.175">
+  <info>
+    new classloader [1fe8fdd] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.176">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.180">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.327">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.335">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.343">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 12 11:23:01 COT 2020.359">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 11:23:02 COT 2020.526">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 11:23:02 COT 2020.527">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=4069272
+      totalMemory=16318464
+      inUseMemory=12249192
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=0, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 12:23:56 COT 2020.59">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=14780560
+      totalMemory=33087488
+      inUseMemory=18306928
+    </memory>
+    <threads>
+            delay=53529 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=246, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=6, rx=246, connects=4, last=1584033826183, idle=9879ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 13:23:55 COT 2020.11">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=14067528
+      totalMemory=33087488
+      inUseMemory=19019960
+    </memory>
+    <threads>
+            delay=-1051 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=486, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=6, rx=486, connects=4, last=1584037428696, idle=6317ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 14:23:10 COT 2020.890">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=17894832
+      totalMemory=50589696
+      inUseMemory=32694864
+    </memory>
+    <threads>
+            delay=-44123 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=726, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=6, rx=726, connects=4, last=1584040988513, idle=2380ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 15:24:22 COT 2020.589">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=16478088
+      totalMemory=50589696
+      inUseMemory=34111608
+    </memory>
+    <threads>
+            delay=71696 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=965, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=6, rx=965, connects=4, last=1584044659575, idle=3020ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 16:23:32 COT 2020.566">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=12898704
+      totalMemory=50589696
+      inUseMemory=37690992
+    </memory>
+    <threads>
+            delay=-50029 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=1082, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=6, rx=1082, connects=4, last=1584046383110, idle=1829463ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 12 17:23:12 COT 2020.358">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=12611488
+      totalMemory=50589696
+      inUseMemory=37987352
+    </memory>
+    <threads>
+            delay=-20215 ms
+          threads=24
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-sender-Rappi-send,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      channel.Rappi-adaptor: org.jpos.ee.action.isotest.HarBSHChannel
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=1082, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+      Rappi-adaptor: org.jpos.q2.iso.ChannelAdaptor
+        tx=6, rx=1082, connects=4, last=1584046383110, idle=5409253ms
+      logger.: org.jpos.util.Logger
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.127">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.159">
+  <info>
+    new classloader [1fe8fdd] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.161">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.164">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.342">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.350">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.358">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:01:35 COT 2020.374">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 10:01:36 COT 2020.649">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 10:01:36 COT 2020.650">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=4096136
+      totalMemory=16318464
+      inUseMemory=12222328
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+    </threads>
+    --- name-registrar ---
+      tspace:default: org.jpos.space.TSpace
+      logger.Q2: org.jpos.util.Logger
+      mux.Rappi-mux: org.jpos.q2.iso.QMUX
+        tx=0, rx=0, tx_expired=0, tx_pending=0, rx_expired=0, rx_pending=0, rx_unhandled=0, rx_forwarded=0, connected=true, last=0
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:29 COT 2020.432">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:29 COT 2020.433">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:29 COT 2020.435">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:29 COT 2020.437">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:29 COT 2020.439">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:29 COT 2020.440">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:31 COT 2020.957">
+  <info>
+    new classloader [1957222] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:34 COT 2020.475">
+  <info>
+    new classloader [18f772b] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:34 COT 2020.476">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:34 COT 2020.478">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:02:34 COT 2020.480">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:53 COT 2020.780">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:53 COT 2020.780">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:53 COT 2020.781">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:53 COT 2020.781">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:53 COT 2020.782">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:53 COT 2020.782">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:56 COT 2020.301">
+  <info>
+    new classloader [65eef5] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:56 COT 2020.301">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:56 COT 2020.304">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:26:56 COT 2020.307">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:26 COT 2020.619">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:26 COT 2020.619">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:29 COT 2020.147">
+  <info>
+    new classloader [1862b23] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:29 COT 2020.148">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:49 COT 2020.229">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:49 COT 2020.229">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:49 COT 2020.231">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:49 COT 2020.231">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:49 COT 2020.232">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:49 COT 2020.232">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:51 COT 2020.762">
+  <info>
+    new classloader [141763d] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:51 COT 2020.763">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:51 COT 2020.765">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:28:51 COT 2020.767">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:14 COT 2020.336">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:14 COT 2020.337">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:14 COT 2020.339">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:14 COT 2020.340">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:14 COT 2020.341">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:14 COT 2020.341">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:16 COT 2020.855">
+  <info>
+    new classloader [b95046] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:16 COT 2020.856">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:16 COT 2020.858">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:16 COT 2020.860">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:54 COT 2020.473">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:54 COT 2020.475">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:54 COT 2020.477">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:54 COT 2020.478">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:54 COT 2020.479">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:54 COT 2020.480">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:57 COT 2020.2">
+  <info>
+    new classloader [3de955] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:57 COT 2020.3">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:57 COT 2020.5">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:57 COT 2020.7">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:57 COT 2020.9">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Servibanca-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:29:57 COT 2020.11">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Servibanca.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.606">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.606">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.607">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.608">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi-mux.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.609">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.609">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Rappi.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.610">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Servibanca-log.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.611">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Servibanca-log.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.612">
+  <trace>
+    undeploying:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Servibanca.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:19 COT 2020.613">
+  <info>
+    undeployed:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\Servibanca.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Mar 13 10:30:22 COT 2020.132">
+  <info>
+    new classloader [108f1fb] has been created
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 11:01:36 COT 2020.654">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=22144344
+      totalMemory=35164160
+      inUseMemory=13019816
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 12:01:36 COT 2020.660">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=24956488
+      totalMemory=35164160
+      inUseMemory=10207672
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 13:01:36 COT 2020.662">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=18850224
+      totalMemory=35164160
+      inUseMemory=16313936
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 15:07:49 COT 2020.741">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=22513816
+      totalMemory=35164160
+      inUseMemory=12650344
+    </memory>
+    <threads>
+            delay=3973076 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 16:07:49 COT 2020.743">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=25877656
+      totalMemory=35164160
+      inUseMemory=9286504
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 17:07:49 COT 2020.746">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=19728688
+      totalMemory=35164160
+      inUseMemory=15435472
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 18:07:49 COT 2020.757">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=23312736
+      totalMemory=35164160
+      inUseMemory=11851424
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 13 19:07:49 COT 2020.764">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=26791664
+      totalMemory=35164160
+      inUseMemory=8372496
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=29
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[Timer-6,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+            Thread[channel-receiver-Rappi-receive,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.: org.jpos.util.Logger
+      tspace:default: org.jpos.space.TSpace
+      logger.Servibanca-log: org.jpos.util.Logger
+      logger.Q2: org.jpos.util.Logger
+      logger.Rappi-log: org.jpos.util.Logger
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Thu Mar 26 11:36:30 COT 2020.215">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 26 11:36:30 COT 2020.246">
+  <info>
+    new classloader [1fe8fdd] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 26 11:36:30 COT 2020.248">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 26 11:36:30 COT 2020.251">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Thu Mar 26 11:36:30 COT 2020.425">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 11:36:31 COT 2020.595">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 11:36:31 COT 2020.596">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=5088624
+      totalMemory=16318464
+      inUseMemory=11229840
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 12:36:31 COT 2020.599">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=1861416
+      totalMemory=16318464
+      inUseMemory=14457048
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 13:36:31 COT 2020.605">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10281624
+      totalMemory=20357120
+      inUseMemory=10075496
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 14:36:31 COT 2020.611">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=7276712
+      totalMemory=20357120
+      inUseMemory=13080408
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 15:36:31 COT 2020.618">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10259184
+      totalMemory=20357120
+      inUseMemory=10097936
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 16:36:31 COT 2020.625">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=6577792
+      totalMemory=20357120
+      inUseMemory=13785656
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 17:36:31 COT 2020.632">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9043824
+      totalMemory=20357120
+      inUseMemory=11313296
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 18:36:31 COT 2020.640">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=6708976
+      totalMemory=20357120
+      inUseMemory=13648144
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 19:36:31 COT 2020.643">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9233920
+      totalMemory=20357120
+      inUseMemory=11123200
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Thu Mar 26 20:36:31 COT 2020.649">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=6233200
+      totalMemory=20357120
+      inUseMemory=14123920
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 07:22:20 COT 2020.230">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=7477080
+      totalMemory=20357120
+      inUseMemory=12880040
+    </memory>
+    <threads>
+            delay=35148575 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 08:22:20 COT 2020.238">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=7175016
+      totalMemory=20357120
+      inUseMemory=13182104
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 09:22:20 COT 2020.240">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=6872296
+      totalMemory=20357120
+      inUseMemory=13484824
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 10:22:20 COT 2020.247">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=6582352
+      totalMemory=20357120
+      inUseMemory=13774768
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 11:22:20 COT 2020.254">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=5988408
+      totalMemory=20357120
+      inUseMemory=14371472
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 12:22:20 COT 2020.262">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=11319632
+      totalMemory=20357120
+      inUseMemory=9040144
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 13:22:20 COT 2020.265">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10981872
+      totalMemory=20357120
+      inUseMemory=9375248
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 14:22:20 COT 2020.268">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10679784
+      totalMemory=20357120
+      inUseMemory=9677336
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 15:22:20 COT 2020.274">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10349736
+      totalMemory=20357120
+      inUseMemory=10007384
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 16:22:20 COT 2020.281">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=10002224
+      totalMemory=20357120
+      inUseMemory=10354896
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 17:22:20 COT 2020.288">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9664432
+      totalMemory=20357120
+      inUseMemory=10692688
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 18:22:20 COT 2020.295">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=9315712
+      totalMemory=20357120
+      inUseMemory=11041408
+    </memory>
+    <threads>
+            delay=1 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Mar 27 19:22:20 COT 2020.300">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=8975592
+      totalMemory=20357120
+      inUseMemory=11381528
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=22
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[Timer-6,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Fri Feb 05 11:23:04 COT 2021.225">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:04 COT 2021.326">
+  <info>
+    new classloader [ff0aa7] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:04 COT 2021.333">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:04 COT 2021.347">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:04 COT 2021.776">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 05 11:23:08 COT 2021.376">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 05 11:23:08 COT 2021.380">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=4919752
+      totalMemory=16318464
+      inUseMemory=11398712
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4 - Acceptor1 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8 - Acceptor0 SslSocketConnector@0.0.0.0:9092,5,main]
+            Thread[btpool0-9 - Acceptor0 SelectChannelConnector@0.0.0.0:9090,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.RotateLogListener">
+<log realm="Q2.system" at="Fri Feb 05 11:23:27 COT 2021.24">
+  <info>
+    Q2 started, deployDir=C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:27 COT 2021.61">
+  <info>
+    new classloader [1ae613] has been created
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:27 COT 2021.65">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\01_start.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:27 COT 2021.74">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\90_jetty.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Fri Feb 05 11:23:27 COT 2021.458">
+  <info>
+    deploy:C:\Users\jcorrea\OneDrive - Novopayment Inc\Simuladores\Z-Simuladores\Z-Simuladores\coredeploy3_Rappi\deploy\99_sysmon.xml
+  </info>
+</log>
+<log realm="jetty" at="Fri Feb 05 11:23:30 COT 2021.514">
+  <warn>
+    start
+    <exception name="Multiple exceptions">
+    org.mortbay.util.MultiException[java.net.BindException: Address already in use: bind, java.net.BindException: Address already in use: JVM_Bind]
+	at org.mortbay.jetty.Server.doStart(Server.java:188)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.jpos.q2.jetty.Jetty6.startService(Jetty6.java:42)
+	at org.jpos.q2.QBeanSupport.start(QBeanSupport.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sun.reflect.misc.Trampoline.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sun.reflect.misc.MethodUtil.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.StandardMBeanIntrospector.invokeM2(Unknown Source)
+	at com.sun.jmx.mbeanserver.StandardMBeanIntrospector.invokeM2(Unknown Source)
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(Unknown Source)
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(Unknown Source)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(Unknown Source)
+	at org.jpos.q2.QFactory.startQBean(QFactory.java:178)
+	at org.jpos.q2.Q2.start(Q2.java:459)
+	at org.jpos.q2.Q2.deploy(Q2.java:271)
+	at org.jpos.q2.Q2.run(Q2.java:164)
+	at java.lang.Thread.run(Unknown Source)
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketAdaptor.bind(Unknown Source)
+	at org.mortbay.jetty.nio.SelectChannelConnector.open(SelectChannelConnector.java:216)
+	at org.mortbay.jetty.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:315)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.Server.doStart(Server.java:235)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.jpos.q2.jetty.Jetty6.startService(Jetty6.java:42)
+	at org.jpos.q2.QBeanSupport.start(QBeanSupport.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sun.reflect.misc.Trampoline.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sun.reflect.misc.MethodUtil.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.StandardMBeanIntrospector.invokeM2(Unknown Source)
+	at com.sun.jmx.mbeanserver.StandardMBeanIntrospector.invokeM2(Unknown Source)
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(Unknown Source)
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(Unknown Source)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(Unknown Source)
+	at org.jpos.q2.QFactory.startQBean(QFactory.java:178)
+	at org.jpos.q2.Q2.start(Q2.java:459)
+	at org.jpos.q2.Q2.deploy(Q2.java:271)
+	at org.jpos.q2.Q2.run(Q2.java:164)
+	at java.lang.Thread.run(Unknown Source)
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.bind(Unknown Source)
+	at java.net.PlainSocketImpl.bind(Unknown Source)
+	at java.net.ServerSocket.bind(Unknown Source)
+	at java.net.ServerSocket.<init>(Unknown Source)
+	at java.net.ServerSocket.<init>(Unknown Source)
+	at javax.net.ssl.SSLServerSocket.<init>(Unknown Source)
+	at sun.security.ssl.SSLServerSocketImpl.<init>(Unknown Source)
+	at sun.security.ssl.SSLServerSocketFactoryImpl.createServerSocket(Unknown Source)
+	at org.mortbay.jetty.security.SslSocketConnector.newServerSocket(SslSocketConnector.java:425)
+	at org.mortbay.jetty.bio.SocketConnector.open(SocketConnector.java:73)
+	at org.mortbay.jetty.AbstractConnector.doStart(AbstractConnector.java:283)
+	at org.mortbay.jetty.bio.SocketConnector.doStart(SocketConnector.java:147)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.Server.doStart(Server.java:235)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.jpos.q2.jetty.Jetty6.startService(Jetty6.java:42)
+	at org.jpos.q2.QBeanSupport.start(QBeanSupport.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sun.reflect.misc.Trampoline.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sun.reflect.misc.MethodUtil.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.StandardMBeanIntrospector.invokeM2(Unknown Source)
+	at com.sun.jmx.mbeanserver.StandardMBeanIntrospector.invokeM2(Unknown Source)
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(Unknown Source)
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(Unknown Source)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(Unknown Source)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(Unknown Source)
+	at org.jpos.q2.QFactory.startQBean(QFactory.java:178)
+	at org.jpos.q2.Q2.start(Q2.java:459)
+	at org.jpos.q2.Q2.deploy(Q2.java:271)
+	at org.jpos.q2.Q2.run(Q2.java:164)
+	at java.lang.Thread.run(Unknown Source)
+    </exception>
+  </warn>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 05 11:23:30 COT 2021.526">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Fri Feb 05 11:23:30 COT 2021.526">
+  <info>
+    <release>1.6.8 $Revision: 2936 $</release>
+    <memory>
+       freeMemory=3971856
+      totalMemory=16318464
+      inUseMemory=12346608
+    </memory>
+    <threads>
+            delay=0 ms
+          threads=21
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Attach Listener,5,system]
+            Thread[Thread-0,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Timer-1,5,main]
+            Thread[btpool0-0,5,main]
+            Thread[btpool0-1,5,main]
+            Thread[btpool0-2,5,main]
+            Thread[btpool0-3,5,main]
+            Thread[btpool0-4,5,main]
+            Thread[btpool0-5,5,main]
+            Thread[btpool0-6,5,main]
+            Thread[btpool0-7,5,main]
+            Thread[btpool0-8,5,main]
+            Thread[btpool0-9,5,main]
+            Thread[Timer-2,5,main]
+            Thread[Timer-3,5,main]
+            Thread[Timer-4,5,main]
+            Thread[Store default Spool Thread,5,main]
+            Thread[Thread-18,5,main]
+            Thread[Timer-5,5,main]
+            Thread[SystemMonitor,5,main]
+    </threads>
+    --- name-registrar ---
+      logger.Q2: org.jpos.util.Logger
+  </info>
+</log>

@@ -1,0 +1,270 @@
+<div class="hnav">
+  #parse("repository:fs_repository://user/hnav.html")
+</div>
+
+<br>
+<script type="text/javascript" src="$request.contextPath/js/createservice.js"></script>
+
+<script type="text/javascript">
+
+    var hashPackagerNames= new Object();
+	
+
+
+    #foreach($m in $packagerdefs)
+        hashPackagerNames["$m.packagername"]="$m.packagerdesc";
+
+    #end
+
+
+   var hashChannelNames= new Object();
+
+
+    #foreach($m in $channeldefs)
+        hashChannelNames["$m.channelname"]="$m.channeldesc";
+
+    #end
+
+
+
+   var customChannels = '<select name="channel" id="select2" onchange="changeChannel()"> \
+                                                                                            \
+     #foreach ($m in $channeldefs.iterator())                                               \
+	          <option value="$m.channelname" #if($channel==$m.channelname) selected #end >$m.channelname</option>  \
+                         \
+ #end                      \
+    </select>     ';
+	
+
+  
+  
+   var defaultChannels =   '<select name="channel" id="select2" onchange="changeContent()"> \
+            <option value="ASCIIChannel">ASCIIChannel</option>	\
+            <option value="ASCII2BChannel">ASCII2BChannel</option>	\
+            <option value="ASCII2BRChannel">ASCII2BRChannel</option>	\
+            <option value="NACChannel">NACChannel</option>	\
+            <option value="AmexChannel">AmexChannel</option>	\
+            <option value="BASE24Channel">BASE24Channel</option>	\
+            <option value="BASE24TCPChannel">BASE24TCPChannel</option>	\
+            <option value="BCDChannel">BCDChannel</option>	\
+            <option value="CSChannel">CSChannel</option>	\
+            <option value="GZIPChannel">GZIPChannel</option>	\
+            <option value="HEXChannel">HEXChannel</option>	\
+            <option value="NCCChannel">NCCChanel</option>	\
+            <option value="PADChannel">PADChannel</option>	\
+            <option value="PostChannel">PostChannel</option>	\
+            <option value="RawChannel">RawChannel</option>	\
+            <option value="RBPChannel">RBPChannel</option>	\
+            <option value="TelnetXMLChannel">TelnetXMLChannel</option>	\
+            <option value="VAPChannel">VAPChannel</option>	\
+            <option value="X25Channel">X25Channel</option>	\
+            <option value="XMLChannel">XMLChannel</option>	\
+          </select>  	';
+   
+
+</script>
+
+
+
+<div class="fullpane">
+<table border="1" width="60%" align="left">
+ <tr class="heading">
+  <th align="left">Username</th>
+  <th align="left">Name</th>
+  <th align="left">Permissions</th>
+ </tr>
+
+#foreach( $user in $users)
+    #set($self = "$request.contextPath/user/show.html?id=$user.getId()")
+
+    #if($velocityCount%2==0)
+        #set ($cl ="odd")
+    #else
+        #set ($cl = "even")
+    #end
+    <tr class="$cl">
+       <td width="10%">
+        <a href="$self">$user.nick</a>
+       </td>
+       <td width="20%" nowrap>$user.name</td>
+       <td width="50%" nowrap>
+       #if ($user.permissions.size() > 0)
+        $user.permissions
+       #end
+       </td>
+    </tr>
+#end
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="728" height="74" border="1">
+  <tr>
+    <td width="59">&nbsp;</td>
+    <td width="413"><p>Message Box :</p>
+      <p>$message</p></td>
+    <td width="234">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<form id="form1" name="form1" method="post" action="${request.getContextPath()}/isotest/stuff.html">
+  <p>
+    <input name="servicename_hide" type="hidden" id="servicename_hide" value="$servicename" />
+  </p>
+  <table width="1346" height="131" border="1">
+    <tr>
+      <td width="564">CREATE</td>
+      <td width="393">Status : isRunning ?</td>
+      <td width="367">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>NAME</td>
+      <td><label>
+        <input name="servicename" type="text" id="textfield4" value="$servicename" />
+      </label></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <select name="servicetype" id="select" onchange="changeService()">
+          <option value="Server"   
+          #if($servicetype=="Server") 
+          selected
+          #end
+          >Server</option>
+          <option value="Client"  
+          #if($servicetype=="Client")
+          selected
+          #end
+         
+          >Client</option>
+        </select>
+      </label></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><div id="destip">   </div></td>
+      <td>Port
+        <input name="port" type="text" id="textfield3" value="$port" size="5" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><label><br />
+      </label></td>
+    </tr>
+    <tr>
+      <td><p>Channel Type</p>
+        <p>&nbsp;</p></td>
+      <td><label>
+        <p>
+          <select name="channeltype" id="channeltypeid" onchange="changeChannelType()">
+            <option value="JPOSdefault" #if($channeltype=='JPOSDefault') selected #end >JPOS default</option>
+            <option value="Custom"   #if($channeltype=='Custom') selected #end >Custom</option>
+          </select>
+          </p>
+        <p><br />
+          <br />
+          
+          
+        </p>
+        <div id="channellist">
+     
+   
+          
+          
+           #if($channeltype=='Custom')  
+           
+           <select name="channel" id="select2" onchange="changeChannel()"> 
+                                                                                            
+     #foreach ($m in $channeldefs.iterator())                                               
+	          <option value="$m.channelname" #if($channelname==$m.channelname) selected #end >$m.channelname</option>  
+                         
+ #end                      
+    </select>     
+           
+           
+      #else
+     
+          <select name="channel" id="select2" onchange="changeContent()">
+            <option value="ASCIIChannel" #if($channelname=='ASCIIChannel') selected #end  >ASCIIChannel</option>
+            <option value="ASCII2BChannel" #if($channelname=='ASCII2BChannel') selected #end >ASCII2BChannel</option>
+            <option value="ASCII2BRChannel" #if($channelname=='ASCII2BRChannel') selected #end >ASCII2BRChannel</option>
+            <option value="NACChannel" #if($channelname=='NACChannel') selected #end >NACChannel</option>
+            <option value="AmexChannel" #if($channelname=='AmexChannel') selected #end >AmexChannel</option>
+            <option value="BASE24Channel" #if($channelname=='BASE24Channel') selected #end >BASE24Channel</option>
+            <option value="BASE24TCPChannel" #if($channelname=='BASE24TCPChannel') selected #end >BASE24TCPChannel</option>
+            <option value="BCDChannel" #if($channelname=='BCDChannel') selected #end >BCDChannel</option>
+            <option value="CSChannel" #if($channelname=='CSChannel') selected #end >CSChannel</option>
+            <option value="GZIPChannel" #if($channelname=='GZIPChannel') selected #end >GZIPChannel</option>
+            <option value="HEXChannel" #if($channelname=='HEXChannel') selected #end >HEXChannel</option>
+            <option value="NCCChannel" #if($channelname=='NCCChannel') selected #end >NCCChanel</option>
+            <option value="PADChannel" #if($channelname=='PADChannel') selected #end >PADChannel</option>
+            <option value="PostChannel" #if($channelname=='PostChannel') selected #end >PostChannel</option>
+            <option value="RawChannel" #if($channelname=='RawChannel') selected #end >RawChannel</option>
+            <option value="RBPChannel" #if($channelname=='RBPChannel') selected #end >RBPChannel</option>
+            <option value="TelnetXMLChannel" #if($channelname=='TelnetXMLChannel') selected #end >TelnetXMLChannel</option>
+            <option value="VAPChannel" #if($channelname=='VAPChannel') selected #end >VAPChannel</option>
+            <option value="X25Channel" #if($channelname=='X25Channel') selected #end >X25Channel</option>
+            <option value="XMLChannel" #if($channelname=='XMLChannel') selected #end >XMLChannel</option>
+          </select>
+          
+          #end
+          
+          </div>
+        <br />
+      </label></td>
+      <td ><div id="channeldesc">Select your ISOChannel Type, ISOChannel determines the message length and TPDU preceeding your ISO Message on transmission</div></td>
+    </tr>
+    <tr>
+      <td>Packager</td>
+      <td><select name="packager" id="select3" onchange="changePackager()">
+
+     #foreach ($m in $packagerdefs.iterator())
+          <option value="$m.packagername" #if($packagername==$m.packagername) selected #end >$m.packagername</option>
+
+
+          
+
+
+
+      #end
+
+
+
+
+      
+
+        
+        
+        
+        
+        
+      </select></td>
+      <td><div id="packagerdesc">Select your ISOPackager Type, ISOPackager determines the ISO field format within your ISO Messages, types such as LLVAR, IFNUM and etc.</div></td>
+    </tr>
+    <tr>
+      <td>Crate or Update Services</td>
+      <td><label>
+      <input type="submit" name="action" id="button" value="CREATE" />
+        </label></td>
+      <td><label>
+          <input type="submit" name="button3" id="button3" value="DELETE" />
+        </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>

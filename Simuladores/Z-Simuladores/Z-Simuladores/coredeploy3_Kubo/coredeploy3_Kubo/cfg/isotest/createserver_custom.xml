@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<server class="org.jpos.q2.iso.QServer" logger="Q2"
+  name="simulator_10000">
+ <attr name="port" type="java.lang.Integer">10030</attr>
+ <channel class="org.jpos.ee.action.isotest.HarBSHChannel"
+        logger="Q2" packager="org.jpos.simulator.packager.SIKM1Packager">
+     <property name="channel-config" value="cfg/isotest/channels/channel1.bsh" />
+ </channel>
+ <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Q2">
+  <property name="source" value="cfg/serversimulator.bsh" />
+ </request-listener>
+<in>serversimulator-send</in>
+ <out>serversimulator-receive</out>
+    <property name="channel-config" value="cfg/isotest/channels/channel1.bsh" />
+
+</server>

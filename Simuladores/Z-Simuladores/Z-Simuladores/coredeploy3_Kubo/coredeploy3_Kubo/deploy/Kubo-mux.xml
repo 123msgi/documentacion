@@ -1,0 +1,10 @@
+<mux class="org.jpos.q2.iso.QMUX" logger="Kubo-log" name="Kubo-mux">
+ <in>Kubo-receive</in>
+ <out>Kubo-send</out>
+ <unhandled>Kubo-unhandled</unhandled>
+ <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Kubo-log">
+  <property name="source" value="cfg/isotest/servicedef/support/Kubo.bsh" />
+  <property name="targeturl" value="http://" />
+ </request-listener>
+</mux>
+

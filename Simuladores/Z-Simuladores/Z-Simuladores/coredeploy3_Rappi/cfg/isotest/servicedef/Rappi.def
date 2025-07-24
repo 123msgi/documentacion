@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<channel-adaptor name='Rappi-adaptor'
+    class="org.jpos.q2.iso.ChannelAdaptor" logger="Rappi-log">
+ <channel class="org.jpos.iso.channel.ASCIIChannel" logger="Rappi-log"
+       packager="org.jpos.iso.packager.GenericPackager">
+ <property name="packager-config" value="cfg/isotest/packagers/base24Rappi.xml" />
+
+  <property name="host" value="172.20.2.200" />
+  <property name="port" value="8522" />
+ </channel>
+ <in>Rappi-send</in>
+ <out>Rappi-receive</out>
+ <reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>
+

@@ -1,0 +1,10 @@
+<mux class="org.jpos.q2.iso.QMUX" logger="Servibanca-log" name="Servibanca-mux">
+ <in>Servibanca-receive</in>
+ <out>Servibanca-send</out>
+ <unhandled>Servibanca-unhandled</unhandled>
+ <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Servibanca-log">
+  <property name="source" value="cfg/isotest/servicedef/support/Servibanca.bsh" />
+  <property name="targeturl" value="http://" />
+ </request-listener>
+</mux>
+
