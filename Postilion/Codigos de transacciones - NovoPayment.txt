@@ -1,0 +1,50 @@
+Código de transacción
+
+Debits (00 - 19)
+00	(1)	Goods and services
+01	(1)	Cash withdrawal
+02	(1)	Debit adjustment
+03	(2)	Check cash/guarantee
+04	(2)	Check verification
+05	(2)	Eurocheque
+06	(2)	Traveller check
+07	(2)	Letter of credit
+08	(2)	Giro (postal banking)
+09	(1)	Goods and services with cash back
+10	(2)	Non-cash e.g. wire transfer
+11	(1)	Quasi-cash and scrip
+12	(5)	General debit (see extended transaction type)
+19	(4)	Visa Cash load settlement rev
+Credits (20 - 29)
+20	(1)	Returns (refund)
+21	(1)	Deposit
+22	(1)	Credit adjustment
+23	(1)	Check deposit guarantee
+24	(1)	Check deposit
+25	(5)	General credit (see extended transaction type)
+28	(4)	Merchandise dispatch
+29	(4)	Visa Cash load settlement
+Inquiry Services (30 - 39)
+30	(1)	Available funds inquiry
+31	(1)	Balance inquiry
+32	(5)	General inquiry (see extended transaction type)
+35	(1)	Full-Statement inquiry
+36	(4)	Merchandise inquiry 
+37	(3)	Card verification inquiry
+38	(3)	Mini-statement inquiry
+39	(3)	Linked account inquiry
+Transfer Services (40 - 49)
+40	(1)	Cardholder accounts transfer
+42	(5)	General transfer (see extended transaction type)
+Payment Services (50 - 59)
+50	(3)	Payment from account
+51	(3)	Payment by deposit
+52	(5)	General payment (see extended transaction type)
+53	(4)	Payment to account
+54	(4)	Payment from account to account
+Administration Transactions (90 - 99)
+90	(3)	Place hold on card
+91	(5)	General admin (see extended transaction type)
+92	(3)	Change PIN
+93	(5)	Dead-end general admin (see extended transaction type). 
+This type of transaction may also be referred to as a "log-only" transaction.
