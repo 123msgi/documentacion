@@ -1,0 +1,15 @@
+﻿Import-Module -Name PSProcessa
+$ConnectionString = "host=192.168.60.218;username=Compensar;password=Compensar;virtualhost=Compensar"
+
+$RoutingKey = "Processa.RabbitMQ.Services.Bifrost.Contracts.PurchaseRequest:Processa.RabbitMQ.Services.Bifrost"
+$Exchange = "easy_net_q_rpc"
+$Body = @{
+  DocType = "1"
+  DocNumber = "52451820"
+  Channel = 'CMPCAH8BT5O891SN98GI'
+  CorrelationalId = [System.Guid]::NewGuid().ToString('D')
+  FromAccountType = "81"
+  Amount = 10000
+
+}
+Invoke-RabbitRequest -ConnectionString $ConnectionString -Body $Body -Queue $RoutingKey -Exchange $Exchange -Timeout (New-TimeSpan -Seconds 10)
