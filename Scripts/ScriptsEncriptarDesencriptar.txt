@@ -1,0 +1,41 @@
+SCRIPTS DE CIFRADO en la maquina  57
+
+
+USE [master]
+GO
+
+ 
+
+DECLARE    @return_value int
+
+ 
+
+EXEC    @return_value = [dbo].[usp_pgp_encrypt]
+        @fileName = N'F:\CarpetasTrabajo\CLIENTES191226001603959.txt',
+        @publicKeyFileName = N'C:\OpenPGP-v2\Llaves\LLaves Compensar\pubring100603144236.asc',
+        @privateKeyFileName = N'C:\OpenPGP-v2\Llaves\LLaves Compensar\secring100603144236.asc',
+        @password = N'certificacion'
+
+ 
+
+SELECT    'Return Value' = @return_value
+
+GO
+
+SCRIPTS DE DESIFRADO en la maquina 57
+mongodb://Certifimongo:Certifimongo@192.168.60.210:27017
+
+USE [master]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[usp_pgp_decrypt]
+		@fileName = N'C:\Users\hpoveda\Desktop\RealceTC FENALCOMPRA191230170813.txt.pgp',
+		@publicKeyFileName = N'C:\OpenPGP-v2\Llaves\LLaves Compensar\pubring100603144236.asc',
+		@privateKeyFileName = N'C:\OpenPGP-v2\Llaves\LLaves Compensar\secring100603144236.asc',
+		@password = N'certificacion'
+
+SELECT	'Return Value' = @return_value
+
+GO
