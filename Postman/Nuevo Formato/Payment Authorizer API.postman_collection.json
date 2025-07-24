@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "1d89630e-1ab4-4ca8-911f-5e60c1191cc5",
+		"name": "Payment Authorizer API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377",
+		"_collection_link": "https://cloudy-flare-349495.postman.co/workspace/Novopayment~32e8e737-bb20-4822-bb90-640075be8d97/collection/7967377-1d89630e-1ab4-4ca8-911f-5e60c1191cc5?action=share&creator=7967377&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Payment Authorizer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"merchant\": {\r\n        \"merchantId\": \"K213JA46\",\r\n        \"terminalId\": \"VKJ23H\",\r\n        \"categoryId\": \"5699\",\r\n        \"name\": \"Sportswear64\",\r\n        \"description\": \"COMIDASRAPIDAS,OTRAS- . , ! \\\" # $ % & / ( ( = ? ¿ ' ¡áéíóú\",\r\n        \"countryCode\": \"CO\",\r\n        \"city\": \"Bogota\",\r\n        \"address\": \"Cra. 141-23\",\r\n        \"acquirerIdCode\": \"H3K123BMM12\"\r\n    },\r\n    \"transaction\": {\r\n        \"order\": {\r\n            \"description\": \"Buying baseball shoes\",\r\n            \"buyer\": {\r\n                \"fullName\": \"Joshua Washington\",\r\n                \"emailAddress\": \"username@mail.com\",\r\n                \"contactPhone\": \"+1415321456\",\r\n                \"documentType\": \"CE\",\r\n                \"documentNumber\": \"8081023876\",\r\n                \"billingAddress\": {\r\n                    \"street1\": \"Cra 86\",\r\n                    \"street2\": \"#141-22\",\r\n                    \"city\": \"Bogota\",\r\n                    \"state\": \"Cundinamarca\",\r\n                    \"country\": \"Colombia\",\r\n                    \"postalCode\": \"33133\",\r\n                    \"phone\": \"+1415321456\"\r\n                }\r\n            }\r\n        },\r\n        \"card\": {\r\n            \"nameOnCard\": \"Joshua\",\r\n            \"cardId\": \"sZo27UJ0R5EFr5ga5g14Tz4jfMpRqe7x7f/ecMC/xus=\",\r\n            \"cvalidation\": \"Xy9mKbSnKtMaoycmPQ0uyg==\"\r\n        },\r\n        \"metadata\": [\r\n            {\r\n                \"INSTALLMENTS_NUMBER\": 1\r\n            }\r\n        ],\r\n        \"paymentMethod\": \"CLOSELOOP\",\r\n        \"paymentCountry\": \"CO\",\r\n        \"paymentCurrency\": \"170\",\r\n        \"referenceCode\": \"1f900a5e-2f3f-11eb-adc1-0242erref0000021\",\r\n        \"amount\": 1.50,\r\n        \"commissionFee\": 2.00,\r\n        \"localDateTime\": \"2020-04-20T20:40:51.555Z\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/payments",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Reverse",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"referenceCode\": \"1f900a5e-2f3f-11eb-adc1-0242erref0000021\",\r\n    \"card\": {\r\n        \"nameOnCard\": \"Joshua Washington\",\r\n        \"cardId\": \"zWNTka0/Pvl8MnFGqPhE5A==\",\r\n        \"cvalidation\": \"zWNTka0/Pvl8MnFGqPhE5A==\"\r\n    },\r\n    \"amount\": 1.99,\r\n    \"localDateTime\": \"2020-01-03T16:05:56.517Z\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/paymentreverse",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"paymentreverse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Refund",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"referenceCode\": \"1f900a5e-2f3f-11eb-adc1-0242ac120002\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/payments/6fe266c6-d4d7-4462-a993-9a65b5b1c17e",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"payments",
+								"6fe266c6-d4d7-4462-a993-9a65b5b1c17e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment Detail",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/payments/1f900a5e-2f3f-11eb-0000-0242ac120002",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"payments",
+								"1f900a5e-2f3f-11eb-0000-0242ac120002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{apigee_app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{apigee_host}}/oauth2/v1/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "paymentauthorizer/v1",
+			"type": "string"
+		}
+	]
+}

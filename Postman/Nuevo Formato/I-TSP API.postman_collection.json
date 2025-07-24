@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "57f38fa0-3fc5-4d71-b888-7b79511dc530",
+		"name": "I-TSP API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377"
+	},
+	"item": [
+		{
+			"name": "v0",
+			"item": [
+				{
+					"name": "Inbound from Novo Clients",
+					"item": [
+						{
+							"name": "Token Lifecycle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tokenRequestorID\": \"40010068153\",\r\n    \"tokenReferenceID\": \"DNITHE302020980886775241\",\r\n    \"operatorID\": \"Operator1\",\r\n    \"operationReason\": \"Lost Phone\",\r\n    \"operationType\": \"SUSPEND\",\r\n    \"activationCode\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/itsp/{{client_id}}/vtis/v1/tokens/lifecycle",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"tokens",
+										"lifecycle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Card Metadata",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"tokenRequestorID\": \"40010068153\",\r\n   \"tokenReferenceID\": \"DNITHE301926653238012043\",\r\n   \"operatorID\": \"Operator1\",\r\n   \"operationReason\": \"OperationReason\",\r\n   \"cardMetadataInfo\": {\r\n      \"foregroundColor\": \"rgb(255,255,255)\",\r\n      \"backgroundColor\": \"rgb(255,255,255)\",\r\n      \"labelColor\": \"rgb(255,255,255)\",\r\n      \"shortDescription\": \"Fifth Group\",\r\n      \"longDescription\": \"FFifth Group\",\r\n      \"cardIssuer\": \"ieadmin\",\r\n      \"cardArtData\": {\r\n      \"cardArtRefID\": [\"ak0o23h6lu921rnturkutruj8h70q1jk\",\r\n         \"bk0o23h6lu921rnturkutruj8h70q1jk\",\r\n         \"ck0o23h6lu921rnturkutruj8h70q1jk\",\r\n         \"k04o23h6lu921rnturkutruj8h70q1jk\"]\r\n      },\r\n      \"privacyPolicyURL\": \"https://www.issuer.com/data/dataprivacy\",\r\n      \"termsAndConditionsURL\": \"https://issuer.com/data/tnc\",\r\n      \"contactInfo\": {\r\n         \"contactWebsite\":\"https://issuer.com\",\r\n         \"contactNumber\":\"800-000-0000\",\r\n         \"contactName\":\"issuer\"\r\n      },\r\n      \"applicationInfo\": {\r\n         \"supportsTokenNotifications\": true,\r\n         \"supportsFPANNotifications\": false,\r\n         \"transactionServiceURL\": \"https://vntsnotificationservice.visa.com/TxnHist/1\",\r\n         \"messageServiceURL\": null\r\n      }\r\n   }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/itsp/{{client_id}}/vtis/v1/updateCardMetadata",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"updateCardMetadata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token Inquiry By Pan",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"encryptedData\": {\r\n\t\t\"cardholderInfo\": {\r\n\t\t\t\"primaryAccountNumber\": \"4207580000000855\"\r\n\t\t}\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/itsp/{{client_id}}/vtis/v1/pan/retrieveTokenInfo",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"pan",
+										"retrieveTokenInfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "See Details",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"tokenRequestorID\": \"40010059239\",\r\n\t\"tokenReferenceID\": \"DNITHE302030974091057746\",\r\n\t\"deviceBindingInfo\": true,\r\n\t\"cardHolderVerificationRetrieve\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/itsp/{{client_id}}/vtis/v1/tokens/details",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"tokens",
+										"details"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PAN Lifecycle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/itsp/{{client_id}}/vtis/v1/pan/lifecycle",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"pan",
+										"lifecycle"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Inbound from VISA",
+					"item": [
+						{
+							"name": "Check Eligibility",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v1/checkEligibility",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"checkEligibility"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token Requestors Approve Provisioning",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v2/tokenRequestors/*/tokens/*/approveProvisioning",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v2",
+										"tokenRequestors",
+										"*",
+										"tokens",
+										"*",
+										"approveProvisioning"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token Requestors Device Binding",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v1/tokenRequestors/*/tokens/*/deviceBinding",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"tokenRequestors",
+										"*",
+										"tokens",
+										"*",
+										"deviceBinding"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verification Methods",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v1/retrieveStepUpMethods",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"retrieveStepUpMethods"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Passcode",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v1/sendPasscode",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"sendPasscode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token Requestors Token Changed",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"panReferenceID\": \"V-3021084701796922785802\",\r\n    \"walletAccountEmailAddressHash\": \"646576656C6F706572406E6F766F7061796D656E742E636F6D\",\r\n    \"clientWalletAccountID\": \"2bb875a53d524fc2b67f3c22\",\r\n    \"panSource\": \"KEY_ENTERED\",\r\n    \"cvv2ResultsCode\": \"M\",\r\n    \"encryptedData\": \"eyJhbGciOiJQUzI1NiIsInR5cCI6IkpPU0UiLCJraWQiOiI3MTVFQTI1NyIsImN0eSI6IkpXRSJ9.ZXlKMGVYQWlPaUpLVDFORklpd2laVzVqSWpvaVFUSTFOa2REVFNJc0ltbGhkQ0k2SWpFMk16RTJORFV3TmpnaUxDSmhiR2NpT2lKU1UwRXRUMEZGVUMweU5UWWlMQ0pyYVdRaU9pSTFSVk5FUkZGV1UwRXpVVTgzVmxGR1EwWlVOVEV6VjJWTlZ6aGFNVlJyTVZoWE5tNXJTMUZUZEVaNWRIRnFjVU56SW4wLkpJOHg1bnpIRXVXWHl6WXlyMXotRGI3S3I2aHZQQ2EyblJpLTBZVGdIUHJ0aG5SVHBJQ25Gb1pCYlFCcHM3bzRxWllFeVZKemZSMzBLZ3BydFFpYkNOYW9mYVVzWE1WSW9QVmZOcWVSVUItdnluN3REclMweUJkNU5xSnJUX0VNTjJyM0dBRi1DdXBBbDJHR1FNWl9VLXFpck9RMXZlRDNYVHBTRDFKTDdFTjgtR0JVLVF3RXlZdnBGdzY5V2pObVlBX280X0FTbHJncTg4Z1JFWldiNzRLX0FrcURfQUtnOTlCMXluUk1BNjNoV19yenBBV0RLdUxqa0pYdEhkUUJLU2R0R3ZQMmNMWDIxV3JYYnNhOWdsSlBsaWRLQ0lIZ2JRQ0E1TG9FVUd5RXVocW5HSkZFWTJhTFFmWHJlMkRiSHNkMEJFMV9jTlFvRm93U25ZMlhxdy5TTjUweFlxTm1FOUxOMk9QLmwxc3BVTmNqZFZHR3k5bWRNQm8zbzl5RlRTYzdkeHZvVXRqVHBkSWRhV1BCLS1zY0llQWwxLXpzdTl6SkozQ3VlRDZjN3liZ1ZCT1lNcGxqeFFnMG1aSmQ0WlhuMTI3QlR5NllqdTYxWHFyN2ZqWTlONEk2MndfaEk2dkswODczbF80SF9rRHZqcjJpaHNwY3liSkJuTERyclNqNWZBSVZVbHlyVWdza0cwRjJ4eE5IdnJfYlFpM3RZa1hSWjVnZk9FQzQxNHdhVWM4QmtNa2lSdXBwOHBuZ2NLeGd0WGkwMjUteURtNUpEZkotNTZlZDdEUjM4SVFkSXhoaXVkYWFwYmhUTHRxdEVUdC1ZN0h4ZDFXZUljenNvQVJDV29EeEtwMUM4UGItRlFPYWhDZ04yQXo3dTUtd2QwQ0Q2WWFydUhQelpfZXNZWHV5bTdXT0F5NHJmZ2RmVXoyYVRja0RXMW9XNUphOVF0TTlJVjNyZEwtclA2QzM4aTJwM2JrTHFqVHlITWJ5SmV6OTVDb0hDWHhWNG9sSjVMR0xrb3FXNGtiUWJfeUlaN0h0Y00wVlJ1WXdna1Y1dHphMzFYek5LTEs1UEphSWZfcy5tZUl3bEl0c0I0MXVrSnRma00xOFdB.bSnaah5rIzZYiLysubac3OTqr-1Efn0wMRot9BwWxwaQEEnYJ21t9DQjRi2NYnctK3DSLBPiQt_tTliIEOW7A0FMKvtgsp8v8glJGgm-TnCaTnZ_qapNomjHF2ZZoR892a1zdXgBc1saYdoWep-wvw5d4jBFf0AxRv77t5_MH20ji8tyZAjCK1DHtpqjniMuADARZ80IZMTBvmL5Do7eUte8P-PPys5uRWr141-OPGFDER2veZGcpJ-dcrE_aWSzaciMho_eBwowSP60GFlXJUYrtRhiX9xRrOqMISplsXTrDiNZ02cgs5f2dx1aK5HZ5YSbJfLUDGEHT0Vzb_Zs1Q\",\r\n    \"deviceInfo\": {\r\n        \"deviceID\": \"ZTViYmZkNzAtYzA4OC0zN2Ey\",\r\n        \"deviceLanguageCode\": \"eng\",\r\n        \"deviceType\": \"MOBILEPHONE_OR_TABLET\",\r\n        \"deviceName\": \"bW90b3JvbGEvdHJvaWthL3Ryb2lrYV9zcHJvdXQ6MTAvUVNCUzMwLjYyLTE3LTE3LTEwLzE2OWE3OnVzZXIvcmVsZWFzZS1rZXlz\",\r\n        \"osType\": \"ANDROID\",\r\n        \"osVersion\": \"10\",\r\n        \"osBuildID\": \"QSBS30.62-17-17-10\",\r\n        \"deviceIDType\": \"Derived\",\r\n        \"deviceManufacturer\": \"motorola\",\r\n        \"deviceBrand\": \"motorola\",\r\n        \"deviceModel\": \"motorola one action\",\r\n        \"tokenProtectionMethod\": \"SOFTWARE\"\r\n    },\r\n    \"lifeCycleTraceID\": 301257674650946,\r\n    \"tokenInfo\": {\r\n        \"tokenType\": \"HCE\",\r\n        \"numberOfActiveTokensForPAN\": 24,\r\n        \"numberOfInactiveTokensForPAN\": 1,\r\n        \"numberOfSuspendedTokensForPAN\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v2/tokenRequestors/40010074259/tokens/DNITHE302125766059937247/tokenChanged?eventType=TOKEN_CREATED",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v2",
+										"tokenRequestors",
+										"40010074259",
+										"tokens",
+										"DNITHE302125766059937247",
+										"tokenChanged"
+									],
+									"query": [
+										{
+											"key": "eventType",
+											"value": "TOKEN_CREATED"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token Requestors Notification",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"panReferenceID\": \"V-3021084701796922785802\",\r\n    \"walletAccountEmailAddressHash\": \"646576656C6F706572406E6F766F7061796D656E742E636F6D\",\r\n    \"clientWalletAccountID\": \"2bb875a53d524fc2b67f3c22\",\r\n    \"panSource\": \"KEY_ENTERED\",\r\n    \"cvv2ResultsCode\": \"M\",\r\n    \"encryptedData\": \"eyJhbGciOiJQUzI1NiIsInR5cCI6IkpPU0UiLCJraWQiOiI3MTVFQTI1NyIsImN0eSI6IkpXRSJ9.ZXlKMGVYQWlPaUpLVDFORklpd2laVzVqSWpvaVFUSTFOa2REVFNJc0ltbGhkQ0k2SWpFMk16RTJORFV3TmpnaUxDSmhiR2NpT2lKU1UwRXRUMEZGVUMweU5UWWlMQ0pyYVdRaU9pSTFSVk5FUkZGV1UwRXpVVTgzVmxGR1EwWlVOVEV6VjJWTlZ6aGFNVlJyTVZoWE5tNXJTMUZUZEVaNWRIRnFjVU56SW4wLkpJOHg1bnpIRXVXWHl6WXlyMXotRGI3S3I2aHZQQ2EyblJpLTBZVGdIUHJ0aG5SVHBJQ25Gb1pCYlFCcHM3bzRxWllFeVZKemZSMzBLZ3BydFFpYkNOYW9mYVVzWE1WSW9QVmZOcWVSVUItdnluN3REclMweUJkNU5xSnJUX0VNTjJyM0dBRi1DdXBBbDJHR1FNWl9VLXFpck9RMXZlRDNYVHBTRDFKTDdFTjgtR0JVLVF3RXlZdnBGdzY5V2pObVlBX280X0FTbHJncTg4Z1JFWldiNzRLX0FrcURfQUtnOTlCMXluUk1BNjNoV19yenBBV0RLdUxqa0pYdEhkUUJLU2R0R3ZQMmNMWDIxV3JYYnNhOWdsSlBsaWRLQ0lIZ2JRQ0E1TG9FVUd5RXVocW5HSkZFWTJhTFFmWHJlMkRiSHNkMEJFMV9jTlFvRm93U25ZMlhxdy5TTjUweFlxTm1FOUxOMk9QLmwxc3BVTmNqZFZHR3k5bWRNQm8zbzl5RlRTYzdkeHZvVXRqVHBkSWRhV1BCLS1zY0llQWwxLXpzdTl6SkozQ3VlRDZjN3liZ1ZCT1lNcGxqeFFnMG1aSmQ0WlhuMTI3QlR5NllqdTYxWHFyN2ZqWTlONEk2MndfaEk2dkswODczbF80SF9rRHZqcjJpaHNwY3liSkJuTERyclNqNWZBSVZVbHlyVWdza0cwRjJ4eE5IdnJfYlFpM3RZa1hSWjVnZk9FQzQxNHdhVWM4QmtNa2lSdXBwOHBuZ2NLeGd0WGkwMjUteURtNUpEZkotNTZlZDdEUjM4SVFkSXhoaXVkYWFwYmhUTHRxdEVUdC1ZN0h4ZDFXZUljenNvQVJDV29EeEtwMUM4UGItRlFPYWhDZ04yQXo3dTUtd2QwQ0Q2WWFydUhQelpfZXNZWHV5bTdXT0F5NHJmZ2RmVXoyYVRja0RXMW9XNUphOVF0TTlJVjNyZEwtclA2QzM4aTJwM2JrTHFqVHlITWJ5SmV6OTVDb0hDWHhWNG9sSjVMR0xrb3FXNGtiUWJfeUlaN0h0Y00wVlJ1WXdna1Y1dHphMzFYek5LTEs1UEphSWZfcy5tZUl3bEl0c0I0MXVrSnRma00xOFdB.bSnaah5rIzZYiLysubac3OTqr-1Efn0wMRot9BwWxwaQEEnYJ21t9DQjRi2NYnctK3DSLBPiQt_tTliIEOW7A0FMKvtgsp8v8glJGgm-TnCaTnZ_qapNomjHF2ZZoR892a1zdXgBc1saYdoWep-wvw5d4jBFf0AxRv77t5_MH20ji8tyZAjCK1DHtpqjniMuADARZ80IZMTBvmL5Do7eUte8P-PPys5uRWr141-OPGFDER2veZGcpJ-dcrE_aWSzaciMho_eBwowSP60GFlXJUYrtRhiX9xRrOqMISplsXTrDiNZ02cgs5f2dx1aK5HZ5YSbJfLUDGEHT0Vzb_Zs1Q\",\r\n    \"deviceInfo\": {\r\n        \"deviceID\": \"ZTViYmZkNzAtYzA4OC0zN2Ey\",\r\n        \"deviceLanguageCode\": \"eng\",\r\n        \"deviceType\": \"MOBILEPHONE_OR_TABLET\",\r\n        \"deviceName\": \"bW90b3JvbGEvdHJvaWthL3Ryb2lrYV9zcHJvdXQ6MTAvUVNCUzMwLjYyLTE3LTE3LTEwLzE2OWE3OnVzZXIvcmVsZWFzZS1rZXlz\",\r\n        \"osType\": \"ANDROID\",\r\n        \"osVersion\": \"10\",\r\n        \"osBuildID\": \"QSBS30.62-17-17-10\",\r\n        \"deviceIDType\": \"Derived\",\r\n        \"deviceManufacturer\": \"motorola\",\r\n        \"deviceBrand\": \"motorola\",\r\n        \"deviceModel\": \"motorola one action\",\r\n        \"tokenProtectionMethod\": \"SOFTWARE\"\r\n    },\r\n    \"lifeCycleTraceID\": 301257674650946,\r\n    \"tokenInfo\": {\r\n        \"tokenType\": \"HCE\",\r\n        \"numberOfActiveTokensForPAN\": 24,\r\n        \"numberOfInactiveTokensForPAN\": 1,\r\n        \"numberOfSuspendedTokensForPAN\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v1/tokenRequestors/*/tokens/*/notification",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"tokenRequestors",
+										"*",
+										"tokens",
+										"*",
+										"notification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Notification",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"panReferenceID\": \"V-3021084701796922785802\",\r\n    \"walletAccountEmailAddressHash\": \"646576656C6F706572406E6F766F7061796D656E742E636F6D\",\r\n    \"clientWalletAccountID\": \"2bb875a53d524fc2b67f3c22\",\r\n    \"panSource\": \"KEY_ENTERED\",\r\n    \"cvv2ResultsCode\": \"M\",\r\n    \"encryptedData\": \"eyJhbGciOiJQUzI1NiIsInR5cCI6IkpPU0UiLCJraWQiOiI3MTVFQTI1NyIsImN0eSI6IkpXRSJ9.ZXlKMGVYQWlPaUpLVDFORklpd2laVzVqSWpvaVFUSTFOa2REVFNJc0ltbGhkQ0k2SWpFMk16RTJORFV3TmpnaUxDSmhiR2NpT2lKU1UwRXRUMEZGVUMweU5UWWlMQ0pyYVdRaU9pSTFSVk5FUkZGV1UwRXpVVTgzVmxGR1EwWlVOVEV6VjJWTlZ6aGFNVlJyTVZoWE5tNXJTMUZUZEVaNWRIRnFjVU56SW4wLkpJOHg1bnpIRXVXWHl6WXlyMXotRGI3S3I2aHZQQ2EyblJpLTBZVGdIUHJ0aG5SVHBJQ25Gb1pCYlFCcHM3bzRxWllFeVZKemZSMzBLZ3BydFFpYkNOYW9mYVVzWE1WSW9QVmZOcWVSVUItdnluN3REclMweUJkNU5xSnJUX0VNTjJyM0dBRi1DdXBBbDJHR1FNWl9VLXFpck9RMXZlRDNYVHBTRDFKTDdFTjgtR0JVLVF3RXlZdnBGdzY5V2pObVlBX280X0FTbHJncTg4Z1JFWldiNzRLX0FrcURfQUtnOTlCMXluUk1BNjNoV19yenBBV0RLdUxqa0pYdEhkUUJLU2R0R3ZQMmNMWDIxV3JYYnNhOWdsSlBsaWRLQ0lIZ2JRQ0E1TG9FVUd5RXVocW5HSkZFWTJhTFFmWHJlMkRiSHNkMEJFMV9jTlFvRm93U25ZMlhxdy5TTjUweFlxTm1FOUxOMk9QLmwxc3BVTmNqZFZHR3k5bWRNQm8zbzl5RlRTYzdkeHZvVXRqVHBkSWRhV1BCLS1zY0llQWwxLXpzdTl6SkozQ3VlRDZjN3liZ1ZCT1lNcGxqeFFnMG1aSmQ0WlhuMTI3QlR5NllqdTYxWHFyN2ZqWTlONEk2MndfaEk2dkswODczbF80SF9rRHZqcjJpaHNwY3liSkJuTERyclNqNWZBSVZVbHlyVWdza0cwRjJ4eE5IdnJfYlFpM3RZa1hSWjVnZk9FQzQxNHdhVWM4QmtNa2lSdXBwOHBuZ2NLeGd0WGkwMjUteURtNUpEZkotNTZlZDdEUjM4SVFkSXhoaXVkYWFwYmhUTHRxdEVUdC1ZN0h4ZDFXZUljenNvQVJDV29EeEtwMUM4UGItRlFPYWhDZ04yQXo3dTUtd2QwQ0Q2WWFydUhQelpfZXNZWHV5bTdXT0F5NHJmZ2RmVXoyYVRja0RXMW9XNUphOVF0TTlJVjNyZEwtclA2QzM4aTJwM2JrTHFqVHlITWJ5SmV6OTVDb0hDWHhWNG9sSjVMR0xrb3FXNGtiUWJfeUlaN0h0Y00wVlJ1WXdna1Y1dHphMzFYek5LTEs1UEphSWZfcy5tZUl3bEl0c0I0MXVrSnRma00xOFdB.bSnaah5rIzZYiLysubac3OTqr-1Efn0wMRot9BwWxwaQEEnYJ21t9DQjRi2NYnctK3DSLBPiQt_tTliIEOW7A0FMKvtgsp8v8glJGgm-TnCaTnZ_qapNomjHF2ZZoR892a1zdXgBc1saYdoWep-wvw5d4jBFf0AxRv77t5_MH20ji8tyZAjCK1DHtpqjniMuADARZ80IZMTBvmL5Do7eUte8P-PPys5uRWr141-OPGFDER2veZGcpJ-dcrE_aWSzaciMho_eBwowSP60GFlXJUYrtRhiX9xRrOqMISplsXTrDiNZ02cgs5f2dx1aK5HZ5YSbJfLUDGEHT0Vzb_Zs1Q\",\r\n    \"deviceInfo\": {\r\n        \"deviceID\": \"ZTViYmZkNzAtYzA4OC0zN2Ey\",\r\n        \"deviceLanguageCode\": \"eng\",\r\n        \"deviceType\": \"MOBILEPHONE_OR_TABLET\",\r\n        \"deviceName\": \"bW90b3JvbGEvdHJvaWthL3Ryb2lrYV9zcHJvdXQ6MTAvUVNCUzMwLjYyLTE3LTE3LTEwLzE2OWE3OnVzZXIvcmVsZWFzZS1rZXlz\",\r\n        \"osType\": \"ANDROID\",\r\n        \"osVersion\": \"10\",\r\n        \"osBuildID\": \"QSBS30.62-17-17-10\",\r\n        \"deviceIDType\": \"Derived\",\r\n        \"deviceManufacturer\": \"motorola\",\r\n        \"deviceBrand\": \"motorola\",\r\n        \"deviceModel\": \"motorola one action\",\r\n        \"tokenProtectionMethod\": \"SOFTWARE\"\r\n    },\r\n    \"lifeCycleTraceID\": 301257674650946,\r\n    \"tokenInfo\": {\r\n        \"tokenType\": \"HCE\",\r\n        \"numberOfActiveTokensForPAN\": 24,\r\n        \"numberOfInactiveTokensForPAN\": 1,\r\n        \"numberOfSuspendedTokensForPAN\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://uat-api.novopayment.com/itsp/{{client_id}}/vtis/v1/pan/notification",
+									"protocol": "https",
+									"host": [
+										"uat-api",
+										"novopayment",
+										"com"
+									],
+									"path": [
+										"itsp",
+										"{{client_id}}",
+										"vtis",
+										"v1",
+										"pan",
+										"notification"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

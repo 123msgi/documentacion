@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "6062fc2a-40bf-4c42-bfdb-28db87b7aec0",
+		"name": "External Transfers API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377",
+		"_collection_link": "https://cloudy-flare-349495.postman.co/workspace/Novopayment~32e8e737-bb20-4822-bb90-640075be8d97/collection/7967377-6062fc2a-40bf-4c42-bfdb-28db87b7aec0?action=share&creator=7967377&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Incoming External Transfers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"grpHdr\": {\r\n        \"msgId\": \"11111137\",\r\n        \"creDtTm\": \"2021-01-11T09:10:17.855-0500\",\r\n        \"ttlIntrBkSttlmAmt\": {\r\n            \"value\": 458,\r\n            \"ccy\": \"GBP\"\r\n        },\r\n        \"sttlmInf\": {\r\n            \"sttlmMtd\": \"INDA\"\r\n        },\r\n        \"intrBkSttlmDt\": \"2021-01-11\",\r\n        \"instgAgt\": {\r\n            \"finInstnId\": {\r\n                \"bicfi\": \"ZEITPRS0XXX\",\r\n                \"nm\": \"ZEIT\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    },\r\n                    \"ctrySubDvsn\": \"S0\",\r\n                    \"ctry\": \"PR\"\r\n                }\r\n            },\r\n            \"brnchId\": {\r\n                \"nm\": \"XXX\",\r\n                \"id\": \"XXX\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    },\r\n                    \"ctrySubDvsn\": \"S0\",\r\n                    \"ctry\": \"PR\"\r\n                }\r\n            }\r\n        },\r\n        \"instdAgt\": {\r\n            \"finInstnId\": {\r\n                \"bicfi\": \"ZEITPRS0XXX\",\r\n                \"nm\": \"ZEIT\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    },\r\n                    \"ctrySubDvsn\": \"S0\",\r\n                    \"ctry\": \"PR\"\r\n                }\r\n            },\r\n            \"brnchId\": {\r\n                \"nm\": \"XXX\",\r\n                \"id\": \"XXX\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    },\r\n                    \"ctrySubDvsn\": \"S0\",\r\n                    \"ctry\": \"PR\"\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"cdtTrfTxInf\": [\r\n        {\r\n            \"pmtId\": {\r\n                \"instrId\": \"11111137\",\r\n                \"endToEndId\": \"NOTPROVIDED\",\r\n                \"txId\": \"PA84743\",\r\n                \"uetr\": \"f01b7f89-ac67-400f-9b7f-89ac67b00f24\"\r\n            },\r\n            \"intrBkSttlmAmt\": {\r\n                \"value\": 458,\r\n                \"ccy\": \"GBP\"\r\n            },\r\n            \"intrBkSttlmDt\": \"2021-01-11\",\r\n            \"instdAmt\": {\r\n                \"value\": 458,\r\n                \"ccy\": \"USD\"\r\n            },\r\n            \"xchgRate\": 1,\r\n            \"chrgBr\": \"OUR\",\r\n            \"chrgsInf\": [\r\n                {\r\n                    \"amt\": {\r\n                        \"value\": 0\r\n                    }\r\n                }\r\n            ],\r\n            \"instgAgt\": {\r\n                \"finInstnId\": {\r\n                    \"bicfi\": \"ZEITPRS0XXX\",\r\n                    \"nm\": \"ZEIT\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"ADDR\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                },\r\n                \"brnchId\": {\r\n                    \"nm\": \"XXX\",\r\n                    \"id\": \"XXX\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"ADDR\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                }\r\n            },\r\n            \"instdAgt\": {\r\n                \"finInstnId\": {\r\n                    \"bicfi\": \"ZEITPRS0XXX\",\r\n                    \"nm\": \"ZEIT\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"ADDR\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                },\r\n                \"brnchId\": {\r\n                    \"nm\": \"XXX\",\r\n                    \"id\": \"XXX\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"ADDR\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                }\r\n            },\r\n            \"ultmtDbtr\": {\r\n                \"nm\": \"John Doe\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    }\r\n                },\r\n                \"id\": {\r\n                    \"orgId\": {\r\n                        \"othr\": [\r\n                            {\r\n                                \"issr\": \"0310400014232402\"\r\n                            }\r\n                        ]\r\n                    }\r\n                }\r\n            },\r\n            \"initgPty\": {\r\n                \"nm\": \"John Doe\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    }\r\n                },\r\n                \"id\": {\r\n                    \"orgId\": {\r\n                        \"othr\": [\r\n                            {\r\n                                \"issr\": \"0310400014232402\"\r\n                            }\r\n                        ]\r\n                    }\r\n                }\r\n            },\r\n            \"dbtr\": {\r\n                \"nm\": \"John Doe\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"ADDR\"\r\n                    }\r\n                },\r\n                \"id\": {\r\n                    \"orgId\": {\r\n                        \"othr\": [\r\n                            {\r\n                                \"issr\": \"0310400014232402\"\r\n                            }\r\n                        ]\r\n                    }\r\n                }\r\n            },\r\n            \"dbtrAcct\": {\r\n                \"id\": {\r\n                    \"iban\": \"0310400014232402\",\r\n                    \"othr\": {\r\n                        \"id\": \"\"\r\n                    }\r\n                }\r\n            },\r\n            \"dbtrAgt\": {\r\n                \"finInstnId\": {\r\n                    \"bicfi\": \"ZEITPRS0XXX\",\r\n                    \"nm\": \"ZEIT\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"BIZZ\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                },\r\n                \"brnchId\": {\r\n                    \"nm\": \"AXXX\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"BIZZ\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                }\r\n            },\r\n            \"cdtrAgt\": {\r\n                \"finInstnId\": {\r\n                    \"bicfi\": \"ZEITPRS0XXX\",\r\n                    \"nm\": \"ZEIT\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"BIZZ\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                },\r\n                \"brnchId\": {\r\n                    \"nm\": \"AXXX\",\r\n                    \"pstlAdr\": {\r\n                        \"adrTp\": {\r\n                            \"Cd\": \"BIZZ\"\r\n                        },\r\n                        \"ctrySubDvsn\": \"S0\",\r\n                        \"ctry\": \"PR\"\r\n                    }\r\n                }\r\n            },\r\n            \"cdtr\": {\r\n                \"nm\": \"ZEIT\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"BIZZ\"\r\n                    },\r\n                    \"ctrySubDvsn\": \"S0\",\r\n                    \"ctry\": \"PR\"\r\n                },\r\n                \"ctryOfRes\": \"PR\"\r\n            },\r\n            \"cdtrAcct\": {\r\n                \"id\": {\r\n                    \"iban\": \"40000000002146417607\",\r\n                    \"othr\": {\r\n                        \"id\": \"\"\r\n                    }\r\n                }\r\n            },\r\n            \"ultmtCdtr\": {\r\n                \"nm\": \"ZEIT\",\r\n                \"pstlAdr\": {\r\n                    \"adrTp\": {\r\n                        \"Cd\": \"BIZZ\"\r\n                    },\r\n                    \"ctrySubDvsn\": \"S0\",\r\n                    \"ctry\": \"PR\"\r\n                },\r\n                \"ctryOfRes\": \"PR\"\r\n            },\r\n            \"instrForCdtrAgt\": [],\r\n            \"instrForNxtAgt\": []\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/accounts/incomingexternaltransfers",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"accounts",
+								"incomingexternaltransfers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Outgoing External Transfers Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orgnlGrpInfAndSts\": [\n        {\n            \"stsRsnInf\": [\n                {\n                    \"orgtr\": {\n                        \"nm\": \"ROJAS LARA, JONATHAN\",\n                        \"pstlAdr\": {\n                            \"adrTp\": {\n                                \"Cd\": \"ADDR\"\n                            }\n                        },\n                        \"id\": {\n                            \"orgId\": {\n                                \"othr\": [\n                                    {\n                                        \"issr\": \"40000000002132192670\"\n                                    }\n                                ]\n                            }\n                        }\n                    },\n                    \"rsn\": {\n                        \"Cd\": \"DUPL\"\n                    }\n                }\n            ],\n            \"orgnlCtrlSum\": \"1\",\n            \"orgnlCreDtTm\": \"NOTPROVIDED\",\n            \"orgnlNbOfTxs\": \"1\",\n            \"orgnlMsgId\": \"3918\"\n        }\n    ],\n    \"grpHdr\": {\n        \"instgAgt\": {\n            \"finInstnId\": {\n                \"bicfi\": \"ZEITPRS0XXX\",\n                \"nm\": \"ZEIT\",\n                \"pstlAdr\": {\n                    \"adrTp\": {\n                        \"Cd\": \"ADDR\"\n                    },\n                    \"ctrySubDvsn\": \"S0\",\n                    \"ctry\": \"PR\"\n                }\n            },\n            \"brnchId\": {\n                \"nm\": \"XXX\",\n                \"id\": \"XXX\",\n                \"pstlAdr\": {\n                    \"adrTp\": {\n                        \"Cd\": \"ADDR\"\n                    },\n                    \"ctrySubDvsn\": \"S0\",\n                    \"ctry\": \"PR\"\n                }\n            }\n        },\n        \"instdAgt\": {\n            \"finInstnId\": {\n                \"bicfi\": \"ZEITPRS0XXX\",\n                \"nm\": \"ZEIT\",\n                \"pstlAdr\": {\n                    \"adrTp\": {\n                        \"Cd\": \"ADDR\"\n                    },\n                    \"ctrySubDvsn\": \"S0\",\n                    \"ctry\": \"PR\"\n                }\n            },\n            \"brnchId\": {\n                \"nm\": \"XXX\",\n                \"id\": \"XXX\",\n                \"pstlAdr\": {\n                    \"adrTp\": {\n                        \"Cd\": \"ADDR\"\n                    },\n                    \"ctrySubDvsn\": \"S0\",\n                    \"ctry\": \"PR\"\n                }\n            }\n        },\n        \"msgId\": \"3918\",\n        \"creDtTm\": \"2021-03-05T12:11:40.634-0500\"\n    },\n    \"txInfAndSts\": [\n        {\n            \"orgnlTxId\": \"3918\",\n            \"txSts\": \"CANC\",\n            \"instgAgt\": {\n                \"finInstnId\": {\n                    \"bicfi\": \"ZEITPRS0XXX\",\n                    \"nm\": \"ZEIT\",\n                    \"pstlAdr\": {\n                        \"adrTp\": {\n                            \"Cd\": \"ADDR\"\n                        },\n                        \"ctrySubDvsn\": \"S0\",\n                        \"ctry\": \"PR\"\n                    }\n                },\n                \"brnchId\": {\n                    \"nm\": \"XXX\",\n                    \"id\": \"XXX\",\n                    \"pstlAdr\": {\n                        \"adrTp\": {\n                            \"Cd\": \"ADDR\"\n                        },\n                        \"ctrySubDvsn\": \"S0\",\n                        \"ctry\": \"PR\"\n                    }\n                }\n            },\n            \"instdAgt\": {\n                \"finInstnId\": {\n                    \"bicfi\": \"ZEITPRS0XXX\",\n                    \"nm\": \"ZEIT\",\n                    \"pstlAdr\": {\n                        \"adrTp\": {\n                            \"Cd\": \"ADDR\"\n                        },\n                        \"ctrySubDvsn\": \"S0\",\n                        \"ctry\": \"PR\"\n                    }\n                },\n                \"brnchId\": {\n                    \"nm\": \"XXX\",\n                    \"id\": \"XXX\",\n                    \"pstlAdr\": {\n                        \"adrTp\": {\n                            \"Cd\": \"ADDR\"\n                        },\n                        \"ctrySubDvsn\": \"S0\",\n                        \"ctry\": \"PR\"\n                    }\n                }\n            }\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/accounts/outgoingexternaltransfers/status",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"accounts",
+								"outgoingexternaltransfers",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incoming External Transfers Cancellation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transactionRefId\": \"3642\",\n    \"reason\": \"New cancellation Jonathan\"\n}"
+						},
+						"url": {
+							"raw": "https://uat-api.novopayment.com/externaltransfer/v1/accounts/incomingexternaltransfers/cancellation",
+							"protocol": "https",
+							"host": [
+								"uat-api",
+								"novopayment",
+								"com"
+							],
+							"path": [
+								"externaltransfer",
+								"v1",
+								"accounts",
+								"incomingexternaltransfers",
+								"cancellation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{apigee_app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{apigee_host}}/oauth2/v1/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "customers/v1",
+			"type": "string"
+		}
+	]
+}

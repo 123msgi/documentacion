@@ -1,0 +1,3219 @@
+{
+	"info": {
+		"_postman_id": "68340253-eb87-4a61-9a3c-02e16fb067ef",
+		"name": "TR-TSP API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377"
+	},
+	"item": [
+		{
+			"name": "v0",
+			"item": [
+				{
+					"name": "Inbound from VISA",
+					"item": [
+						{
+							"name": "/*/provisionedToken",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "mzH9GuGydbYx7akrGf9GYVU5YCYoYUU4",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/provisionedToken",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"provisionedToken"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/panMetadata",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "mzH9GuGydbYx7akrGf9GYVU5YCYoYUU4",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/panMetadata",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"panMetadata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/paymentTxns",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "mzH9GuGydbYx7akrGf9GYVU5YCYoYUU4",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/paymentTxns",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"paymentTxns"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Inbound from Novo Clients",
+					"item": [
+						{
+							"name": "/*/enroll/pan",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/enroll/pan",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"enroll",
+										"pan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/enroll/pan/provision",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/enroll/pan/provision",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"enroll",
+										"pan",
+										"provision"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/provision",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/provision",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"provision"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/enroll/device/sdk6",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/enroll/device/sdk6",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"enroll",
+										"device",
+										"sdk6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/enroll/confirm",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/enroll/confirm",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"enroll",
+										"confirm"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/enroll/device/das",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/enroll/device/das",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"enroll",
+										"device",
+										"das"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tokenizacion/tools/content",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tokenizacion/tools/content",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tokenizacion",
+										"tools",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/updateCardMetadata",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/updateCardMetadata",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"updateCardMetadata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/token/lifecycle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/token/lifecycle",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"token",
+										"lifecycle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/deleteTokensbyPan",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/deleteTokensbyPan",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"deleteTokensbyPan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/notifications/getPendingNotifications",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/notifications/getPendingNotifications",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"notifications",
+										"getPendingNotifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/StepUp",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/StepUp",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"StepUp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/StepUp/submit",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/StepUp/submit",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"StepUp",
+										"submit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/otp/validate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/otp/validate",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"otp",
+										"validate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/token/replenish",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/token/replenish",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"token",
+										"replenish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/token/replenishoda",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/token/replenishoda",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"token",
+										"replenishoda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/token/confirmreplenish",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/token/confirmreplenish",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"token",
+										"confirmreplenish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/repersoFlow",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/repersoFlow",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"repersoFlow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/reperso",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/reperso",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"reperso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/*/tools/transaction/history/**",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "apikey",
+										"value": "{{apikey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/tr-tsp/do-tupana/tools/transaction/history/123",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"tr-tsp",
+										"do-tupana",
+										"tools",
+										"transaction",
+										"history",
+										"123"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Inbound from VISA",
+					"item": [
+						{
+							"name": "Provisioned Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vProvisionedTokenID\": \"165b52974d91b62198541affce68d802\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/provisionedToken",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"provisionedToken"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Pan Metadata",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vPanEnrollmentID\": \"a5dabe24d5b3d600f73b105f22376202\",\n    \"date\":1638536206183\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/panMetadata?apikey=qoRrDl99scpAiz0AHPSArQqsTJU03VCN",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"panMetadata"
+									],
+									"query": [
+										{
+											"key": "apikey",
+											"value": "qoRrDl99scpAiz0AHPSArQqsTJU03VCN"
+										}
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Txns",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vProvisionedTokenID\": \"165b52974d91b62198541affce68d802\",\n    \"date\": 1638502621712\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/paymentTxns",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"paymentTxns"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "apikey"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Inbound from Novo Clients",
+					"item": [
+						{
+							"name": "Enroll Device",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "x-device",
+										"value": "Mzc4MWU0MzgtZjM5ZS0zMWJi",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"enrollDevice\": {\n            \"channelSecurityContext\": {\n                \"channelInfo\": {\n                    \"encryptionScheme\": \"RSA_PKI\"\n                },\n                \"deviceCerts\": [\n                    {\n                        \"certFormat\": \"X509\",\n                        \"certUsage\": \"CONFIDENTIALITY\",\n                        \"certValue\": \"MIIEuTCCAyGgAwIBAgIBATANBgkqhkiG9w0BAQsFADA5MQwwCgYDVQQMDANURUUxKTAnBgNVBAUTIDE3ZWFmMjQ1YjY4Y2MyNWJmNDFlZGM5ZTZkY2EzYTQ0MB4XDTIxMDYxNjE5MTIxMloXDTMxMDYxNDE5MTIxMlowHzEdMBsGA1UEAwwUQW5kcm9pZCBLZXlzdG9yZSBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqX3mhAB6KQmbBUw/Zo5OFSnqeVk/vZV0WJQMdgBI0pJ/HoIeP2wV91yR/jdfWUHHe16zebpzPAQ3mitbVcuVTGS2BHclpJH3HA2yk1Y/zlpj4cFmmdWAuIgOt+ACI/3ON8S94FL7/a5AAoxcXdEdD8Ow/cU8WuQ0WokkewqwO/ZN7Hal1qOta1jUE/Pq45N12mi1oz0t7U9lGpH756/X+sAu+pt8tTeJx0/xpoyw2zyc30/6SAUO4l54s7gg2gHlf6wYAWyNymz6kO5/bQBDKQmIqPume3M+18vkz99/qAMgY6NcqxlTXLskgB5ch6y75uHdhVOWKFE0XJ0sx69EPAgMBAAGjggFkMIIBYDCCAUwGCisGAQQB1nkCAREEggE8MIIBOAIBAwoBAQIBBAoBAQQHQ2hpcFNESwQAMGS/hT0IAgYBf/Tmrae/hUVUBFIwUDEqMCgEI2NvbS5ub3ZvcGF5bWVudC5zZGsudnRzLmV4YW1wbGUudWF0AgEUMSIEIIkMle9k8eY+TUdU33loG8ElVwxkn5djVnnpmjLg8LXLMIG4oQsxCQIBAAIBAQIBAqIDAgEBowQCAggApQgxBgIBBAIBBqYIMQYCAQQCAQW/gUgFAgMBAAG/g3cCBQC/hT4DAgEAv4VATDBKBCDicw2c62QrvRebx5QKJ/Don3LHShuPjd7oz/vjeZlPigEB/woBAAQgTliWMaYE5nYVl3rJrJLyu0/KeRcvKmqZY0m6MqissHO/hUEFAgMB1MC/hUIFAgMDFdq/hU4GAgQBNIkpv4VPBgIEATSJKTAOBgNVHQ8BAf8EBAMCBLAwDQYJKoZIhvcNAQELBQADggGBAKMaJIRSIDnv1EquZmtHlP6Bcuvs/exMObDetN1XQfkso3snLn5ZiF/bZj1wD8ywNxbemwJdmHfCjmqIoAGqWeIWF6mlw17FKKiK9Gzm/lFZCO+SFSUz0Z2P+c/qbI/pAbdO52UZaChZMYA8aJm0AlJWaw9/MH146nfJ6SqnSZuqSugAXa2+zwZGec8bnlXJyJg4AuYJXYS+4jCiImS6SsyP0DBN3sNRWQpzIMUYf/edm0gBeaQESfKQbWeBicwa2GLia2+XhaY2lw43i4wPcsmDdnESsiIxZYeHDHrSkfUBHxMMElU3q0+86zy3DSPRVJsfjUDVrLAIFzV/lVmlBY6Y/tx9rk3Q0tqU6hUs4iNmy1EzcFQgqwrm6rJ4Ll/Tpsimwc0rYyz7VV/INA5u8qPMcEPWuNw1N84ttdpTR9Ox+tiEybfFM8WVi+CZr8DUf9yKDifay6bNhniKup5Qo2QdahN9NV/hmW9/KKyhtB4Na+PaIDEKl9/t7KnYz/aOdA\\u003d\\u003d\"\n                    },\n                    {\n                        \"certFormat\": \"X509\",\n                        \"certUsage\": \"INTEGRITY\",\n                        \"certValue\": \"MIIEuTCCAyGgAwIBAgIBATANBgkqhkiG9w0BAQsFADA5MQwwCgYDVQQMDANURUUxKTAnBgNVBAUTIDE3ZWFmMjQ1YjY4Y2MyNWJmNDFlZGM5ZTZkY2EzYTQ0MB4XDTIxMDYxNjE5MTIxMloXDTMxMDYxNDE5MTIxMlowHzEdMBsGA1UEAwwUQW5kcm9pZCBLZXlzdG9yZSBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3JQqyljH2TqwFbMBRZuEqj/W/h2/IRiJGbii1T8s/zmc3fGMYWY6dnIXRTHIa0Mrdx1mpBk0wUoUmJi/yHG3e5WY+HdwKiSft8lgYbJqe5QYC9T69KQXkoMYoj/tqpTjCGSxpipucQq/01tQVnalpemHYjr5eJhF/UCK5G/3nm+/8nvB82YQjhtSyNMFB0NvZRFLFqKQoHfHCR3ccmZJwiqXrG0g412hWiQW1mWPOcRnnvBxbckuMZkBzfNDvzOJCo9ic7HUa3NhNan4gpJ1fW8SUvMaeCe72B1hGbDpq9XNEvj/FN67Y5CXEvkHhft/SjlLUnw1v6HfCOVpX8mzxAgMBAAGjggFkMIIBYDCCAUwGCisGAQQB1nkCAREEggE8MIIBOAIBAwoBAQIBBAoBAQQHQ2hpcFNESwQAMGS/hT0IAgYBf/Tmrxq/hUVUBFIwUDEqMCgEI2NvbS5ub3ZvcGF5bWVudC5zZGsudnRzLmV4YW1wbGUudWF0AgEUMSIEIIkMle9k8eY+TUdU33loG8ElVwxkn5djVnnpmjLg8LXLMIG4oQsxCQIBAAIBAQIBAqIDAgEBowQCAggApQgxBgIBBAIBBqYIMQYCAQQCAQW/gUgFAgMBAAG/g3cCBQC/hT4DAgEAv4VATDBKBCDicw2c62QrvRebx5QKJ/Don3LHShuPjd7oz/vjeZlPigEB/woBAAQgTliWMaYE5nYVl3rJrJLyu0/KeRcvKmqZY0m6MqissHO/hUEFAgMB1MC/hUIFAgMDFdq/hU4GAgQBNIkpv4VPBgIEATSJKTAOBgNVHQ8BAf8EBAMCBLAwDQYJKoZIhvcNAQELBQADggGBALXLTsKydvia/GtYtakkR44fhOND0CFbHl3DIB1GcBK7BuwLb+OapHJwSxAApXRc+edoBVRdy/6gPHuMAvP5OrAs8WsVo8vtgjPnEYZrPJhZos4Kgb8d4rHQl6/mpx5szUOUE59WmpiGR2GGiXUe2x5iOogBnzLnhp0qiHHiYbz+1oKPC76miBhxCjaS7mRRwdMr3/WO0g9wqY1BbCTr3/PXMM4UYJESIGHDV4V7ggUoiZ2gXYpgEoFNaCwyNKxltmDWwALbJ97T1Eg0xtFZigwZCY5BvF8Y7/a9AbWAc03DD6L0Rp16N/cxBONuT4WRbfO/Xh8hCI0gsLy8hxJCus/adSYWi07K1cgJMroE6rhfeXgG41Eef6DVI4kV1/Fa2+EyDPLysYSkwaVoKlqHNl0xDyaS5iOfey6nduJYCmq3i8nvZqmiaA+Hv5Tg96oV+K4d91+WGXEbChNBtOhKQ3HEi3SBPxep5/xs6obSf/2t8fGABsfmJfj7V0z8Q1/sxw\\u003d\\u003d\"\n                    }\n                ],\n                \"vtsCerts\": []\n            },\n            \"deviceInfo\": {\n                \"deviceBrand\": \"samsung\",\n                \"deviceIDType\": \"Derived\",\n                \"deviceManufacturer\": \"samsung\",\n                \"deviceModel\": \"SM-G780G\",\n                \"deviceName\": \"R2FsYXh5IFMyMCBGRQ\",\n                \"deviceType\": \"PHONE_TABLET\",\n                \"hostDeviceID\": \"Mzc4MWU0MzgtZjM5ZS0zMWJi\",\n                \"osBuildID\": \"SP1A.210812.016\",\n                \"osType\": \"ANDROID\",\n                \"osVersion\": \"12\"\n            }\n        },\n        \"userId\": \"NovoUser\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/enroll/device",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"enroll",
+										"device"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll Device Binding",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "x-device",
+										"value": "Mzc4MWU0MzgtZjM5ZS0zMWJi",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"enrollDevice\": {\n            \"channelSecurityContext\": {\n                \"channelInfo\": {\n                    \"encryptionScheme\": \"RSA_PKI\"\n                },\n                \"deviceCerts\": [\n                    {\n                        \"certFormat\": \"X509\",\n                        \"certUsage\": \"CONFIDENTIALITY\",\n                        \"certValue\": \"MIIEuTCCAyGgAwIBAgIBATANBgkqhkiG9w0BAQsFADA5MQwwCgYDVQQMDANURUUxKTAnBgNVBAUTIDE3ZWFmMjQ1YjY4Y2MyNWJmNDFlZGM5ZTZkY2EzYTQ0MB4XDTIxMDYxNjE5MTIxMloXDTMxMDYxNDE5MTIxMlowHzEdMBsGA1UEAwwUQW5kcm9pZCBLZXlzdG9yZSBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqX3mhAB6KQmbBUw/Zo5OFSnqeVk/vZV0WJQMdgBI0pJ/HoIeP2wV91yR/jdfWUHHe16zebpzPAQ3mitbVcuVTGS2BHclpJH3HA2yk1Y/zlpj4cFmmdWAuIgOt+ACI/3ON8S94FL7/a5AAoxcXdEdD8Ow/cU8WuQ0WokkewqwO/ZN7Hal1qOta1jUE/Pq45N12mi1oz0t7U9lGpH756/X+sAu+pt8tTeJx0/xpoyw2zyc30/6SAUO4l54s7gg2gHlf6wYAWyNymz6kO5/bQBDKQmIqPume3M+18vkz99/qAMgY6NcqxlTXLskgB5ch6y75uHdhVOWKFE0XJ0sx69EPAgMBAAGjggFkMIIBYDCCAUwGCisGAQQB1nkCAREEggE8MIIBOAIBAwoBAQIBBAoBAQQHQ2hpcFNESwQAMGS/hT0IAgYBf/Tmrae/hUVUBFIwUDEqMCgEI2NvbS5ub3ZvcGF5bWVudC5zZGsudnRzLmV4YW1wbGUudWF0AgEUMSIEIIkMle9k8eY+TUdU33loG8ElVwxkn5djVnnpmjLg8LXLMIG4oQsxCQIBAAIBAQIBAqIDAgEBowQCAggApQgxBgIBBAIBBqYIMQYCAQQCAQW/gUgFAgMBAAG/g3cCBQC/hT4DAgEAv4VATDBKBCDicw2c62QrvRebx5QKJ/Don3LHShuPjd7oz/vjeZlPigEB/woBAAQgTliWMaYE5nYVl3rJrJLyu0/KeRcvKmqZY0m6MqissHO/hUEFAgMB1MC/hUIFAgMDFdq/hU4GAgQBNIkpv4VPBgIEATSJKTAOBgNVHQ8BAf8EBAMCBLAwDQYJKoZIhvcNAQELBQADggGBAKMaJIRSIDnv1EquZmtHlP6Bcuvs/exMObDetN1XQfkso3snLn5ZiF/bZj1wD8ywNxbemwJdmHfCjmqIoAGqWeIWF6mlw17FKKiK9Gzm/lFZCO+SFSUz0Z2P+c/qbI/pAbdO52UZaChZMYA8aJm0AlJWaw9/MH146nfJ6SqnSZuqSugAXa2+zwZGec8bnlXJyJg4AuYJXYS+4jCiImS6SsyP0DBN3sNRWQpzIMUYf/edm0gBeaQESfKQbWeBicwa2GLia2+XhaY2lw43i4wPcsmDdnESsiIxZYeHDHrSkfUBHxMMElU3q0+86zy3DSPRVJsfjUDVrLAIFzV/lVmlBY6Y/tx9rk3Q0tqU6hUs4iNmy1EzcFQgqwrm6rJ4Ll/Tpsimwc0rYyz7VV/INA5u8qPMcEPWuNw1N84ttdpTR9Ox+tiEybfFM8WVi+CZr8DUf9yKDifay6bNhniKup5Qo2QdahN9NV/hmW9/KKyhtB4Na+PaIDEKl9/t7KnYz/aOdA\\u003d\\u003d\"\n                    },\n                    {\n                        \"certFormat\": \"X509\",\n                        \"certUsage\": \"INTEGRITY\",\n                        \"certValue\": \"MIIEuTCCAyGgAwIBAgIBATANBgkqhkiG9w0BAQsFADA5MQwwCgYDVQQMDANURUUxKTAnBgNVBAUTIDE3ZWFmMjQ1YjY4Y2MyNWJmNDFlZGM5ZTZkY2EzYTQ0MB4XDTIxMDYxNjE5MTIxMloXDTMxMDYxNDE5MTIxMlowHzEdMBsGA1UEAwwUQW5kcm9pZCBLZXlzdG9yZSBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3JQqyljH2TqwFbMBRZuEqj/W/h2/IRiJGbii1T8s/zmc3fGMYWY6dnIXRTHIa0Mrdx1mpBk0wUoUmJi/yHG3e5WY+HdwKiSft8lgYbJqe5QYC9T69KQXkoMYoj/tqpTjCGSxpipucQq/01tQVnalpemHYjr5eJhF/UCK5G/3nm+/8nvB82YQjhtSyNMFB0NvZRFLFqKQoHfHCR3ccmZJwiqXrG0g412hWiQW1mWPOcRnnvBxbckuMZkBzfNDvzOJCo9ic7HUa3NhNan4gpJ1fW8SUvMaeCe72B1hGbDpq9XNEvj/FN67Y5CXEvkHhft/SjlLUnw1v6HfCOVpX8mzxAgMBAAGjggFkMIIBYDCCAUwGCisGAQQB1nkCAREEggE8MIIBOAIBAwoBAQIBBAoBAQQHQ2hpcFNESwQAMGS/hT0IAgYBf/Tmrxq/hUVUBFIwUDEqMCgEI2NvbS5ub3ZvcGF5bWVudC5zZGsudnRzLmV4YW1wbGUudWF0AgEUMSIEIIkMle9k8eY+TUdU33loG8ElVwxkn5djVnnpmjLg8LXLMIG4oQsxCQIBAAIBAQIBAqIDAgEBowQCAggApQgxBgIBBAIBBqYIMQYCAQQCAQW/gUgFAgMBAAG/g3cCBQC/hT4DAgEAv4VATDBKBCDicw2c62QrvRebx5QKJ/Don3LHShuPjd7oz/vjeZlPigEB/woBAAQgTliWMaYE5nYVl3rJrJLyu0/KeRcvKmqZY0m6MqissHO/hUEFAgMB1MC/hUIFAgMDFdq/hU4GAgQBNIkpv4VPBgIEATSJKTAOBgNVHQ8BAf8EBAMCBLAwDQYJKoZIhvcNAQELBQADggGBALXLTsKydvia/GtYtakkR44fhOND0CFbHl3DIB1GcBK7BuwLb+OapHJwSxAApXRc+edoBVRdy/6gPHuMAvP5OrAs8WsVo8vtgjPnEYZrPJhZos4Kgb8d4rHQl6/mpx5szUOUE59WmpiGR2GGiXUe2x5iOogBnzLnhp0qiHHiYbz+1oKPC76miBhxCjaS7mRRwdMr3/WO0g9wqY1BbCTr3/PXMM4UYJESIGHDV4V7ggUoiZ2gXYpgEoFNaCwyNKxltmDWwALbJ97T1Eg0xtFZigwZCY5BvF8Y7/a9AbWAc03DD6L0Rp16N/cxBONuT4WRbfO/Xh8hCI0gsLy8hxJCus/adSYWi07K1cgJMroE6rhfeXgG41Eef6DVI4kV1/Fa2+EyDPLysYSkwaVoKlqHNl0xDyaS5iOfey6nduJYCmq3i8nvZqmiaA+Hv5Tg96oV+K4d91+WGXEbChNBtOhKQ3HEi3SBPxep5/xs6obSf/2t8fGABsfmJfj7V0z8Q1/sxw\\u003d\\u003d\"\n                    }\n                ],\n                \"vtsCerts\": []\n            },\n            \"deviceInfo\": {\n                \"deviceBrand\": \"samsung\",\n                \"deviceIDType\": \"Derived\",\n                \"deviceManufacturer\": \"samsung\",\n                \"deviceModel\": \"SM-G780G\",\n                \"deviceName\": \"R2FsYXh5IFMyMCBGRQ\",\n                \"deviceType\": \"PHONE_TABLET\",\n                \"hostDeviceID\": \"Mzc4MWU0MzgtZjM5ZS0zMWJi\",\n                \"osBuildID\": \"SP1A.210812.016\",\n                \"osType\": \"ANDROID\",\n                \"osVersion\": \"12\"\n            }\n        },\n        \"userId\": \"NovoUser\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/enroll/device/devicebinding",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"enroll",
+										"device",
+										"devicebinding"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Device Binding",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "x-device",
+										"value": "Mzc4MWU0MzgtZjM5ZS0zMWJi",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"enrollDevice\": {\n            \"channelSecurityContext\": {\n                \"channelInfo\": {\n                    \"encryptionScheme\": \"RSA_PKI\"\n                },\n                \"deviceCerts\": [\n                    {\n                        \"certFormat\": \"X509\",\n                        \"certUsage\": \"CONFIDENTIALITY\",\n                        \"certValue\": \"MIIEuTCCAyGgAwIBAgIBATANBgkqhkiG9w0BAQsFADA5MQwwCgYDVQQMDANURUUxKTAnBgNVBAUTIDE3ZWFmMjQ1YjY4Y2MyNWJmNDFlZGM5ZTZkY2EzYTQ0MB4XDTIxMDYxNjE5MTIxMloXDTMxMDYxNDE5MTIxMlowHzEdMBsGA1UEAwwUQW5kcm9pZCBLZXlzdG9yZSBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqX3mhAB6KQmbBUw/Zo5OFSnqeVk/vZV0WJQMdgBI0pJ/HoIeP2wV91yR/jdfWUHHe16zebpzPAQ3mitbVcuVTGS2BHclpJH3HA2yk1Y/zlpj4cFmmdWAuIgOt+ACI/3ON8S94FL7/a5AAoxcXdEdD8Ow/cU8WuQ0WokkewqwO/ZN7Hal1qOta1jUE/Pq45N12mi1oz0t7U9lGpH756/X+sAu+pt8tTeJx0/xpoyw2zyc30/6SAUO4l54s7gg2gHlf6wYAWyNymz6kO5/bQBDKQmIqPume3M+18vkz99/qAMgY6NcqxlTXLskgB5ch6y75uHdhVOWKFE0XJ0sx69EPAgMBAAGjggFkMIIBYDCCAUwGCisGAQQB1nkCAREEggE8MIIBOAIBAwoBAQIBBAoBAQQHQ2hpcFNESwQAMGS/hT0IAgYBf/Tmrae/hUVUBFIwUDEqMCgEI2NvbS5ub3ZvcGF5bWVudC5zZGsudnRzLmV4YW1wbGUudWF0AgEUMSIEIIkMle9k8eY+TUdU33loG8ElVwxkn5djVnnpmjLg8LXLMIG4oQsxCQIBAAIBAQIBAqIDAgEBowQCAggApQgxBgIBBAIBBqYIMQYCAQQCAQW/gUgFAgMBAAG/g3cCBQC/hT4DAgEAv4VATDBKBCDicw2c62QrvRebx5QKJ/Don3LHShuPjd7oz/vjeZlPigEB/woBAAQgTliWMaYE5nYVl3rJrJLyu0/KeRcvKmqZY0m6MqissHO/hUEFAgMB1MC/hUIFAgMDFdq/hU4GAgQBNIkpv4VPBgIEATSJKTAOBgNVHQ8BAf8EBAMCBLAwDQYJKoZIhvcNAQELBQADggGBAKMaJIRSIDnv1EquZmtHlP6Bcuvs/exMObDetN1XQfkso3snLn5ZiF/bZj1wD8ywNxbemwJdmHfCjmqIoAGqWeIWF6mlw17FKKiK9Gzm/lFZCO+SFSUz0Z2P+c/qbI/pAbdO52UZaChZMYA8aJm0AlJWaw9/MH146nfJ6SqnSZuqSugAXa2+zwZGec8bnlXJyJg4AuYJXYS+4jCiImS6SsyP0DBN3sNRWQpzIMUYf/edm0gBeaQESfKQbWeBicwa2GLia2+XhaY2lw43i4wPcsmDdnESsiIxZYeHDHrSkfUBHxMMElU3q0+86zy3DSPRVJsfjUDVrLAIFzV/lVmlBY6Y/tx9rk3Q0tqU6hUs4iNmy1EzcFQgqwrm6rJ4Ll/Tpsimwc0rYyz7VV/INA5u8qPMcEPWuNw1N84ttdpTR9Ox+tiEybfFM8WVi+CZr8DUf9yKDifay6bNhniKup5Qo2QdahN9NV/hmW9/KKyhtB4Na+PaIDEKl9/t7KnYz/aOdA\\u003d\\u003d\"\n                    },\n                    {\n                        \"certFormat\": \"X509\",\n                        \"certUsage\": \"INTEGRITY\",\n                        \"certValue\": \"MIIEuTCCAyGgAwIBAgIBATANBgkqhkiG9w0BAQsFADA5MQwwCgYDVQQMDANURUUxKTAnBgNVBAUTIDE3ZWFmMjQ1YjY4Y2MyNWJmNDFlZGM5ZTZkY2EzYTQ0MB4XDTIxMDYxNjE5MTIxMloXDTMxMDYxNDE5MTIxMlowHzEdMBsGA1UEAwwUQW5kcm9pZCBLZXlzdG9yZSBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3JQqyljH2TqwFbMBRZuEqj/W/h2/IRiJGbii1T8s/zmc3fGMYWY6dnIXRTHIa0Mrdx1mpBk0wUoUmJi/yHG3e5WY+HdwKiSft8lgYbJqe5QYC9T69KQXkoMYoj/tqpTjCGSxpipucQq/01tQVnalpemHYjr5eJhF/UCK5G/3nm+/8nvB82YQjhtSyNMFB0NvZRFLFqKQoHfHCR3ccmZJwiqXrG0g412hWiQW1mWPOcRnnvBxbckuMZkBzfNDvzOJCo9ic7HUa3NhNan4gpJ1fW8SUvMaeCe72B1hGbDpq9XNEvj/FN67Y5CXEvkHhft/SjlLUnw1v6HfCOVpX8mzxAgMBAAGjggFkMIIBYDCCAUwGCisGAQQB1nkCAREEggE8MIIBOAIBAwoBAQIBBAoBAQQHQ2hpcFNESwQAMGS/hT0IAgYBf/Tmrxq/hUVUBFIwUDEqMCgEI2NvbS5ub3ZvcGF5bWVudC5zZGsudnRzLmV4YW1wbGUudWF0AgEUMSIEIIkMle9k8eY+TUdU33loG8ElVwxkn5djVnnpmjLg8LXLMIG4oQsxCQIBAAIBAQIBAqIDAgEBowQCAggApQgxBgIBBAIBBqYIMQYCAQQCAQW/gUgFAgMBAAG/g3cCBQC/hT4DAgEAv4VATDBKBCDicw2c62QrvRebx5QKJ/Don3LHShuPjd7oz/vjeZlPigEB/woBAAQgTliWMaYE5nYVl3rJrJLyu0/KeRcvKmqZY0m6MqissHO/hUEFAgMB1MC/hUIFAgMDFdq/hU4GAgQBNIkpv4VPBgIEATSJKTAOBgNVHQ8BAf8EBAMCBLAwDQYJKoZIhvcNAQELBQADggGBALXLTsKydvia/GtYtakkR44fhOND0CFbHl3DIB1GcBK7BuwLb+OapHJwSxAApXRc+edoBVRdy/6gPHuMAvP5OrAs8WsVo8vtgjPnEYZrPJhZos4Kgb8d4rHQl6/mpx5szUOUE59WmpiGR2GGiXUe2x5iOogBnzLnhp0qiHHiYbz+1oKPC76miBhxCjaS7mRRwdMr3/WO0g9wqY1BbCTr3/PXMM4UYJESIGHDV4V7ggUoiZ2gXYpgEoFNaCwyNKxltmDWwALbJ97T1Eg0xtFZigwZCY5BvF8Y7/a9AbWAc03DD6L0Rp16N/cxBONuT4WRbfO/Xh8hCI0gsLy8hxJCus/adSYWi07K1cgJMroE6rhfeXgG41Eef6DVI4kV1/Fa2+EyDPLysYSkwaVoKlqHNl0xDyaS5iOfey6nduJYCmq3i8nvZqmiaA+Hv5Tg96oV+K4d91+WGXEbChNBtOhKQ3HEi3SBPxep5/xs6obSf/2t8fGABsfmJfj7V0z8Q1/sxw\\u003d\\u003d\"\n                    }\n                ],\n                \"vtsCerts\": []\n            },\n            \"deviceInfo\": {\n                \"deviceBrand\": \"samsung\",\n                \"deviceIDType\": \"Derived\",\n                \"deviceManufacturer\": \"samsung\",\n                \"deviceModel\": \"SM-G780G\",\n                \"deviceName\": \"R2FsYXh5IFMyMCBGRQ\",\n                \"deviceType\": \"PHONE_TABLET\",\n                \"hostDeviceID\": \"Mzc4MWU0MzgtZjM5ZS0zMWJi\",\n                \"osBuildID\": \"SP1A.210812.016\",\n                \"osType\": \"ANDROID\",\n                \"osVersion\": \"12\"\n            }\n        },\n        \"userId\": \"NovoUser\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/enroll/device/devicebinding/1d205455900e18b109d4171f87104c02/MDgzNDZmMmUtNTYwYy0zZWRh",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"enroll",
+										"device",
+										"devicebinding",
+										"1d205455900e18b109d4171f87104c02",
+										"MDgzNDZmMmUtNTYwYy0zZWRh"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll Device DAS",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"hostDeviceID\": \"Mzc4MWU0MzgtZjM5ZS0zMWJi\",\n        \"deviceInfo\": {},\n        \"provisionAckRequest\": {\n            \"api\": \"02224700\",\n            \"provisioningStatus\": \"SUCCESS\"\n        },\n        \"typeProcess\": \"ENROLL_PAN\",\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/enroll/device/das",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"enroll",
+										"device",
+										"das"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll PAN",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"clientWalletAccountId\": \"db8a0d4d8ee54c14b6f537b4\",\n        \"email\": \"developer@novopayment.com\",\n        \"panData\": {\n            \"accountNumber\": \"4OXS4FEFyL7ictwbYbFPbdkxjy8VYExwgrquLI+SC6k\\u003d\",\n            \"cvv2\": \"aR4K9Hy85hN0BOBBUALSWQ\\u003d\\u003d\",\n            \"expirationDate\": {\n                \"month\": \"03\",\n                \"year\": \"2024\"\n            },\n            \"name\": \"vvgg\"\n        },\n        \"presentationType\": \"NFC-HCE\",\n        \"userId\": \"NovoUser\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/enroll/pan",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"enroll",
+										"pan"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll PAN / Provision",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"clientWalletAccountId\": \"db8a0d4d8ee54c14b6f537b4\",\n        \"email\": \"developer@novopayment.com\",\n        \"panData\": {\n            \"accountNumber\": \"4OXS4FEFyL7ictwbYbFPbdkxjy8VYExwgrquLI+SC6k\\u003d\",\n            \"cvv2\": \"aR4K9Hy85hN0BOBBUALSWQ\\u003d\\u003d\",\n            \"expirationDate\": {\n                \"month\": \"03\",\n                \"year\": \"2024\"\n            },\n            \"name\": \"vvgg\"\n        },\n        \"presentationType\": \"NFC-HCE\",\n        \"userId\": \"NovoUser\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/enroll/pan/provision",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"enroll",
+										"pan",
+										"provision"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll Provision",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"hostDeviceID\": \"Mzc4MWU0MzgtZjM5ZS0zMWJi\",\n        \"provisionAckRequest\": {\n            \"api\": \"02224700\",\n            \"provisioningStatus\": \"SUCCESS\"\n        },\n        \"typeProcess\": \"ENROLL_PAN\",\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/provision",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"provision"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll Confirm",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"hostDeviceID\": \"Mzc4MWU0MzgtZjM5ZS0zMWJi\",\n        \"provisionAckRequest\": {\n            \"api\": \"02224700\",\n            \"provisioningStatus\": \"SUCCESS\"\n        },\n        \"typeProcess\": \"ENROLL_PAN\",\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/enroll/confirm",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"enroll",
+										"confirm"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Replenish",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"replenishRequest\": {\n            \"signature\": {\n                \"mac\": \"a1c32c70d0bbc4a5\"\n            },\n            \"tokenInfo\": {\n                \"hceData\": {\n                    \"dynParams\": {\n                        \"api\": \"02782300\",\n                        \"sc\": 1,\n                        \"tvl\": [\n                            \"1669155205|00000000|1|Q\",\n                            \"1669155217|00000000|2|Q\",\n                            \"1669155226|00000000|3|Q\",\n                            \"1669155233|00000000|4|Q\"\n                        ]\n                    }\n                }\n            }\n        },\n        \"vProvisionedTokenID\": \"a2c7f2ae990c569b603a1324c3adcc02\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/token/replenish",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"token",
+										"replenish"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Confirm Replenish",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"mac\": \"a1c32c70d0bbc4a5\",\n        \"replenishRequest\": {            \n            \"tokenInfo\": {\n                \"hceData\": {\n                    \"dynParams\": {\n                        \"api\": \"02782300\",\n                        \"sc\": 1,\n                        \"tvl\": [\n                            \"1669155205|00000000|1|Q\",\n                            \"1669155217|00000000|2|Q\",\n                            \"1669155226|00000000|3|Q\",\n                            \"1669155233|00000000|4|Q\"\n                        ]\n                    }\n                }\n            }\n        },\n        \"vProvisionedTokenID\": \"a2c7f2ae990c569b603a1324c3adcc02\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/token/confirmreplenish",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"token",
+										"confirmreplenish"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Replenish ODA",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"data\":{\n        \"vProvisionedTokenID\":\"1293a645c0a30f521e241ab2a5dd0d02\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/token/replenishoda",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"token",
+										"replenishoda"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Token Lifecycle",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"lcmTokenRequest\": {\n            \"updateReason\": {\n                \"reasonCode\": \"FRAUD\",\n                \"reasonDesc\": \"Unknown transactions\"\n            },\n            \"vProvisionedTokenID\": \"4f528b5e8bd03e66b9df14742bd03e02\"\n        },\n        \"typeProcess\": \"ACTION_TOKEN_DELETED\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/token/lifecycle",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"token",
+										"lifecycle"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Content",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"requiredContent\": \"digitalCardArt\",\n        \"vPanEnrollmentID\": \"ccdf8a50c307768db70812fbb4c54501\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tokenizacion/tools/content",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tokenizacion",
+										"tools",
+										"content"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Card Metadata",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"vPanEnrollmentID\": \"e09c4ab892a29a00eb15198499a94001\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tools/updatecardmetadata",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tools",
+										"updatecardmetadata"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Validate OTP",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"otpValue\": \"458365\",\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\",\n        \"date\": \"1669230281\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tools/otp/validate",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tools",
+										"otp",
+										"validate"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "StepUp",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\"        \n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tools/stepup",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tools",
+										"stepup"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "StepUp Submit",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\",\n        \"stepUpRequestID\": \"1b36e4d4-9a15-4a1e-9050-78a532395645\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tools/stepup/submit",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tools",
+										"stepup",
+										"submit"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Reperso",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"vProvisionedTokenID\": \"ad4d869dfa28f08b6acf1378efac0701\",\n        \"clientWalletAccountID\": \"sdfgsdgfdsgds\",\n        \"clientDeviceID\": \"asfdfdsfsda\",\n        \"clientAppID\": \"fsdfsdfdsfds\",\n        \"vNotificationID\": \"1b36e4d4-9a15-4a1e-9050-78a532395645\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tokenizacion/tools/reperso",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tokenizacion",
+										"tools",
+										"reperso"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Reperso Flow",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/tokenizacion/tools/repersoflow",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"tokenizacion",
+										"tools",
+										"repersoflow"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Pending Notifications",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"clientWalletAccountId\": \"de0a675b5fd94e69aff79f27\",\n        \"lastId\": \"-1\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/{{client_id}}/notifications/getpendingnotifications",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"{{client_id}}",
+										"notifications",
+										"getpendingnotifications"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Provision Token with PAN or Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"clientWalletAccountId\": \"de0a675b5fd94e69aff79f27\",\n        \"lastId\": \"-1\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/provisionedtokens",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"provisionedtokens"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Token Status",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Relationship-Id",
+										"value": "9642a303-0746-acfe-063d-1c924c85a401",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/token/1d205455900e18b109d4171f87104c02",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"token",
+										"1d205455900e18b109d4171f87104c02"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Relationship-Id",
+										"value": "9642a303-0746-acfe-063d-1c924c85a401",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/token/1d205455900e18b109d4171f87104c02",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"token",
+										"1d205455900e18b109d4171f87104c02"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment Data",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "X-Time-Zone",
+										"value": "America/Bogota",
+										"type": "text"
+									},
+									{
+										"key": "X-Tenant-Id",
+										"value": "{{tenant_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"clientWalletAccountId\": \"de0a675b5fd94e69aff79f27\",\n        \"lastId\": \"-1\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://{{apigee_host}}/{{url_base_v1}}/paymentdata",
+									"protocol": "https",
+									"host": [
+										"{{apigee_host}}"
+									],
+									"path": [
+										"{{url_base_v1}}",
+										"paymentdata"
+									]
+								},
+								"description": "This operation can be used for issuing a new card"
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Read the request body",
+									"var requestBody = pm.request.body.raw;",
+									"",
+									"// Log the request body",
+									"console.log('Request Body:', requestBody);",
+									"",
+									"const encrypt = {",
+									"    url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1.1/encrypt`,",
+									"    method: \"POST\",",
+									"    header: {",
+									"    'Content-Type': 'application/json',",
+									"    'x-rsa-key-suffix': `${pm.collectionVariables.get('rsa_key_suffix')}`",
+									"    },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({data: requestBody})",
+									"    }",
+									"};",
+									"",
+									"pm.sendRequest(encrypt, function(err, data){",
+									"    ",
+									"    var response = data.json();",
+									"    pm.globals.set(\"data\", response.data);",
+									"",
+									"    if(pm.collectionVariables.get('public_key') !== \"\"){",
+									"        pm.request.body.raw = {",
+									"            \"data\": response.data,",
+									"            \"publicKey\": `${pm.collectionVariables.get('public_key')}`",
+									"        };",
+									"    } else {",
+									"        pm.request.body.raw = {",
+									"            \"data\": response.data",
+									"        };",
+									"    }",
+									"",
+									"    const signature = {",
+									"        url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+									"        method: \"POST\",",
+									"        header: {",
+									"            'Content-Type': 'application/json'",
+									"        },",
+									"        body: {",
+									"            mode: 'raw',",
+									"            raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+									"        }",
+									"    };",
+									"",
+									"    pm.sendRequest(signature, function(err, data){",
+									"        var response = data.json();",
+									"        pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-Token');",
+									"    });",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if(typeof pm.response.json().data !== \"undefined\") {",
+									"    const responseData = pm.response.json().data;",
+									"",
+									"    const decrypt = {",
+									"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1.1/decrypt`,",
+									"        method: \"POST\",",
+									"        header: {",
+									"        'Content-Type': 'application/json',",
+									"        'x-rsa-key-suffix': `${pm.collectionVariables.get('rsa_key_suffix')}`",
+									"        },",
+									"        body: {",
+									"            mode: 'raw',",
+									"            raw: JSON.stringify({data: responseData})",
+									"        }",
+									"    };",
+									"",
+									"    pm.sendRequest(decrypt, function(err, data){",
+									"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+									"    });",
+									"} else {",
+									"    pm.globals.unset(\"plainData\");",
+									"}",
+									"",
+									"pm.globals.unset(\"data\");",
+									"pm.globals.unset(\"signature\");",
+									"pm.globals.unset(\"encryptData\");"
+								]
+							}
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"if(typeof pm.response.json().data !== \"undefined\") {",
+							"    const responseData = pm.response.json().data;",
+							"",
+							"    const decrypt = {",
+							"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1.1/decrypt`,",
+							"        method: \"POST\",",
+							"        header: {",
+							"        'Content-Type': 'application/json',",
+							"        'x-rsa-key-suffix': `${pm.collectionVariables.get('rsa_key_suffix')}`",
+							"        },",
+							"        body: {",
+							"            mode: 'raw',",
+							"            raw: JSON.stringify({data: responseData})",
+							"        }",
+							"    };",
+							"",
+							"    pm.sendRequest(decrypt, function(err, data){",
+							"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+							"    });",
+							"} else {",
+							"    pm.globals.unset(\"plainData\");",
+							"}",
+							"",
+							"pm.globals.unset(\"data\");",
+							"pm.globals.unset(\"signature\");",
+							"pm.globals.unset(\"encryptData\");"
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "apikey",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_base_v1",
+			"value": "api/v1/trtsp",
+			"type": "string"
+		},
+		{
+			"key": "rsa_key_suffix",
+			"value": "internal-project",
+			"type": "string"
+		},
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "public_key",
+			"value": "MIIBITANBgkqhkiG9w0BAQEFAAOCAQ4AMIIBCQKCAQBn2eKY42t+G7Hq3ZP+5oGSQkxkLRmCr9zFuzWSWZcnVmfINlfG/ITVaQszHQPMUXQKfvVDJrsgUu4WViKB6C7Ndr//L3uMPXglpe/K2NzibKtvPvhndGiWNvcQy41JCwOU6oK2A94hD/IemmQBJdosLgqAybRnDjTLP5QnjbY2dxPsX/GOmog8nm5uEqMCAEq8IzA9Y622gZ8SlYWO9EAC4MSwtydUtbozKynsIodaqyNtO6vpfQsUC70Zg43stT/V9ZzRmGhvt2IaXAe5BeauswCn4Fwa0o774Zzgk0PkxvY38M0WmJgpKeG6u9edYxNVNfe44zpnnTmrxKfK7+l7AgMBAAE=",
+			"type": "string"
+		}
+	]
+}

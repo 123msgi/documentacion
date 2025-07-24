@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "7431d791-7a32-4b4b-afa9-de6f88c25c13",
+		"name": "Supports API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377",
+		"_collection_link": "https://cloudy-flare-349495.postman.co/workspace/Novopayment~32e8e737-bb20-4822-bb90-640075be8d97/collection/7967377-7431d791-7a32-4b4b-afa9-de6f88c25c13?action=share&creator=7967377&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Cases List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer BaTfGp9rmEjCumAMkj4kH1hjvCC2",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "5849ea10-5a6c-11eb-ae93-0242ac130002",
+								"type": "text"
+							},
+							{
+								"key": "X-Token",
+								"value": "JWS eyJhbGciOiJSUzUxMiJ9..Z_fRJ5MnYdux5nACrbwjTd4Ptuf9QzErVHeOFExKpoUWr-mO6NM20ogFKSyJCnSuV0JY1N3SHx83l53XZICLfWCCixKniUrslkhxIpUPUpmdCeeJu2FjLORJVIr_q2E081ixKF7L1gAORQtexHlt54EV3Z2c45lxYVbKR5zOQnJI9Ehn0kyREpv9ixqZ4sQUcKyoFXDbZH4EqvoLCXDhVTAvzBAf4b0-HHZrAUoLxuvas7w4fZdrVhbsJjGVgQm3stO3D9VuWz2aZooXkDg46DkoqfRV_Gn0avD7mk8mrkudaE5i7ses4GfppgBcrGqbeIUuKWVwuJy1twHWARABBg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"targetId\": \"DAE6609892F703BBDB491F28141ED0DE\",\r\n    \"targetSource\": \"onboarding_session\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cases/search",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cases",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cases Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "65c2d110-08c1-4dac-a548-a8513c140b45",
+								"type": "text"
+							},
+							{
+								"key": "x-token",
+								"value": "JWS eyJhbGciOiJSUzUxMiJ9..iPanR9sgIxsXUrIC53HP0tDNzfYKl8XqNsaQ69yc7DcYuXisoS3Y1YpNR2qjaTJF4yGlyeyibXrXrWH7A8lGzTUefyMD2Re4Npe7VAfPb79OEW0cHMPDaU0IwU8nL4BzFK90-jUJrooePRceiyUk9vEH4oJz62WA5x6RnqZWKGJ0rrxbWq98haMT0LToHIUKZUc0D470i1FweKk7n82xgBB0l4ZNJr4GP96DTmHCgIfKJTbvN8GK-ZHh6EFpXatrhg_XWRyw5HPAoksSa_sJ40fsxFbh9xg-YwpotAQGdsPYSeQImQ9mXTsMzrYP7JwMwT8wETZmvVOZ95zYdv2nnA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"statusId\": 3,\r\n    \"comment\": \"Prueba de cierre\",\r\n    \"assignedTo\": \"master\",\r\n    \"updatedBy\": \"master\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cases/4/status",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cases",
+								"4",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{apigee_app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{apigee_host}}/oauth2/v1/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "supports/v1",
+			"type": "string"
+		}
+	]
+}

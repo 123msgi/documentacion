@@ -1,0 +1,1530 @@
+{
+	"info": {
+		"_postman_id": "d8a6289a-6199-40f1-a97b-42c0dbad0d9e",
+		"name": "Alias Directory API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23128092"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Create Alias",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "b6964e47-a4d0-446d-899a-95ca1bdb2829"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "2552e3df-e9d6-47af-9980-4e7c8076f7fd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "c088b52d-57a3-4af1-9c4d-a9e2a33d7001"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "dd5cb100-bf62-4921-8ead-fbfc9d66a9f1"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "51ab148a-8fcc-4289-93e1-1a14dcb6f08a"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "94a83763-185c-4c50-a3f4-c7ed44743628"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "aed84d80-ae93-4623-94fd-4c966f40b33c",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"CUSTOM00051\",\r\n    \"aliasType\": \"05\",\r\n    \"country\": \"USA\",\r\n    \"cardHolder\": {\r\n        \"firstName\": \"Jane\",\r\n        \"lastName\": \"Doe\",\r\n        \"documentType\": {\r\n            \"code\": \"GOVERNMENT_ID\"\r\n        },\r\n        \"documentNumber\": \"3346756\",\r\n        \"email\": \"jane@client.com\",\r\n        \"address\": {\r\n            \"line1\": \"10808 Research Boulevard\",\r\n            \"line2\": \"Provisioning Boulevard\",\r\n            \"city\": \"Austin\",\r\n            \"state\": \"TX\",\r\n            \"postalCode\": \"78759\"\r\n        }\r\n    },\r\n    \"paymentInstrument\": {\r\n        \"cardToken\": \"/+p51FdqzIohPqZ3sVjvFIPITgG5MQDar4tkueWTIZI=\",\r\n        \"cvvNumber\": \"Hs3xlaAXURkx+K1yF5nk9w04rZnC3BS17wh/qe+m+lQ=\",\r\n        \"description\": \"Visa Card\",\r\n        \"firstName\": \"Perez\",\r\n        \"lastName\": \"Pepe\",\r\n        \"brandType\": \"VISA\",\r\n        \"issuerName\": \"Interbank\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Alias",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "5174a565-d559-48cb-a387-155425589e5e"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "03694ed1-46ee-445f-bc2b-c2a766ad1f95"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "ba2f2d88-fef5-45c6-8629-312a5e7c0634"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "677eb2d9-1e1e-49ba-98d9-016242eb81de"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "67df52c2-cfc2-4906-92c5-b1777e8e766d"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "d5a3a106-fb3a-4b30-beef-e0e8a378dfe5"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"uuid": "c701ee03-9841-4914-a9f4-cce0c004e725"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": [\r\n        \"CUSTOM55240\",\r\n        \"alias_id_1124488@yahoo.com\"\r\n    ],\r\n    \"filter\": [\r\n        {\r\n            \"field\": \"BRAND_TYPE\",\r\n            \"value\": [\"visa\"]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/find",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"find"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Alias By Payment Instrument",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "9ab64163-39a7-4ef0-828c-cc60ef10af79"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "b30faa68-42f5-4576-a22c-af67cf58d3ef"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "09266401-7bfa-4186-97e3-acb52d664a10"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "f074d8d9-168a-4261-8507-7b5f2342e1f2"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "6d2c6c6c-68af-4163-8490-f36a12c6d80f"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "85a3ebb5-be57-4b38-a3f2-779e300ad44f"
+							},
+							{
+								"key": "X-Token",
+								"value": "JWS {{signature}}",
+								"type": "text",
+								"uuid": "36df3724-7331-483e-8430-8b267647a149",
+								"disabled": true
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "d0ca3eec-9d3a-44df-b354-1d8285de2882",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/paymentinstruments/40f5438740da4cbbbd9f75df66dd4c07",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"paymentinstruments",
+								"40f5438740da4cbbbd9f75df66dd4c07"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Alias",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "a0ebd060-0614-48a0-99fa-ea91828f1d4d"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "36f593a0-7011-4fef-9eed-a794e38151e7"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "4a292c98-9051-4081-bf20-670b12ae321e"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "8ec3a84f-410a-4a34-99f5-5e0bad541e55"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "4e16e89a-0a86-4170-9642-2ac6fa19ce0e"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "ac30dc12-84f2-4553-8f37-06e510299a9b"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "4288d887-0aaf-43b9-8f92-7c62e94d2149",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"519990847\",\r\n    \"aliasType\": \"01\",\r\n    \"country\": \"USA\",\r\n    \"cardHolder\": {\r\n        \"firstName\": \"Juan\",\r\n        \"lastName\": \"Perez\",\r\n        \"documentType\": {\r\n            \"code\": \"GOVERNANT_ID\"\r\n        },\r\n        \"documentNumber\": \"43526789\",\r\n        \"email\": \"juan@gmail.com\",\r\n        \"address\": {\r\n            \"line1\": \"10808 Research Boulevard\",\r\n            \"line2\": \"Provisioning Boulevard\",\r\n            \"city\": \"Austin\",\r\n            \"state\": \"TX\",\r\n            \"postalCode\": \"78759\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/c0ef71124c17426987f45576469c6111",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"c0ef71124c17426987f45576469c6111"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payment Instrument Status",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "631230dd-ebe7-486c-b282-6f543b23ba89"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "d2c3963f-cc9e-4a28-bba6-f4054e3849d9"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "3770b1c2-9e49-4fe8-bdb3-e1701280d162"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "a86f9cd4-1184-4d92-9074-e71ae2be1292"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "46efa073-3a47-4e15-95cb-de110baebc6b"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "299f4a89-6f2a-499f-87ac-d8a7ce39d3c6"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "08b927ed-19d8-4308-851d-f930cd78ccdf",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"519-990808\",\r\n    \"aliasType\": \"01\",\r\n    \"paymentInstrumentId\": \"258aeef8fc7343a2a5b17c723c46185f\",\r\n    \"paymentInstrumentStatus\": \"ACTIVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/paymentinstruments/status",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"paymentinstruments",
+								"status"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Payment Instrument",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "dbbd700a-b323-43b8-a0d7-049d012a4605"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "b3444c72-b503-4a90-83ee-fe7658a78eae"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "57a6b191-8234-4b6f-ae62-f0473fd54d66"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "9f371abe-3763-415d-9141-67bce0fe66c7"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "28fcdc95-ad7b-4d37-9783-4f632a01f127"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "9e5bb329-bbe3-403e-8f8c-3094aa4869a4"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "4b4e4bb0-6f2d-4062-ba32-acd34607e3d5",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"CUSTOM00085\",\r\n    \"aliasType\": \"05\",\r\n    \"paymentInstrument\": {\r\n        \"cardToken\": \"1mfuOU/Yc22Bhybu0yhkKdHIj0Xmhqysnlomi8+cjbo=\",\r\n        \"cvvNumber\": \"Hs3xlaAXURkx+K1yF5nk9w04rZnC3BS17wh/qe+m+lQ=\",\r\n        \"description\": \"Visa Card\",\r\n        \"firstName\": \"Perez\",\r\n        \"lastName\": \"Pepe\",\r\n        \"brandType\": \"VISA\",\r\n        \"issuerName\": \"Interbank\",\r\n        \"bankAccountNumber\": 3542677745586,\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/paymentinstruments",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"paymentinstruments"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Primary Payment Instrument",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "24cb73d6-7509-4c82-a582-0d2d7ce0c39c"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "a3a55f7f-2655-405b-a075-deadc6225808"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "eb0fbf00-bf52-405e-a0d1-88bc406e1368"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "5ad1b20b-db65-4f69-affe-36b38f8609e3"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "6aa5e773-9e3e-46b6-9224-98e43bde3893"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "6da4eae3-052b-4085-bec5-0b49d0302a04"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "e1fc3389-7274-49c7-a9d6-e85ad91a9389",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"519990808\",\r\n    \"aliasType\": \"01\",\r\n    \"paymentInstrumentId\": \"df84dbd0894c491e8611b432709bced0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/paymentinstruments/primary",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"paymentinstruments",
+								"primary"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Alias By Alias And AliasType",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "ba0baf57-f61b-4a51-b1a5-d4a7b9c68f9c"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "2358c6d5-aa21-452c-a651-175941077036"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "e2ded9b9-77f2-475a-98c2-0f2585c142e9"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "b9bd0bc9-1d52-433b-ac57-6290bc640b23"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "49c410c6-722e-4fc6-a65d-010c46a2b8ed"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "206cb9df-5209-4048-bb86-c5ef0b26661f"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "d6095739-3b9d-486f-be0a-8b1f99b381e5",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/testt@gmail.com/aliastype/02",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"testt@gmail.com",
+								"aliastype",
+								"02"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Alias By AliasId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "a1fb6c03-fc5f-4fe7-a4f9-970c55960a09"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "fb6d3ab5-41dc-4552-a886-dac3797887d4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "d3a66d4d-47d0-4f2e-a592-6e501c8420c6"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "d28f3d6e-fc58-47bd-b89e-c2ab96de8461"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "4786fe73-a0b1-406f-9023-43d77d5bd980"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "e763d156-daa9-4a6b-8a4f-d31c9df485e1"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "3948b1c2-65f9-4eee-97b2-ad6fbcd2a0ac",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/d2d490cc231c43bfae952f4a96d47087",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"d2d490cc231c43bfae952f4a96d47087"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Alias By Alias And AliasType",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "562dc1a1-ebc6-4058-bb46-d4db607e655d"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "4b258100-7e36-456c-bcd5-8497bef40b25"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "9394d3e4-5098-40d0-a081-53322b4229d8"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "471424e6-79d1-427e-bca0-8da97afd8720"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "082196dc-ebbf-46bc-9a1d-f9b201e994f3"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "6e2bf50d-4963-40f7-885c-7c716b28a1d4"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "a69897c2-a76e-4d56-8b2f-25f8b661a407",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/test28@gmail.com/aliastype/02",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"test28@gmail.com",
+								"aliastype",
+								"02"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Alias By AliasId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "6a68c464-e0b7-4647-bbbe-40c71d4f46fe"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "e237ae1e-c7ff-46e8-901a-315ad99990ff"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "9f7d662e-9175-4b7c-9df7-06509c05de25"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "d56dacc9-320c-460b-858a-3739a33c3e08"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "a6b47086-ae9e-41ec-9554-6d4d8eae6761"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "83c6888d-851b-4683-ba82-80ee7c4f7e6c"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "690fb687-e933-4399-aadd-fa8736f4084f",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/d8206841bf2843a6a6f5612f06c76547",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"d8206841bf2843a6a6f5612f06c76547"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Payment Instrument",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "fa91415e-06bb-402c-b8e1-768177b7cf49"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "509e51d3-e537-4cbc-b345-e82bae586548"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "587889d4-2432-49be-8a6a-5777786c2442"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "c7c2e184-f88c-4912-b41e-6cf8cd9c730d"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "20439d7a-0f3c-4cf1-b934-f879ee0b9576"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "5caacb5d-a3b8-4084-85a2-a2d5f23504df"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "860f3b23-26d1-46c7-aaa6-4f2108ddec31",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/87dabc85eb994af680402b1d4c50fe3a/paymentinstruments/66c079e38388425584cc70b6bf760222",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"87dabc85eb994af680402b1d4c50fe3a",
+								"paymentinstruments",
+								"66c079e38388425584cc70b6bf760222"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Alias Favorite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "16bdabb8-7cce-41b4-b528-9b36b174f9bb"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "6834d48f-f38d-4174-b8e9-aeaa4a78b77e"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "0fb418d9-e782-4f83-8391-ab1ace64279a"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "1ef0949c-91fa-42c0-b625-cf150d979221"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "78b40643-051b-45c4-b0df-169f1e2b5e51"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "52d85355-83f7-442d-aab4-a54d42ccb0ef"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "95ceb6bb-e4b3-4068-a41f-3972b69c0968",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"aliasParent\": {\r\n        \"aliasId\": \"0431bffbe70f4cc2944e527a125d0b1b\"\r\n    },\r\n    \"aliasFavorite\": {\r\n        \"favoriteName\": \"motherTest20\",\r\n        \"cardToken\": \"A4AhbfkEZft/EkcXNlXO8ww+N/EFG2DFarSkC4q1leI=\",\r\n        \"cardHolder\": {\r\n            \"documentNumber\": 1804486965,\r\n            \"documentType\": {\r\n                \"code\": \"GOVERNMENT_ID\"\r\n            },\r\n            \"firstName\": \"Adriana\",\r\n            \"lastName\": \"Castaneda\",\r\n            \"email\": \"adr@gmail.com\",\r\n            \"address\": {\r\n                \"city\": \"Bogota\",\r\n                \"line1\": \"Cr9 45 -57\",\r\n                \"line2\": \"Boulevard\",\r\n                \"postalCode\": 20141,\r\n                \"state\": \"CU\"\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/favorites",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"favorites"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Alias Favorites",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "2a821ecc-7db9-4988-96e4-9d4fe8364771"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "e5c94be6-92fd-431d-a8b3-770a42dd3221"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "75ae1e76-2713-4470-9b19-59674252d298"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "adcef999-503b-4d8e-88a0-c97d0368ebbe"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "4ca00288-ed63-454b-a456-b2c9c5afe891"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "198e7315-568e-4580-a470-5cb32621b232"
+							},
+							{
+								"key": "X-Token",
+								"value": "JWS {{signature}}",
+								"type": "text",
+								"uuid": "21a8223d-6842-4065-8a07-62075f1b1324",
+								"disabled": true
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "32181004-40d8-4825-8b17-ea515df681f0",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/0431bffbe70f4cc2944e527a125d0b1b/favorites",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"0431bffbe70f4cc2944e527a125d0b1b",
+								"favorites"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Alias Favorite",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "5d921f31-3f34-4f04-8696-1478d49c20b4"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"uuid": "81bb96c0-9d12-431a-af48-6f97fe167f8b"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"uuid": "cfdb4b5e-f3ba-4dbe-8e93-194953eee735"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text",
+								"uuid": "49ff3a09-29ee-48a3-b893-eab2bc6e3cb7"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text",
+								"uuid": "f8341a5f-318d-4a74-9776-1b7c90054b89"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text",
+								"uuid": "cac92132-a6d8-4eb2-a5a8-8bb64621212e"
+							},
+							{
+								"key": "x-device",
+								"value": " Mzc4MWU0MzgtZjM5ZS0zMWJi",
+								"type": "text",
+								"uuid": "c4d8741d-72c1-45a3-ba5f-262ac703c5ec",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/alias/0431bffbe70f4cc2944e527a125d0b1b/favorites/AMIGOMAX",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"alias",
+								"0431bffbe70f4cc2944e527a125d0b1b",
+								"favorites",
+								"AMIGOMAX"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{apigee_app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{apigee_host}}/oauth2/v1/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "aliasdirectory/v1",
+			"type": "string"
+		}
+	]
+}

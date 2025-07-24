@@ -1,0 +1,1266 @@
+{
+	"info": {
+		"_postman_id": "9012435c-e9e5-4bb9-9d80-15df29628f72",
+		"name": "Onboarding API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23128092",
+		"_collection_link": "https://gold-shuttle-887707.postman.co/workspace/My-Workspace~d8a79002-b982-4058-8139-abc14cf803c3/collection/23128092-9012435c-e9e5-4bb9-9d80-15df29628f72?action=share&source=collection_link&creator=23128092"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Account Approval",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "6c9d22f2-8586-42cc-ae95-2464ec759f3b",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"APPROVED\",\r\n    \"diligence\": \"1\",\r\n    \"user\": \"master\",\r\n    \"cardProduct\": \"1\",\r\n    \"accountProduct\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/5B22A3383E32D3622/decision",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"5B22A3383E32D3622",
+								"decision"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Identity Document",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"documentNumber\": \"E-8-196781\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/onboarding/v1/personal/documentverify",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"onboarding",
+								"v1",
+								"personal",
+								"documentverify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v0",
+			"item": [
+				{
+					"name": "Validate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/validate?consultantCode=052156017&countryCode=PE",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"validate"
+							],
+							"query": [
+								{
+									"key": "consultantCode",
+									"value": "052156017"
+								},
+								{
+									"key": "countryCode",
+									"value": "PE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Onboard New User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"currentPhaseCode\": \"ONB_PHASES_PEP\",\r\n  \"onboardingUuId\": \"a4f97d13-0d69-4d6d-9042-a857cb08e391\",\r\n  \"request\": {\r\n    \"consultant\": {\r\n      \"address\": \"7 Fifth Ave.\",\r\n      \"consultantCode\": \"0098789\",\r\n      \"countryCode\": \"PE\",\r\n      \"documentNumber\": \"12345678\",\r\n      \"documentType\": \"DNI\",\r\n      \"email\": \"email@email.com\",\r\n      \"firstName\": \"Max\",\r\n      \"lastName\": \"Smith\",\r\n      \"phoneNumber\": \"956896253\"\r\n    },\r\n    \"terms\": [\r\n      {\r\n        \"uuid\": \"a4f97d13-99999-4d6d-9042-a857cb08e391\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/termsandconditions",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"termsandconditions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Additional Data User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPhaseCode\": \"ONB_PHASES_PEP\",\r\n    \"onboardingUuId\": \"a4f97d13-0d69-4d6d-9042-a857cb08e391\",\r\n    \"request\": {\r\n        \"consultant\": {\r\n            \"companyName\": \"Tienda el Chino\",\r\n            \"companyPosition\": \"Gerente\",\r\n            \"companyType\": \"Privado\",\r\n            \"occupationUuid\": \"66636e69-5f3e-430a-a8ee-8ce59e9e1320\"\r\n        },\r\n        \"terms\": [\r\n            {\r\n                \"uuid\": \"a4f97d13-99999-4d6d-9042-a857cb08e391\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/consultantdata",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"consultantdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"currentPassword\":\"jZmPj/BXp20CsCKRLnwtbw==\",\r\n\"newPassword\":\"+LzigRIsKJqmwlkZXVLfoQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/users/10ae9b2f-89a2-4a43-abbd-8b4fb98bf067/password",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"users",
+								"10ae9b2f-89a2-4a43-abbd-8b4fb98bf067",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Politically Exposed Person",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"currentPhaseCode\": \"ONB_PHASES_PEP\",\r\n  \"onboardingUuId\": \"a4f97d13-0d69-4d6d-9042-a857cb08e391\",\r\n  \"request\": {\r\n    \"isPep\": true,\r\n    \"pepForm\": {\r\n      \"address\": \"7 Fifth Ave\",\r\n      \"companyName\": \"Tienda el Chino\",\r\n      \"department\": \"Lima\",\r\n      \"district\": \"Miraflores\",\r\n      \"endDate\": \"2028-12-31\",\r\n      \"holdShare\": true,\r\n      \"isRelativeAlive\": true,\r\n      \"position\": \"Gerente\",\r\n      \"province\": \"Lima\"\r\n    },\r\n    \"relatives\": [\r\n      {\r\n        \"documentNumber\": 2610351,\r\n        \"documentType\": \"DNI\",\r\n        \"fullName\": \"AURA ESTELA\"\r\n      }\r\n    ],\r\n    \"terms\": [\r\n      {\r\n        \"uuid\": \"a4f97d13-99999-4d6d-9042-a857cb08e391\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/pep",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"pep"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create An Account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"currentPhaseCode\":\"ONB_PHASES_CONTRASENNIA\",\"onboardingUuId\":\"5e06fb45-0aba-4882-aa00-8b4ef0c2aabf\",\"request\":{\"password\":\"9zInLl/dNl1kY4MG8pVDNA==\",\"terms\":[{\"code\":\"TERM3\"}]}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/credentials",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"credentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Onboard Auth",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"currentPhaseCode\": \"ONB_PHASES_PEP\",\r\n  \"onboardingUuId\": \"a4f97d13-0d69-4d6d-9042-a857cb08e391\",\r\n  \"request\": {\r\n    \"password\": \"052olf8m99453jCPWTOL3Q==\",\r\n    \"terms\": [\r\n      {\r\n        \"uuid\": \"a4f97d13-99999-4d6d-9042-a857cb08e391\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/a01a8d4a-1793-44ab-bcc7-cea0117070c3/tfa",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"a01a8d4a-1793-44ab-bcc7-cea0117070c3",
+								"tfa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Onboard Auth",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"otpProcessCode\": \"ONBOARDING_OTP\",\r\n  \"otpUuId\": \"b5a55ae3-be02-4483-b2b2-11436a1d46d0\",\r\n  \"otpCode\": \"4PxFzv8ywu9O+p6xhoNu1A==\",\r\n  \"currentPhaseCode\": \"ONB_PHASES_OPT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/202c2656-7110-4994-a820-f593e468c6b7/validate/tfa",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"202c2656-7110-4994-a820-f593e468c6b7",
+								"validate",
+								"tfa"
+							],
+							"query": [
+								{
+									"key": "onboardingUuid",
+									"value": "202c2656-7110-4994-a820-f593e468c6b7",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Know Your Customer Request",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"deviceDetect\":\"web\",\r\n \"identifier\":\"a89ae7e8-bdc0-4aee-b4ec-23ca70d0d020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/capturephotobiometrics",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"capturephotobiometrics"
+							],
+							"query": [
+								{
+									"key": "Accept",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Review a Know Your Customer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": " JSESSIONID=82112745BF893834E8C2D06163FDB699",
+								"type": "text"
+							},
+							{
+								"key": "identifier",
+								"value": "55555555555555555",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payload\": {\r\n    \"contacts\": [\r\n      {\r\n        \"person\": {\r\n          \"names\": [\r\n            {\r\n              \"firstName\": \"cZb+UqWw6DcO1ZNoAudFEA==\", \r\n              \"secondName\":\"HiaRO07ozQIhzrr6898V/g==\",\r\n              \"surName\": \"+hwv+C3v93pBibZzRWIUog==\",\r\n              \"surName2\":\"cqNyv1TA5Ic3rMCq8IvZ5A==\"\r\n            }\r\n          ]\r\n        },\r\n        \"identityDocuments\": [\r\n          {\r\n            \"documentType\": \"ZN0XrtyknPWhiEW7dwF2/Q==\",\r\n            \"documentNumber\": \"KqBAHbamGBBFFE3ekfENbg==\",\r\n            \"hashedDocumentNumber\": \"KqBAHbamGBBFFE3ekfENbg==\"\r\n          }\r\n        ],\r\n        \"telephones\": [\r\n          {\r\n            \"number\": \"PBXF/hQgPZ5hyy+A/JA4rQ==\",\r\n            \"phoneIdentifier\": \"fEazh7XH9zBk1vrI6p7flA==\"\r\n          }\r\n        ],\r\n        \"emails\": [\r\n          {\r\n            \"type\": \"JYZUf0HRkqPbPqfUttgKvw==\",\r\n            \"email\": \"gM7PkkJp5GnLAMrNC9Vftg==\"\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"control\": [\r\n      {\r\n        \"option\": \"ACCOUNTID_JM\",\r\n        \"value\": \"f9d1aec3-eba6-40cc-a4ee-86e6f92b7293\"\r\n      },\r\n      {\r\n        \"option\": \"WORKFLOWID_JM\",\r\n        \"value\": \"b7546ae5-8f93-4a7e-be26-1bd0a9889bd8\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/validatebiometric",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"validatebiometric"
+							],
+							"query": [
+								{
+									"key": "Accept",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Non-Doc Verification",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+								"type": "text"
+							},
+							{
+								"key": "identifier",
+								"value": "123e4567-e89b-42d3-a456-556642440000",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"documentType\": \"ZN0XrtyknPWhiEW7dwF2/Q==\",\r\n  \"documentNumber\": \"CSBFD8ETmnW+mn46ZFeSIQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/documents/validate",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"documents",
+								"validate"
+							],
+							"query": [
+								{
+									"key": "Accept",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Anti-money Laundering",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "e30b625a-e085-42a5-aac2-3d52f73ad8fe"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=82112745BF893834E8C2D06163FDB699",
+								"type": "text"
+							},
+							{
+								"key": "identifier",
+								"value": "123e4567-e89b-42d3-a456-556642440000",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"6a36cb96-a331-4f0d-adb9-ba6a8e7f7cd8\",\r\n    \"names\": \"mLBgHKys8Ru1GlVPghbbhA==\",\r\n    \"lastNames\": \"WUAWANsPgfyJhOcqAaCw8w==\",\r\n    \"documentType\": \"ZN0XrtyknPWhiEW7dwF2/Q==\",\r\n    \"documentNumber\": \"3l64lv2+hBWbCsbF5gVJkw==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v0}}/blacklist",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v0}}",
+								"blacklist"
+							],
+							"query": [
+								{
+									"key": "Accept",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientSecret",
+				"value": "{{app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{aws_host}}/oauth2/v1/token",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "a",
+				"type": "string"
+			},
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `828c5631-9fe5-4fb8-b220-eab90090700a`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `828c5631-9fe5-4fb8-b220-eab90090700a`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "t-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "onboarding/v1",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v0",
+			"value": "api/v0/onboarding",
+			"type": "string"
+		},
+		{
+			"key": "host_test",
+			"value": "t-api.novopayment.com",
+			"type": "string"
+		}
+	]
+}

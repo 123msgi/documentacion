@@ -1,0 +1,2382 @@
+{
+	"info": {
+		"_postman_id": "02281ecc-31f0-4eab-86df-42377fe02a2c",
+		"name": "Accounts API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377",
+		"_collection_link": "https://cloudy-flare-349495.postman.co/workspace/Novopayment~32e8e737-bb20-4822-bb90-640075be8d97/collection/7967377-02281ecc-31f0-4eab-86df-42377fe02a2c?action=share&creator=7967377&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Account And Card Creation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"card\": {\n        \"cardProgramId\": \"1\",\n        \"cardDesignId\": \"A1\",\n        \"line1\": \"JOHN DOE\",\n        \"line2\": \"NOVOPAYMENT\",\n        \"requestNumber\": \"64876\",\n        \"reference\": \"AS749\",\n        \"address\": {\n            \"street\": \"calle\",\n            \"number\": \"01\",\n            \"homeNumber\": \"789\",\n            \"sector\": \"sector\",\n            \"city\": \"Bogotá\",\n            \"state\": \"Bogotá D.C\"\n        }\n    },\n    \"account\": {\n        \"accountProgramId\": \"1\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/6650C68E87881/accounts",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"6650C68E87881",
+								"accounts"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Creation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account\": {\n        \"accountId\": \"8507E1D9AD57E330F7DC05361693AED4DF391F0D\"\n    },\n    \"card\": {\n        \"cardProgramId\": \"1\",\n        \"cardDesignId\": \"A1\",\n        \"line1\": \"JOHN DOE\",\n        \"line2\": \"NOVOPAYMENT\",\n        \"requestNumber\": \"64876\",\n        \"reference\": \"AS749\",\n        \"address\": {\n            \"street\": \"calle\",\n            \"number\": \"01\",\n            \"homeNumber\": \"789\",\n            \"sector\": \"sector\",\n            \"city\": \"Bogotá\",\n            \"state\": \"Bogotá D.C\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/EF2C82836F4F7B10/cards",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"EF2C82836F4F7B10",
+								"cards"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Account Balance",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/69E2DBE6B18C7ACD/accounts/B77D67313B5642B430853D5B2D18FFEA48DA8DBE/balance",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"69E2DBE6B18C7ACD",
+								"accounts",
+								"B77D67313B5642B430853D5B2D18FFEA48DA8DBE",
+								"balance"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Block Account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"blockType\": \"TEMPORARY_BLOCKED\",\n    \"blockReasonId\": \"1\",\n    \"observations\": \"the comment\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/48443F861D6060D1/accounts/02F29123CA89AB709053A7269FF4C3027ADE419F/block",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"48443F861D6060D1",
+								"accounts",
+								"02F29123CA89AB709053A7269FF4C3027ADE419F",
+								"block"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Unblock Account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"observations\": \"account required again\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/93AB9FE14DA30299/accounts/ED63C1FCE66730F42848619EEB47F780E0483D09/unblock",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"93AB9FE14DA30299",
+								"accounts",
+								"ED63C1FCE66730F42848619EEB47F780E0483D09",
+								"unblock"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Account Information",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "es",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/69E2DBE6B18C7ACD/accounts/B77D67313B5642B430853D5B2D18FFEA48DA8DBE",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"69E2DBE6B18C7ACD",
+								"accounts",
+								"B77D67313B5642B430853D5B2D18FFEA48DA8DBE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card Block",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"blockTypeId\": \"PB\",\n    \"observations\": \"Prueba Bloqueo Temporal\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/A02185FE2704D24F/cards/517A2D45CCD8EED064A0338C45F76AD82E901543/block",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"A02185FE2704D24F",
+								"cards",
+								"517A2D45CCD8EED064A0338C45F76AD82E901543",
+								"block"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Unblock",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"observations\": \"card required again\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/B25B13628F677130/cards/90852C6FCB7CA6647DB3AA5C277F1BA4C622754E/unblock",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"B25B13628F677130",
+								"cards",
+								"90852C6FCB7CA6647DB3AA5C277F1BA4C622754E",
+								"unblock"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Account Transactions",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-customer-type",
+								"value": "retail",
+								"type": "text"
+							},
+							{
+								"key": "x-context-id",
+								"value": "mio-rd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": \"{{encryptData}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/5D542199D8546113/accounts/415D92D983A84D3CE5536D55EF575656F9C85E43/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"5D542199D8546113",
+								"accounts",
+								"415D92D983A84D3CE5536D55EF575656F9C85E43",
+								"transactions"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account To Account Transaction",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-customer-type",
+								"value": " retail",
+								"type": "text"
+							},
+							{
+								"key": "x-context-id",
+								"value": " mio-rd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": \"15.00\",\n  \"fee\": \"0\",\n  \"tax\": \"0\",\n  \"destinationAccountId\": \"C9FE514A36E8868956EC8F66B1209EF40C7DB854\",\n  \"transactionPurposeId\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/2AA44BA907F0B846/accounts/75EF14142A7344C981033027841F6E4C2C7C52B7/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"2AA44BA907F0B846",
+								"accounts",
+								"75EF14142A7344C981033027841F6E4C2C7C52B7",
+								"transactions"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Transactions",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-customer-type",
+								"value": " retail",
+								"type": "text"
+							},
+							{
+								"key": "x-context-id",
+								"value": " mio-rd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/8C1B4C8C618E0162/cards/4C5C74222B5AF2D7C7D3AAB3F659D371FA73B71C/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"8C1B4C8C618E0162",
+								"cards",
+								"4C5C74222B5AF2D7C7D3AAB3F659D371FA73B71C",
+								"transactions"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Credit Or Debit Adjustment",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-customer-type",
+								"value": " retail",
+								"type": "text"
+							},
+							{
+								"key": "x-context-id",
+								"value": " mio-rd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\": \"RyqPUkr9FYtGhOQ5FXRRF04Bf0DDnmyTMsrmwGrHPQs=\",\n    \"amount\": \"1\",\n    \"fee\": \"0\",\n    \"tax\": \"0\",\n    \"description\": \"test\",\n    \"sign\": \"+\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/adjustments",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"adjustments"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Replacement",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"blockReasonId\": \"4\",\n    \"observations\": \"REPLACE 1 EMBOSSE\",\n    \"blockTypeId\": \"41\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/DF55C09669A29B07/cards/CA8B5673566F34F94C7F3F301F418C193C76BD92/replacement",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"DF55C09669A29B07",
+								"cards",
+								"CA8B5673566F34F94C7F3F301F418C193C76BD92",
+								"replacement"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Account List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "es",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/69E2DBE6B18C7ACD/accounts",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"69E2DBE6B18C7ACD",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card PIN Assignment",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"pin\": \"sDAu3rH+C7NAh2eWxxeobQ==\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/A02185FE2704D24F/cards/E4555088EE3BA858346A6E0359B803C38C43EEDE/pin",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"A02185FE2704D24F",
+								"cards",
+								"E4555088EE3BA858346A6E0359B803C38C43EEDE",
+								"pin"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card PIN Update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pin\": \"sDAu3rH+C7NAh2eWxxeobQ==\",\n    \"newPin\": \"F+DB9tHNR43hWObHquv8lA==\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/A02185FE2704D24F/cards/E4555088EE3BA858346A6E0359B803C38C43EEDE/pin",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"A02185FE2704D24F",
+								"cards",
+								"E4555088EE3BA858346A6E0359B803C38C43EEDE",
+								"pin"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Security Code CVV2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "es",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/5C9360E8ECC0FC27/cards/C111FDBC110C6FC2E48E0F116ABE40425AB750C0/securitycode?isDynamicCVV2=true",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"5C9360E8ECC0FC27",
+								"cards",
+								"C111FDBC110C6FC2E48E0F116ABE40425AB750C0",
+								"securitycode"
+							],
+							"query": [
+								{
+									"key": "isDynamicCVV2",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card Detail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "es",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/2AA44BA907F0B846/cards/A85E575D98DE2C56A77FE4ACD9BA5C49C4682F21",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"2AA44BA907F0B846",
+								"cards",
+								"A85E575D98DE2C56A77FE4ACD9BA5C49C4682F21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close Account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"blockReasonId\": \"1\",\n    \"observations\": \"the comment\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/674E4F41289941E8/accounts/5D6CCDC9DA2D3D81FFAAE1EF6D85645BF4E225F0/close",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"674E4F41289941E8",
+								"accounts",
+								"5D6CCDC9DA2D3D81FFAAE1EF6D85645BF4E225F0",
+								"close"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Embossing",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"line1\": \"pepito perez\",\n    \"line2\": \"novopayment\",\n    \"observations\": \"customer requests a physical card\",\n    \"cardDesignId\": \"A1\",\n    \"requestNumber\": \"64876\",\n    \"reference\": \"AS749\",\n    \"address\": {\n        \"street\": \"calle\",\n        \"number\": \"01\",\n        \"homeNumber\": \"789\",\n        \"sector\": \"sector\",\n        \"city\": \"Bogotá\",\n        \"state\": \"Bogotá D.C\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/8C1B4C8C618E0162/cards/6BBCC2DE2635B4EB7314BB05FE1C987ACFEAC411/emboss",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"8C1B4C8C618E0162",
+								"cards",
+								"6BBCC2DE2635B4EB7314BB05FE1C987ACFEAC411",
+								"emboss"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Activation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"activationCode\": \"0000\",\n    \"cvv2\": \"123\",\n    \"expirationDate\": \"2702\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/EF3C5A858FF6D494/cards/02E52F5121233AEA52AA0497B07889C939C2DDA5/activate",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"EF3C5A858FF6D494",
+								"cards",
+								"02E52F5121233AEA52AA0497B07889C939C2DDA5",
+								"activate"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card To Account Association",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\": \"CD6D2D3D2DBD401C479E6D5B65C47AFC0DE76F89\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/AB261056134A60AB/cards/1A5F80052A48E5BC914AC9AF9098D5EA29ABD308/associate",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"AB261056134A60AB",
+								"cards",
+								"1A5F80052A48E5BC914AC9AF9098D5EA29ABD308",
+								"associate"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "** Customize Card Operations Limits",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Card Lookup",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \n    \"cardNumber\": \"\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cards/lookup?type=CARD_NUMBER",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cards",
+								"lookup"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "CARD_NUMBER"
+								}
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Creation of Card Batches",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"blockReason\": \"1\",\n   \"observations\": \"Account older lost card\",\n   \"blockTypeId\": \"PERMANENTLY\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cards/anonymous/batches",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cards",
+								"anonymous",
+								"batches"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Anonymous Card Batch Status Update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updatedBy\": \"pepito\",\n\t\"statusId\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cards/anonymous/batches/6/status",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cards",
+								"anonymous",
+								"batches",
+								"6",
+								"status"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Card Batch Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cards/anonymous/batches/6",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cards",
+								"anonymous",
+								"batches",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card Batch List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/cards/anonymous/batches",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"cards",
+								"anonymous",
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card Disassociate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"type": "text"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comments\": \"reverse card association due to system error\"\n} "
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/customers/AB261056134A60AB/cards/1A5F80052A48E5BC914AC9AF9098D5EA29ABD308/disassociate",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"customers",
+								"AB261056134A60AB",
+								"cards",
+								"1A5F80052A48E5BC914AC9AF9098D5EA29ABD308",
+								"disassociate"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{apigee_app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{apigee_host}}/oauth2/v1/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "/accounts/v1",
+			"type": "string"
+		}
+	]
+}

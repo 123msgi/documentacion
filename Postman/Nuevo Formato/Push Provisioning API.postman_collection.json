@@ -1,0 +1,774 @@
+{
+	"info": {
+		"_postman_id": "65184b6c-f280-40c8-b3e3-d2c832446108",
+		"name": "Push Provisioning API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23128092",
+		"_collection_link": "https://gold-shuttle-887707.postman.co/workspace/My-Workspace~d8a79002-b982-4058-8139-abc14cf803c3/collection/23128092-65184b6c-f280-40c8-b3e3-d2c832446108?action=share&source=collection_link&creator=23128092"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Enroll Card",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"card\": {\n        \"accountNumber1\": \"4514234413926268\",\n        \"accountNumber\": \"4514234413926268\",\n        \"nameOnCard\": \"Arturo\",\n        \"cvv2\": \"123\",\n        \"expirationDate\": {\n            \"year\": \"2025\",\n            \"month\": \"05\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/universal/core/cards",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"universal",
+								"core",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Card",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/universal/core/cards/v-123-6cebd906-d341-435e-8500-f2a7c4fbbe01",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"universal",
+								"core",
+								"cards",
+								"v-123-6cebd906-d341-435e-8500-f2a7c4fbbe01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apple Pay",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vCardId\": \"v-123-b3898647-e8cc-4549-bfba-d0e98f8dcb01\",\n    \"deviceCert\": \"MIID/TCCA6OgAwIBAgIIMq/qUa9Z2nMwCgYIKoZIzj0EAwIwgYAxNDAyBgNVBAMMK0FwcGxlIFdvcmxkd2lkZSBEZXZlbG9wZXIgUmVsYXRpb25zIENBIC0gRzIxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xODA2MDEyMjAzMTBaFw0yMDA2MzAyMjAzMTBaMGwxNTAzBgNVBAMMLGVjYy1jcnlwdG8tc2VydmljZXMtZW5jaXBoZXJtZW50X1VDNi1TQU5EQk9YMREwDwYDVQQLDAhBcHBsZVBheTETMBEGA1UECgwKQXBwbGUgSW5jLjELMAkGA1UEBhMCVVMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATGiJjmEMmvOZBGj+tdj2ED7xnc9y1C0vNVaqZva7lvKkbgrfcWdo0/NdIJZ5wDcZ0eBtPuRJ+q/eSP9FLXQ19wo4ICGDCCAhQwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBSEtoTMOoZichZZlOgao71I3zrfCzBHBggrBgEFBQcBAQQ7MDkwNwYIKwYBBQUHMAGGK2h0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDMtYXBwbGV3d2RyY2EyMDUwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxld3dkcmNhMi5jcmwwHQYDVR0OBBYEFMNruSHk5gH1LauD+wBI/9sgl/VpMA4GA1UdDwEB/wQEAwIDKDASBgkqhkiG92NkBicBAf8EAgUAMAoGCCqGSM49BAMCA0gAMEUCIQDhL+sL9bcrvAVO3UvswA805EHujfL7iVDrbEuJfOSJoAIgBPKehtuILl9x/SJ5kxReiml1zkJqUB8nTy0UOfUNIIQ=\",\n    \"nonceSignature\": \"QHuLYArUCO2OZevP0rHc99g9RJp4O1dgsZuVpUdlA7zPWqCDhVQo9Mxr1uPS6GVyjZYo3YElIhHRV4Mv3wEJ3hGOaxK1gResup88QWDK1fL0\",\n    \"nonce\": \"kauVuA==\"\n}"
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/inapp/provisioning/cardData/applePay",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"inapp",
+								"provisioning",
+								"cardData",
+								"applePay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Consumer Information",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Transaction-Id",
+								"value": "ccb882c6-d34e-4b69-9aa5-7563e66d3e5a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"intent\": {\n    \"type\": \"PRODUCT_CODE\",\n    \"value\": \"CLICK_TO_PAY\"\n  },\n  \"consumerInformation\": {\n    \"externalConsumerID\": \"63421126-d597-4f0f-89e4-930c1a7\", \n    \"externalConsumerIDOwnerBID\": \"10098126\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/credentials/removeconsumerinformation",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"credentials",
+								"removeconsumerinformation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove payment instruments",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Transaction-Id",
+								"value": "ccb882c6-d34e-4b69-9aa5-7563e66d3e5a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"intent\": {\n        \"type\": \"PRODUCT_CODE\",\n        \"value\": \"CLICK_TO_PAY\"\n    },\n    \"paymentInstruments\": {\n        \"type\": \"CARD\",\n        \"accountNumber\": \"4111111145551140\"\n    },\n    \"consumerInformation\": {\n        \"externalConsumerID\": \"63421837-d597-4f0f-89e4-930c1a7b9e85\",\n        \"externalConsumerIDOwnerBID\": \"10098765\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/credentials/removepayments",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"credentials",
+								"removepayments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Consumer Information",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Transaction-Id",
+								"value": "ccb882c6-d34e-4b69-9aa5-7563e66d3e5a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"intent\": {\n        \"type\": \"PRODUCT_CODE\",\n        \"value\": \"CLICK_TO_PAY\"\n    },\n    \"consumerInformation\": {\n        \"firstName\": \"Victor\",\n        \"lastName\": \"Miguel\",\n        \"middleName\": \"Robert\",\n        \"countryCode\": \"USA\",\n        \"externalConsumerID\": \"63421837-d597-4f0f-89e4-930c1a7b9e85\",\n        \"externalConsumerIDOwnerBID\": \"10098765\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/credentials/updateconsumerinformation",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"credentials",
+								"updateconsumerinformation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payment Instruments",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Transaction-Id",
+								"value": "ccb882c6-d34e-4b69-9aa5-7563e66d3e5a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"consumerInformation\": {\n    \"externalConsumerID\": \"63421837-d597-4f0f-89e4-930c1a7b9e85\",\n    \"externalConsumerIDOwnerBID\": \"10098765\"\n  },\n  \"paymentInstruments\": [\n    {\n      \"accountNumber\": \"4111111145551140\",\n      \"billingAddress\": {\n        \"country\": \"USA\",\n        \"addressLine1\": \"1000 Market Street\",\n        \"addressLine2\": \"Building 56\",\n        \"addressLine3\": \"Suite 101\",\n        \"city\": \"San Francisco\",\n        \"postalCode\": \"94105\",\n        \"state\": \"CA\"\n      },\n      \"expirationDate\": \"2030-01\",\n      \"nameOnCard\": \"John Doe\",\n      \"type\": \"CARD\",\n      \"cardType\": \"Visa Platinum\",\n      \"issuerName\": \"Bank A\"\n    }\n  ],\n  \"intent\": {\n    \"type\": \"PRODUCT_CODE\",\n    \"value\": \"CLICK_TO_PAY\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://{{aws_host}}/{{url_base_v1}}/credentials/updatepayments",
+							"protocol": "https",
+							"host": [
+								"{{aws_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"credentials",
+								"updatepayments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Data",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Transaction-Id",
+								"value": "ccb882c6-d34e-4b69-9aa5-7563e66d3e5a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://d-api.novopayment.com/pushprovisioning/v1/credentials/querydata?type=PRODUCT_CODE&value=CLICK_TO_PAY&externalConsumerID=63421837-d597-4f0f-89e4-930c1a7b9e85&externalConsumerIDOwnerBID=123",
+							"protocol": "https",
+							"host": [
+								"d-api",
+								"novopayment",
+								"com"
+							],
+							"path": [
+								"pushprovisioning",
+								"v1",
+								"credentials",
+								"querydata"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "PRODUCT_CODE"
+								},
+								{
+									"key": "value",
+									"value": "CLICK_TO_PAY"
+								},
+								{
+									"key": "externalConsumerID",
+									"value": "63421837-d597-4f0f-89e4-930c1a7b9e85"
+								},
+								{
+									"key": "externalConsumerIDOwnerBID",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Google Pay",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vCardId\": \"v-123-b3898647-e8cc-4549-bfba-d0e98f8dcb01\",\n    \"deviceCert\": \"MIID/TCCA6OgAwIBAgIIMq/qUa9Z2nMwCgYIKoZIzj0EAwIwgYAxNDAyBgNVBAMMK0FwcGxlIFdvcmxkd2lkZSBEZXZlbG9wZXIgUmVsYXRpb25zIENBIC0gRzIxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xODA2MDEyMjAzMTBaFw0yMDA2MzAyMjAzMTBaMGwxNTAzBgNVBAMMLGVjYy1jcnlwdG8tc2VydmljZXMtZW5jaXBoZXJtZW50X1VDNi1TQU5EQk9YMREwDwYDVQQLDAhBcHBsZVBheTETMBEGA1UECgwKQXBwbGUgSW5jLjELMAkGA1UEBhMCVVMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATGiJjmEMmvOZBGj+tdj2ED7xnc9y1C0vNVaqZva7lvKkbgrfcWdo0/NdIJZ5wDcZ0eBtPuRJ+q/eSP9FLXQ19wo4ICGDCCAhQwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBSEtoTMOoZichZZlOgao71I3zrfCzBHBggrBgEFBQcBAQQ7MDkwNwYIKwYBBQUHMAGGK2h0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDMtYXBwbGV3d2RyY2EyMDUwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxld3dkcmNhMi5jcmwwHQYDVR0OBBYEFMNruSHk5gH1LauD+wBI/9sgl/VpMA4GA1UdDwEB/wQEAwIDKDASBgkqhkiG92NkBicBAf8EAgUAMAoGCCqGSM49BAMCA0gAMEUCIQDhL+sL9bcrvAVO3UvswA805EHujfL7iVDrbEuJfOSJoAIgBPKehtuILl9x/SJ5kxReiml1zkJqUB8nTy0UOfUNIIQ=\",\n    \"nonceSignature\": \"QHuLYArUCO2OZevP0rHc99g9RJp4O1dgsZuVpUdlA7zPWqCDhVQo9Mxr1uPS6GVyjZYo3YElIhHRV4Mv3wEJ3hGOaxK1gResup88QWDK1fL0\",\n    \"nonce\": \"kauVuA==\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/inapp/provisioning/cardData/googlePay",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"inapp",
+								"provisioning",
+								"cardData",
+								"googlePay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encrypt card",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"encryptedData\": \"eyJraWQiOiIiLCJjdHkiOiJKV0UiLCJ0eXAiOiJKT1NFIiwiYWxnIjoiUFMyNTYifQ.ZXlKMGVYQWlPaUpLVDFORklpd2laVzVqSWpvaVFUSTFOa2REVFNJc0ltbGhkQ0k2TVRjeU1qUTJOREV3T1RVMk5pd2lZV3huSWpvaVVsTkJMVTlCUlZBdE1qVTJJaXdpYTJsa0lqb2lJbjAueGxhNFo0UEZZUU1ZTzdJTzNmeEFqbi1McEZjSm85VFB6Mms0d2RTUXFlNUxUZ090TnZGdVB2aVZaSkc5UGFBclhic2wzREJOSUtCeFo2OHJtZzZqRHFGR0ZXckdaMnU3NnU5bVpYbll4WnM2R2txX0JmbUxmX1haRHJXWGhKaGVSekp6X0ROZC1ac1pEaVpJVmpSWjkxOGVCM1ZROEhqNnhIMzJwREp1ZDVubmE0VXYtbnBSVHRxYXNQM1QzQXNzbjhVY0pEWHVPOTFNQ250Uk1iZ0l4dHRwZXNEUEktLTRJVldkMTBxSDNWQWtUb1ZkbkZKS0c3eE5VT2pJb3pneWM5Mm9GODc4YzZuN0hKQVF5QjdOVkhBLVE3MEVkdWNWdEhyZlVZa1ZoUFRzeTZFcTFIRUJkbFhVVDZheXZGTGJkbHBGU3JYTkhQYnp3N1hCSDJZeHFnLlhrVklnNjh6RXVNbHZMS1QuX1h3dmFVY2hXOE5GZ3hIWTBJRHR0cVBrU0xQdnA5OFVqQ0d5OGduYTBjY19IU0RsRWxlWVZfUG8tRDFiMGlvSUd3U3d6cEJQRVVMMzdxakdVdXB6NDN5VHdVM1F2S0NUVjNaT0dVaG15b1Q2RXZEZHc5T01VMnFjbFRJWG8wV19fNlNWejJVS1JaeWtPX09SeUZnNzI0c3RNTlo2QXpoSW02MW10NjA2bm1pd2dnZ0h2Tk5xaHFpUS1sU2Fmbi1zWnFYR3BxeVJ5NEpnU1NnTm90MTVVZHZzY01rZVM0LXJaWmN0aHhDSmk3X1A2bkVWOUpVSHQ1b2QwWTFDWnJNSFgwM1Q4YUM5WkY2Qi1YQ2RsLVgwWlBma0paTTVqS1lkbUVkTDZ5eFk2YVgzYkhhNkgzMVh6RFU3dWNWUVJJc0NLQnh5XzlrbGFVOHV0cURYZHJ3MVJSaGF0T05EQ2dBTzR4RzVzS2c4aUdIOHZtbE92NHBMLXR4Si0zdWN6SkJOcGt1d0ppYUxsa0dKb1ZpNHhEc254T25WNnhPN1k2MUU4RVBfdnNncW5waF8xanJPTm81R2w1eWc4MnFmeTFKRlVYUjBwaURhQjlPLTU0R0pEX3dja2N1aThSM0J6eDRadkNGTTFtZ1RWV1FsMl9yXzZIZWJJUFlzRVl0VGtFSmdyTVJxT2xFT0FENTlPMkRCYlFmckl1TDVZdTExaFBNb2NYdW9yRmJEODgtd0w5VF9tWGJrOGo0VEo4X01VWllHY2g2N1NPR0pLamRIZzNzUWo2TV9zT01Dbkd1eDV5ckl2Zko1dzJGWUNKdVIudlFYVnJGNGJoV212M21QSjhxQnlqdw.TluBPSzQfjSgppmucI1YFoX9TtzJQnTx6bDj2nlMG4ibJ0dQzOU66ZxyuW91Gxrhe_UDfbGHLWJiRNf9kFwGsNWunm8v2Wz1ZtAchwbdwrxYCRfasJeyQ9aJx-2gIOFOnxPI-Oo6WfTcp3uuJ05suUoAki52-Yb6FRXyRrJmlxGeaGkGb5UcX7Z9rQmfOo5a3Mi7QYAfhfbo70TgN5_wIU0AO9iRjCDk3djRxz1mQig_9Agm3BTEF7CJKRC8PEoizjRpRdewumRUivC3Q2513EVT2BDwoc51fdoP_CsiGWbMrrkYEMa73YFcQ6Mk847FatYPUD-0KQZN0NO3iIoavA\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/universal/core/cards/encryption",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"universal",
+								"core",
+								"cards",
+								"encryption"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{aws_host}}/oauth2/v1/token",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "pushprovisioning/v1",
+			"type": "string"
+		}
+	]
+}

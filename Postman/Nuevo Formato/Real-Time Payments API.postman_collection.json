@@ -1,0 +1,641 @@
+{
+	"info": {
+		"_postman_id": "c08c2f9c-6b36-4182-acfc-2e9ed0d04cc4",
+		"name": "Real-Time Payments API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23128092"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Money transfer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "26b287a6-a5b1-4739-ac70-3ed5dcade564"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "25a5245c-c7e8-4ba7-8a5c-3036fcf21d3b"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "aaa1e308-1693-4041-bc96-e3ddd2943366"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "4b0bffbc-a4cc-4d7e-aae8-a0608dc3b234"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "029f9dc4-d061-4b2f-af84-8a61ebac28d0"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "33919fde-72bc-4108-b5f9-40010b8c5af6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transactionCode\": \"PP\",\n    \"currencyConversion\": false,\n    \"sender\": {\n        \"aliasDirectory\": true,\n        \"aliasInformation\": {\n            \"aliasType\": \"02\",\n            \"alias\": \"newyear@gmail.com\",\n            \"paymentInstrumentId\": \"87f1467d40154354a8f6d5ec83005626\"\n        }\n    },\n    \"recipient\": {\n        \"aliasDirectory\": true,\n        \"aliasType\": \"02\",\n        \"alias\": \"jhondoe@gmail.com\"\n    },\n    \"transactionAmount\": {\n        \"senderAmount\": \"10000\",\n        \"sourceCurrencyCode\": \"214\",\n        \"destinationCurrencyCode\": \"280\",\n        \"surcharge\": \"2.2\",\n        \"purpose\": \"Funds Transfer\"\n    },\n    \"transactionReference\": \"9a081ed0-3f3d-11eb-b378-0242ac130002\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/moneytransfer",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"moneytransfer"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Query Transaction",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "dedd5579-cd08-47d4-b9b8-66ff310c5fc2"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "d04e1209-baef-4b95-9d39-f4ed80f8da4c"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "09f7d5a5-a321-48e0-8c1a-4388082506b9"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "b1013672-75a7-463b-8732-d5c236c60c12"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "17ace2e6-e029-4aea-9855-f9bb2c1dbf16"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "976d1d25-c2e1-4df4-9fd8-289aadeaf80b"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/query/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"query",
+								"transactions"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Reverse Adjustment",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "f665849c-9797-4807-be0c-f1871e8d5daa"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "78163759-6ae9-4fc5-84ee-cba23bf67f3e"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "1bddba4b-7a62-445f-b85f-d584a78ed322"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "075d9e8a-40eb-4f01-ae94-e76745714421"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "37cf7a03-50b1-46bf-b336-6054df9497f5"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "d1189c77-dbef-4d6f-910b-e1ca08dcb7b2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transactionCode\": \"02\",\n    \"transactionReference\": \"9a081ed0-3f3d-11eb-b378-0242ac130002\",\n    \"amount\": \"10000\",\n    \"surcharge\": \"200\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/adjustments/transactions/146714447528524",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"adjustments",
+								"transactions",
+								"146714447528524"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Pull Funds",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "cf377305-911d-4a1a-aafd-20d5f2661f4a"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "c84c9d25-cd27-4280-8278-733bdf023359"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "d1472723-6196-4870-9634-4151ce639207"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "c6c491b7-a10e-4cf1-ad0c-9faf768fb9ed"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "b4ed4e36-2c9b-4617-b122-571263e138c0"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "26678b58-e41d-438d-bc4d-5daca3327263"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transactionCode\": \"02\",\n    \"domesticTransaction\": true,\n    \"sender\": {\n        \"aliasDirectory\": false,\n        \"paymentInformation\": {\n            \"cardToken\": \"fRuh9leWqJgc8shMb56hZ/D5VnGx5orFpC3fgvI13Nk=\",\n            \"cvvNumber\": \"i5eMuNnaVHqIjz4PFHj23w==\",\n            \"cardHolder\": {\n                \"firstName\": \"Deborah\",\n                \"lastName\": \"White\",\n                \"documentType\": {\n                    \"code\": \"GOVERNMENT_ID\"\n                },\n                \"documentNumber\": \"12345678\",\n                \"email\": \"janedoe@example.com\",\n                \"address\": {\n                    \"line1\": \"123 Main st\",\n                    \"line2\": \"Apt 2002\",\n                    \"city\": \"Austin\",\n                    \"state\": \"TX\",\n                    \"postalCode\": \"78759\",\n                    \"county\": \"Hays\",\n                    \"countryCode\": \"USA\"\n                }\n            }\n        }\n    },\n    \"recipient\": {\n        \"aliasDirectory\": false,\n        \"paymentInformation\": {\n            \"cardToken\": \"VPEEIIsMLff5b+uwX2rwey7pTkXuURxS3YsSu8v7oFQ=\",\n            \"cardHolder\": {\n                \"firstName\": \"Deborah\",\n                \"lastName\": \"White\",\n                \"documentType\": {\n                    \"code\": \"GOVERNMENT_ID\"\n                },\n                \"documentNumber\": \"12345678\",\n                \"email\": \"janedoe@example.com\",\n                \"address\": {\n                    \"line1\": \"123 Main st\",\n                    \"line2\": \"Apt 2002\",\n                    \"city\": \"Austin\",\n                    \"state\": \"TX\",\n                    \"postalCode\": \"78759\",\n                    \"county\": \"Hays\",\n                    \"countryCode\": \"USA\"\n                }\n            }\n        }\n    },\n    \"transactionAmount\": {\n        \"senderAmount\": 1000,\n        \"sourceCurrencyCode\": \"356\",\n        \"destinationCurrencyCode\": \"USD\",\n        \"surcharge\": 300,\n        \"purpose\": \"Funds Transfer\"\n    },\n    \"transactionReference\": \"9a081ed0-3f3d-11eb-b378-0242ac130002\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/moneytransfer/transactions/funds/pull",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"moneytransfer",
+								"transactions",
+								"funds",
+								"pull"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Push Funds",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "cde9b518-da00-4361-a53b-b82cb1216852"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "b7b584e6-e37a-4f4e-9d05-0918e9dc2cf4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "cb920190-f72d-4d47-ab38-c8ef2b8d2ee9"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "5e873074-7f5e-4b18-9184-5fa7006df238"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "8c3967fa-8cb7-41a9-b5ea-c72c99f06dc4"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "eb713ec8-752c-4b47-be3b-f63fe606fa79"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transactionCode\": \"17\",\n    \"domesticTransaction\": true,\n    \"sender\": {\n        \"aliasDirectory\": true,\n        \"aliasType\": \"EMAIL\",\n        \"alias\": \"junioSender@gmail.com\",\n        \"paymentInstrumentId\": \"0035253fce61485d8ffa5caf42f42ccf\"\n    },\n    \"recipient\": {\n        \"aliasDirectory\": false,\n        \"paymentInformation\": {\n            \"cardToken\": \"VPEEIIsMLff5b+uwX2rwexWuS+vAtSWm4ZjlYNKeK84=\",\n            \"cardHolder\": {\n                \"firstName\": \"Deborah\",\n                \"lastName\": \"White\",\n                \"documentType\": {\n                    \"code\": \"GOVERNMENT_ID\"\n                },\n                \"documentNumber\": \"12345678\",\n                \"email\": \"deborahWhite@mail.com\",\n                \"address\": {\n                    \"line1\": \"123 Main st\",\n                    \"line2\": \"Apt 2002\",\n                    \"city\": \"Austin\",\n                    \"state\": \"TX\",\n                    \"postalCode\": \"78759\",\n                    \"countryCode\": \"USA\",\n                    \"conty\": \"Hays\"\n                }\n            }\n        }\n    },\n    \"transactionAmount\": {\n        \"senderAmount\": 1000,\n        \"sourceCurrencyCode\": \"356\",\n        \"destinationCurrencyCode\": \"356\",\n        \"surcharge\": 300,\n        \"purpose\": \"Funds Transfer\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/moneytransfer/transactions/funds/push",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"moneytransfer",
+								"transactions",
+								"funds",
+								"push"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Reverse Funds",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "91e0f8a0-739a-4307-ae91-2a830baf7ec7"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"uuid": "148dc5e1-3272-4161-bea6-e8d87b0ec253"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"uuid": "d5d7bdb7-3b97-4c6c-8880-276bcede8731"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"uuid": "5a059458-15b3-4d58-9df1-d9623376edcc"
+							},
+							{
+								"key": "X-Time-Zone",
+								"value": "America/Bogota",
+								"uuid": "fe1a72e3-d2f1-482e-bcee-9a9aa996ca30"
+							},
+							{
+								"key": "X-Tenant-Id",
+								"value": "{{tenant_id}}",
+								"uuid": "820f6de1-7371-484e-8c79-4766e67a86e8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"approvalCode\": \"50708Z\",\n    \"retrievalReferenceNumber\": \"412770451018\",\n    \"systemsTraceAuditNumber\": \"451018\",\n    \"transactionAmount\": {\n        \"destinationCurrencyCode\": \"USD\",\n        \"purpose\": \"Funds Transfer\",\n        \"senderAmount\": 1000,\n        \"sourceCurrencyCode\": \"USD\",\n        \"surcharge\": 100\n    },\n    \"transactionCode\": \"08\",\n    \"transactionIdentifier\": 1,\n    \"transmissionDateTime\": \"2023-08-18T16:00:43.000Z\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/moneytransfer/transactions/funds/reverse/888888888888888888888999",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"moneytransfer",
+								"transactions",
+								"funds",
+								"reverse",
+								"888888888888888888888999"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{apigee_app_credentials_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{apigee_app_credentials_key}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://{{apigee_host}}/oauth2/v1/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Read the request body",
+					"var requestBody = pm.request.body.raw;",
+					"",
+					"if(requestBody !== \"\") {",
+					"",
+					"    console.log(requestBody);",
+					"",
+					"    const encrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/encrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: requestBody})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(encrypt, function(err, data){",
+					"        ",
+					"        var response = data.json();",
+					"        pm.globals.set(\"data\", response.data);",
+					"",
+					"        pm.request.body.raw = {",
+					"            \"data\": response.data",
+					"        };",
+					"",
+					"        const signature = {",
+					"            url: `https://${pm.collectionVariables.get('host_dev')}/jws/v2/generate`,",
+					"            method: \"POST\",",
+					"            header: {",
+					"                'Content-Type': 'application/json'",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({data:pm.globals.get(\"data\")})",
+					"            }",
+					"        };",
+					"",
+					"        pm.sendRequest(signature, function(err, data){",
+					"            var response = data.json();",
+					"            pm.request.headers.add(\"JWS \" + response[\"x-token\"], 'X-token');",
+					"        });",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if(typeof pm.response.json().data !== \"undefined\") {",
+					"    const responseData = pm.response.json().data;",
+					"",
+					"    const decrypt = {",
+					"        url: `https://${pm.collectionVariables.get('host_dev')}/jwe/v1/decrypt`,",
+					"        method: \"POST\",",
+					"        header: {",
+					"        'Content-Type': 'application/json',",
+					"        'X-Tenant-Id': `${pm.environment.get('tenant_id')}`",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({data: responseData})",
+					"        }",
+					"    };",
+					"",
+					"    pm.sendRequest(decrypt, function(err, data){",
+					"        pm.globals.set(\"plainData\", JSON.stringify(data.json()));",
+					"    });",
+					"} else {",
+					"    pm.globals.unset(\"plainData\");",
+					"}",
+					"",
+					"pm.globals.unset(\"data\");",
+					"pm.globals.unset(\"signature\");",
+					"pm.globals.unset(\"encryptData\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "realtimepayments/v1",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "3d81d9ba-6cc9-439e-9e72-3616473f0f57",
+		"name": "3DS Authentication API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967377",
+		"_collection_link": "https://cloudy-flare-349495.postman.co/workspace/Novopayment~32e8e737-bb20-4822-bb90-640075be8d97/collection/7967377-3d81d9ba-6cc9-439e-9e72-3616473f0f57?action=share&source=collection_link&creator=7967377"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Step Up",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ProcessorId\": \"5723ae630063ac1a9c3ab090\",\r\n    \"IssuerId\": \"5723ae630063ac1a9c3ab082\",\r\n    \"TransactionId\": \"00ec043e-40b5-4ce4-95c2-9e83b644f490\",\r\n    \"DSTransactionId\": \"521fa021-4791-4579-a3e9-76de87c219c3\",\r\n    \"StepupRequestId\": \"878f4751-4140-4881-9e4a-003e83524f25\",\r\n    \"StepupCounter\": 0,\r\n    \"DeviceLocale\": \"en-US\",\r\n    \"DeviceUserAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\",\r\n    \"MessageVersion\": \"2.2.0\",\r\n    \"RDXMessageVersion\": \"2.2.2\",\r\n    \"StepupReason\": \"CARDHOLDER_RESEND\",\r\n    \"MerchantInfo\": {\r\n        \"AcquirerId\": \"1337990020\",\r\n        \"AcquirerCountryCode\": \"842\",\r\n        \"MerchantId\": \"1234356811\",\r\n        \"MerchantName\": \"Ranier Expeditions\",\r\n        \"MerchantURL\": \" \",\r\n        \"MerchantCategoryCode\": \"0123\",\r\n        \"MerchantCountryCode\": \"841\",\r\n        \"MerchantAppRedirectURL\": \"820\"\r\n    },\r\n    \"PaymentInfo\": {\r\n        \"CardNumber\": \"4062931500001329\",\r\n        \"CardType\": \"CREDIT\",\r\n        \"CardHolderName\": \"John Doe\"\r\n    },\r\n    \"TransactionInfo\": {\r\n        \"TransactionTimeStamp\": \"2023-01-22T21:05:54.152Z\",\r\n        \"TransactionAmount\": 89383,\r\n        \"TransactionCurrency\": \"840\",\r\n        \"TransactionExponent\": 2,\r\n        \"TransactionType\": \"PURCHASE\",\r\n        \"MandatedRegion\": \"EEA\",\r\n        \"Channel\": \"WEB\"\r\n    },\r\n    \"CardholderSelectionInfo\": {\r\n        \"Type\": \"P\",\r\n        \"Name\": \"John Doe Marin\"\r\n    },\r\n    \"EmbeddedOOBResponseUrlInfo\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/stepup",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"stepup"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate Action",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ProcessorId\": \"5723ae630063ac1a9c3ab079\",\r\n    \"IssuerId\": \"5723ae630063ac1a9c3ab082\",\r\n    \"TransactionId\": \"00ec043e-40b5-4ce4-95c2-9e83b644f412\",\r\n    \"DSTransactionId\": \"521fa021-4791-4579-a3e9-76de87c219c0\",\r\n    \"StepupRequestId\": \"878f4751-4140-4881-9e4a-003e83524f22\",\r\n    \"StepupType\": \"CHOICE\",\r\n    \"StepupCounter\": 0,\r\n    \"OtpReferenceCode\": \"000001\",\r\n    \"VerificationToken\": \"string\",\r\n    \"MessageVersion\": \"2.2.0\",\r\n    \"RDXMessageVersion\": \"2.2.2\",\r\n    \"Credentials\": [\r\n        {\r\n            \"Id\": \"123456\",\r\n            \"Type\": \"OTPEMAIL\",\r\n            \"Text\": \"correo@gmail.com\"\r\n        }\r\n    ],\r\n    \"MerchantInfo\": {\r\n        \"AcquirerId\": \"1337\",\r\n        \"AcquirerCountryCode\": \"840\",\r\n        \"MerchantId\": \"12345678\",\r\n        \"MerchantName\": \"Ranier Expeditions\",\r\n        \"MerchantURL\": \"https://www.requestor.com\",\r\n        \"MerchantCategoryCode\": \"0123\",\r\n        \"MerchantCountryCode\": \"840\",\r\n        \"MerchantAppRedirectURL\": \"820\"\r\n    },\r\n    \"PaymentInfo\": {\r\n        \"CardNumber\": \"4012009500714811\",\r\n        \"CardType\": \"CREDIT\",\r\n        \"CardHolderName\": \"John Doe\"\r\n    },\r\n    \"TransactionInfo\": {\r\n        \"TransactionTimeStamp\": \"2023-01-22T21:05:54.152Z\",\r\n        \"TransactionAmount\": 89383,\r\n        \"TransactionCurrency\": \"840\",\r\n        \"TransactionExponent\": 2,\r\n        \"TransactionType\": \"PURCHASE\",\r\n        \"MandatedRegion\": \"EEA\",\r\n        \"Channel\": \"WEB\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigee_host}}/{{url_base_v1}}/initiateaction",
+							"protocol": "https",
+							"host": [
+								"{{apigee_host}}"
+							],
+							"path": [
+								"{{url_base_v1}}",
+								"initiateaction"
+							]
+						},
+						"description": "This operation can be used for issuing a new card"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_dev",
+			"value": "d-api.novopayment.com",
+			"type": "string"
+		},
+		{
+			"key": "url_base_v1",
+			"value": "api/v1/authentication/3ds",
+			"type": "string"
+		}
+	]
+}
