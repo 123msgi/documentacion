@@ -1,0 +1,82 @@
+********************Caja Thales***************************
+
+18/08/2021**
+
+Se realizo la migración de las cajas Thales, sin embargo no fue posible su apuntamiento debido a la configuración del TLS puesto que empezo a trabajar en Postilion 5.3
+con TLS 1.2, siendo asi que Postilion 5.3 Trabaja con TLS 1.1
+
+
+
+**********************************RUTA TLS REGEDIT*******************************************************
+																										*
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Cliente*
+                                                                                                        *
+*********************************************************************************************************																										
+
+***********************************************RUTA SSL CONFIGURATION POSTILION*****************************************************
+
+Configuring a specific console to use a different connection string
+
+It is possible to configure a specific console to use a a different connection string when connecting to the database. The connection string can be manually configured under the HKEY_LOCAL_MACHINE\SOFTWARE\Mosaic Software\Postilion\Consoles\<console name>\Database key (or under HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Mosaic Software\Postilion\Consoles\<console name>\Database when using a 64-bit registry editor) in a REG_SZ value with the name ConnectionString.SQL Server. Similarly, the connection string used when connecting to an IBM DB2LUW database is stored under the same key in a REG_SZ value with the name ConnectionString.DB2LUW. The connection string can contain the same tokens as the recommended connection string.
+
+
+***********CONFIGURACIONES TLS 5.3***************
+                                                * 
+TLS 1.0:                                        *
+    Client - Disabled=0                         *
+	       - Enabled=1                          *
+												*
+	Server - Disabled=1                         *
+	       - Enabled=0                          *
+												*
+TLS 1.1:                                        *
+    Client - Disabled=0                         *
+	       - Enabled=1                          *
+												*
+	Server - Disabled=0                         *
+	       - Enabled=1                          *
+												*
+TLS 1.2:                                        *
+    Client - Disabled=0                         *
+	       - Enabled=0                          *
+												*
+	Server - Disabled=0                         *
+	       - Enabled=0                          *
+												*
+*************************************************	   
+
+
+
+-opt:uft1
+
+
+4397500003438910
+
+
+Entendemos tu ausencia y gracias por la colaboración, con respecto a la inquietud aun tenemos la duda presente la cual es referente al  artículo 10.1.1, se podría confirmar si a nivel del procesador (PCR=7375),  ¿ese caso de uso ya se certificó?, adicional se solicita si para aclarar todas las inquietudes presentes es posible agendar una reunion vía teams o donde lo vean pertinente de no mas de 30 min para dar trazabilidad a las inquietudes mas ágil.
+
+Esta inquietud se esta llevando en el caso “202071280”
+
+
+
+Solicitar unas pruebas paara verificar que todo este ok con el mandate de 2017
+
+
+Formato de data es *AP011515.
+
+Solicitar nosotros la certificación la necesitariamos nosotros. 
+
+Ventana de pruebas del VCSA, abrir un caso en VCSA con el formulario, validar la capacidad de ese PCR, solo se necesitaria un BIN. 
+
+
+Aun no tenemos clientes de adquiriencia, sin embargo se debe realizar las pruebas de certificacion.
+
+
+
+no tenemos competencias por eso acudamos por 
+
+
+
+https://training.knowbe4.com/modstore/scorm/rZyaSDXH8xqCRwuheYqVPC21/index_lms.html
+
+

@@ -1,0 +1,98 @@
+**************************************************************************************
+LLAVES DE CANAL PARA PIN Y MAC DE REDEBAN NUEVO BINES
+**************************************************************************************
+-------------------------------
+VALORES ENVIADOS POR REDEBAN
+-------------------------------
+
+LLAVE DE CANAL PARA MAC
+
+KMAC
+
+COMPONENTE 1: 29D9 FC0F BCD8 46DB
+              E0AA 3480 26AE D010    DC C8CC71
+
+
+COMPONENTE 2: 6F80 4B57 FBFA 2D0F
+              01AA 9F53 AB4C 2BFC    DC 3183D3
+
+DC FINAL 825D20
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+CARGA DE LLAVE MAC EN HSM
+
+
+Online-AUTH>FK
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 2
+Enter key length [1,2,3]: 003
+Enter key length [1,2,3]:
+Terminated
+
+Online-AUTH>FK
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 2
+Enter key type: 003
+Enter key scheme: U
+Enter component type [X,H,T,E,S]: X
+Enter number of components [1-9]: 2
+
+Enter component 1: ********************************
+Enter component 2: ********************************
+
+Encrypted key: UF4BC FCBB B43A 80FD 6792 D6F1 3C69 01E1
+Key check value: 825D 20
+
+
+Online-AUTH>
+
+   
+************************************************************************************************
+************************************************************************************************
+
+LLAVE DE CANAL PARA PIN
+-------------------------------
+VALORES ENVIADOS POR REDEBAN
+-------------------------------
+
+KEK PIN
+
+COMPONENTE 1: 8A72 A8A7 BCCF 53B6
+              2858 9AF4 71A0 4110    DC CEAE1F
+
+
+COMPONENTE 2: 9D00 BA1A DDFC 350F
+              4A10 DEC5 D444 CCF5    DC 3BFB07
+
+DC FINAL A04FAE
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+CARGA DE LLAVE KEK EN HSM
+
+
+Online-AUTH>FK
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 2
+Enter key type: 000
+Enter key scheme: U
+Enter component type [X,H,T,E,S]: X
+Enter number of components [1-9]: 2
+
+Enter component 1: ********************************
+Enter component 2: ********************************
+
+Encrypted key: U1495 CE99 36F7 2698 E4A3 AE8F 089A 02E9
+Key check value: A04F AE
+
+
+Online-AUTH>
+
+
+
+

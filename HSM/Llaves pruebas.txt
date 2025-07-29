@@ -1,0 +1,138 @@
+Semillas 
+
+
+PARTE 1 
+AB12DE3400000000
+00000000BB651C4D
+
+Digito de Verificacion 
+4D3E17
+
+
+CARGUE DE LLAVE SIMPLE!!!!
+
+
+
+Online-AUTH>FK
+
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 1
+Enter key type: 002
+Enter key scheme: Z
+Enter component type [X,H,T,E,S]: X
+Enter number of components [1-9]: 2
+
+
+Enter component 1: ****************
+Enter component 2: ****************
+
+
+Encrypted key: B720 946E 4CD5 7913
+Key check value: 4D3E 17
+
+esa es pvv
+**************************************************************************************************************
+
+Cvv
+
+
+CVV test Banco de Bogotá
+
+
+PARTE 1
+C2C2C2C2C2C2C2C2
+AB12DE34BB651C4D
+
+
+digito chequeo F330C2
+
+
+Online-AUTH>FK
+
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 2
+Enter key type: 402
+Enter key scheme: U
+Enter component type [X,H,T,E,S]: X
+Enter number of components [1-9]: 1
+
+
+Enter component 1: ********************************
+
+
+Encrypted key: UFA34 991A 81BB 4ADA 051C 0156 2111 FF0D
+Key check value: F330 C2
+
+Falta 1 parte de la llave CVV debido a que no permite crear la llave completamente
+
+
+************************************************************************************************************************
+
+kek
+ 
+
+PARTE 1
+675D832AB3A1B3DAAD80F851E6D3F40D
+PARTE 2
+B3F4A25B703D8607F1E061BAD5AB1994
+
+ 
+
+Online-AUTH>FK
+
+ 
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 2
+Enter key type: 000
+Enter key scheme: U
+Enter component type [X,H,T,E,S]: X
+Enter number of components [1-9]: 2
+
+ 
+
+Enter component 1: ********************************
+Enter component 2: ********************************
+
+ 
+
+Encrypted key: U0DCB 5D23 D13F A0E3 8AC8 80FC E747 6D14
+Key check value: 6B82 5C
+
+***********************************************************************************************************************
+
+MAC
+
+
+ 	
+
+
+
+Online-AUTH>FK
+
+
+Enter LMK id [0-4]: 0
+Enter key length [1,2,3]: 2
+Enter key type: 003
+Enter key scheme: U
+Enter component type [X,H,T,E,S]: X
+Enter number of components [1-9]: 2
+
+
+Enter component 1: ********************************
+Enter component 2: ********************************
+
+
+Encrypted key: U7FE8 842C 1367 A7C2 2EEC 532B C87B AED0
+Key check value: 7F5E 2B
+
+
+
+
+
+
+0131517010204061
+
+23152Ø8C911ØAD4ØØ4DAØ119C8Ø25132

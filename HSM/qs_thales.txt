@@ -1,0 +1,50 @@
+
+
+
+Online-AUTH>qs
+
+PIN length: 04
+Encrypted PIN length: 05
+Echo: OFF
+Atalla ZMK variant support: OFF
+Transaction key support: RACAL
+User storage key length: SINGLE
+
+Select clear PINs: YES
+Enable ZMK translate command: YES
+Enable X9.17 for import: YES
+Enable X9.17 for export: YES
+Solicitation batch size: 0001
+Single-DES: ENABLED
+Prevent Single-DES keys masquerading as double or triple-length keys: NO
+ZMK length: DOUBLE
+Decimalization tables: ENCRYPTED
+Decimalization table checks: ENABLED
+PIN encryption algorithm: A
+Card/password authorisation (local): C
+
+
+Authorised State required when Importing DES key under RSA key: NO
+Minimum HMAC key length in bytes: 05
+Enable PKCS#11 import and export for HMAC keys: YES
+Enable ANSI X9.17 import and export for HMAC keys: YES
+Enable ZEK encryption of all printable ASCII chars: YES
+Enable ZEK encryption of "Base94" ASCII chars: YES
+Enable ZEK encryption of "Base64" ASCII chars: YES
+Enable ZEK encryption of "Hex-only" ASCII chars: YES
+
+Restrict Key Check Values to 6 hex chars: YES
+Enable multiple authorised activities: NO
+Enable variable length PIN offset: YES
+Enable weak PIN checking: YES
+Enable Pin Block Format 34 as output format for PIN Translations to ZPK: YES
+
+Default LMK identifier: 00
+Management LMK identifier: 00
+Use HSM clock for date/time validation: NO
+Additional padding to disguise key length: NO
+Key export and import in trusted format only: NO
+
+
+Online-AUTH>
+
